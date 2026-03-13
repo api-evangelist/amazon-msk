@@ -1,0 +1,14 @@
+openapi: 3.0.0
+info:
+  title: Amazon MSK API
+  description: >-
+    Amazon Managed Streaming for Apache Kafka (Amazon MSK) is a fully managed
+    service that enables you to build and run applications that use Apache
+    Kafka to process streaming data.
+  version: '2018-11-14'
+  contact:
+    name: Kin Lane
+    email: kin@apievangelist.com
+servers:
+  - url: https://kafka.amazonaws.com
+paths: {}

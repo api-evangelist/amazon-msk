@@ -1,0 +1,16 @@
+"@context":
+  "@vocab": https://schema.org/
+  name: name
+  description: description
+  url: url
+"@type": WebAPI
+name: Amazon MSK API
+description: >-
+  Amazon Managed Streaming for Apache Kafka (Amazon MSK) is a fully managed
+  service that enables you to build and run applications that use Apache
+  Kafka to process streaming data.
+url: https://aws.amazon.com/msk/
+provider:
+  "@type": Organization
+  name: Amazon Web Services
+  url: https://aws.amazon.com/
