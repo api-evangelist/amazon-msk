@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-storage-mode-structure.json",
+  "name": "StorageMode",
+  "type": "string",
+  "description": "Controls storage mode for various supported storage tiers.",
+  "enum": [
+    "LOCAL",
+    "TIERED"
+  ]
+}

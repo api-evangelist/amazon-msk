@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-configuration-revision-structure.json",
+  "name": "ConfigurationRevision",
+  "type": "object",
+  "description": "\n            <p>Describes a configuration revision.</p>",
+  "properties": {
+    "CreationTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__timestampIso8601"
+        },
+        {
+          "xml": {
+            "name": "creationTime"
+          },
+          "description": "\n            <p>The time when the configuration revision was created.</p>"
+        }
+      ]
+    },
+    "Description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "description"
+          },
+          "description": "\n            <p>The description of the configuration revision.</p>"
+        }
+      ]
+    },
+    "Revision": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "xml": {
+            "name": "revision"
+          },
+          "description": "\n            <p>The revision number.</p>"
+        }
+      ]
+    }
+  },
+  "required": [
+    "Revision",
+    "CreationTime"
+  ]
+}

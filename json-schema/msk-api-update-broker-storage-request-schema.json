@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-update-broker-storage-request-schema.json",
+  "title": "UpdateBrokerStorageRequest",
+  "description": "UpdateBrokerStorageRequest schema from Amazon MSK API",
+  "type": "object",
+  "properties": {
+    "CurrentVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "currentVersion"
+          },
+          "description": "\n            <p>The version of cluster to update from. A successful operation will then generate a new version.</p>"
+        }
+      ]
+    },
+    "TargetBrokerEBSVolumeInfo": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOfBrokerEBSVolumeInfo"
+        },
+        {
+          "xml": {
+            "name": "targetBrokerEBSVolumeInfo"
+          },
+          "description": "\n            <p>Describes the target volume size and the ID of the broker to apply the update to.</p>"
+        }
+      ]
+    }
+  },
+  "required": [
+    "TargetBrokerEBSVolumeInfo",
+    "CurrentVersion"
+  ]
+}

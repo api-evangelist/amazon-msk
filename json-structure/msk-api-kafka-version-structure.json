@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-kafka-version-structure.json",
+  "name": "KafkaVersion",
+  "type": "object",
+  "description": "KafkaVersion schema from Amazon MSK API",
+  "properties": {
+    "Version": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "version"
+          }
+        }
+      ]
+    },
+    "Status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KafkaVersionStatus"
+        },
+        {
+          "xml": {
+            "name": "status"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,664 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "pan": "https://pan.dev/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "StorageInfo": "pan:StorageInfo",
+    "ListClustersRequest": "pan:ListClustersRequest",
+    "NodeInfo": "pan:NodeInfo",
+    "ClusterOperationStep": "pan:ClusterOperationStep",
+    "UpdateBrokerCountResponse": "pan:UpdateBrokerCountResponse",
+    "UpdateConfigurationRequest": "pan:UpdateConfigurationRequest",
+    "EncryptionAtRest": "pan:EncryptionAtRest",
+    "ListClustersResponse": "pan:ListClustersResponse",
+    "Scram": "pan:Scram",
+    "ConfigurationInfo": "pan:ConfigurationInfo",
+    "DeleteClusterRequest": "pan:DeleteClusterRequest",
+    "DescribeClusterResponse": "pan:DescribeClusterResponse",
+    "RebootBrokerRequest": "pan:RebootBrokerRequest",
+    "KafkaVersionStatus": "pan:KafkaVersionStatus",
+    "UpdateBrokerStorageResponse": "pan:UpdateBrokerStorageResponse",
+    "BatchAssociateScramSecretRequest": "pan:BatchAssociateScramSecretRequest",
+    "BrokerLogs": "pan:BrokerLogs",
+    "UpdateClusterKafkaVersionRequest": "pan:UpdateClusterKafkaVersionRequest",
+    "UpdateMonitoringResponse": "pan:UpdateMonitoringResponse",
+    "BrokerAZDistribution": "pan:BrokerAZDistribution",
+    "KafkaVersion": "pan:KafkaVersion",
+    "ServerlessSasl": "pan:ServerlessSasl",
+    "Tls": "pan:Tls",
+    "DescribeConfigurationRevisionRequest": "pan:DescribeConfigurationRevisionRequest",
+    "ConnectivityInfo": "pan:ConnectivityInfo",
+    "GetCompatibleKafkaVersionsResponse": "pan:GetCompatibleKafkaVersionsResponse",
+    "StorageMode": "pan:StorageMode",
+    "CreateClusterV2Request": "pan:CreateClusterV2Request",
+    "CompatibleKafkaVersion": "pan:CompatibleKafkaVersion",
+    "ClusterInfo": "pan:ClusterInfo",
+    "ClientBroker": "pan:ClientBroker",
+    "Iam": "pan:Iam",
+    "Unauthenticated": "pan:Unauthenticated",
+    "ClusterState": "pan:ClusterState",
+    "DescribeConfigurationRequest": "pan:DescribeConfigurationRequest",
+    "BatchDisassociateScramSecretRequest": "pan:BatchDisassociateScramSecretRequest",
+    "ListNodesRequest": "pan:ListNodesRequest",
+    "TagResourceRequest": "pan:TagResourceRequest",
+    "UpdateClusterConfigurationRequest": "pan:UpdateClusterConfigurationRequest",
+    "LoggingInfo": "pan:LoggingInfo",
+    "PublicAccess": "pan:PublicAccess",
+    "CloudWatchLogs": "pan:CloudWatchLogs",
+    "Firehose": "pan:Firehose",
+    "NodeExporter": "pan:NodeExporter",
+    "CreateClusterResponse": "pan:CreateClusterResponse",
+    "VpcConfig": "pan:VpcConfig",
+    "ServerlessRequest": "pan:ServerlessRequest",
+    "ListScramSecretsRequest": "pan:ListScramSecretsRequest",
+    "UnauthorizedException": "pan:UnauthorizedException",
+    "BrokerNodeGroupInfo": "pan:BrokerNodeGroupInfo",
+    "BrokerEBSVolumeInfo": "pan:BrokerEBSVolumeInfo",
+    "StateInfo": "pan:StateInfo",
+    "ListScramSecretsResponse": "pan:ListScramSecretsResponse",
+    "ListConfigurationRevisionsResponse": "pan:ListConfigurationRevisionsResponse",
+    "ZookeeperNodeInfo": "pan:ZookeeperNodeInfo",
+    "DeleteConfigurationResponse": "pan:DeleteConfigurationResponse",
+    "ListConfigurationsRequest": "pan:ListConfigurationsRequest",
+    "EBSStorageInfo": "pan:EBSStorageInfo",
+    "BatchDisassociateScramSecretResponse": "pan:BatchDisassociateScramSecretResponse",
+    "UpdateStorageResponse": "pan:UpdateStorageResponse",
+    "ListClusterOperationsRequest": "pan:ListClusterOperationsRequest",
+    "MaxResults": "pan:MaxResults",
+    "UpdateBrokerTypeRequest": "pan:UpdateBrokerTypeRequest",
+    "ServerlessClientAuthentication": "pan:ServerlessClientAuthentication",
+    "BatchAssociateScramSecretResponse": "pan:BatchAssociateScramSecretResponse",
+    "PrometheusInfo": "pan:PrometheusInfo",
+    "ClusterOperationStepInfo": "pan:ClusterOperationStepInfo",
+    "UpdateClusterConfigurationResponse": "pan:UpdateClusterConfigurationResponse",
+    "UpdateBrokerTypeResponse": "pan:UpdateBrokerTypeResponse",
+    "UpdateSecurityResponse": "pan:UpdateSecurityResponse",
+    "ConfigurationState": "pan:ConfigurationState",
+    "ListConfigurationRevisionsRequest": "pan:ListConfigurationRevisionsRequest",
+    "UntagResourceRequest": "pan:UntagResourceRequest",
+    "CreateConfigurationResponse": "pan:CreateConfigurationResponse",
+    "DescribeClusterOperationRequest": "pan:DescribeClusterOperationRequest",
+    "OpenMonitoringInfo": "pan:OpenMonitoringInfo",
+    "CreateClusterRequest": "pan:CreateClusterRequest",
+    "OpenMonitoring": "pan:OpenMonitoring",
+    "UpdateBrokerCountRequest": "pan:UpdateBrokerCountRequest",
+    "ProvisionedThroughput": "pan:ProvisionedThroughput",
+    "Sasl": "pan:Sasl",
+    "Serverless": "pan:Serverless",
+    "UpdateMonitoringRequest": "pan:UpdateMonitoringRequest",
+    "DeleteClusterResponse": "pan:DeleteClusterResponse",
+    "ErrorInfo": "pan:ErrorInfo",
+    "BrokerNodeInfo": "pan:BrokerNodeInfo",
+    "UpdateSecurityRequest": "pan:UpdateSecurityRequest",
+    "UpdateConnectivityRequest": "pan:UpdateConnectivityRequest",
+    "GetCompatibleKafkaVersionsRequest": "pan:GetCompatibleKafkaVersionsRequest",
+    "JmxExporter": "pan:JmxExporter",
+    "DescribeClusterV2Response": "pan:DescribeClusterV2Response",
+    "ListKafkaVersionsRequest": "pan:ListKafkaVersionsRequest",
+    "ListClusterOperationsResponse": "pan:ListClusterOperationsResponse",
+    "DescribeConfigurationResponse": "pan:DescribeConfigurationResponse",
+    "ClusterOperationInfo": "pan:ClusterOperationInfo",
+    "UpdateClusterKafkaVersionResponse": "pan:UpdateClusterKafkaVersionResponse",
+    "EncryptionInfo": "pan:EncryptionInfo",
+    "ListTagsForResourceRequest": "pan:ListTagsForResourceRequest",
+    "DescribeConfigurationRevisionResponse": "pan:DescribeConfigurationRevisionResponse",
+    "ListKafkaVersionsResponse": "pan:ListKafkaVersionsResponse",
+    "UnprocessedScramSecret": "pan:UnprocessedScramSecret",
+    "CreateClusterV2Response": "pan:CreateClusterV2Response",
+    "Cluster": "pan:Cluster",
+    "NodeExporterInfo": "pan:NodeExporterInfo",
+    "GetBootstrapBrokersResponse": "pan:GetBootstrapBrokersResponse",
+    "EnhancedMonitoring": "pan:EnhancedMonitoring",
+    "ConfigurationRevision": "pan:ConfigurationRevision",
+    "DescribeClusterOperationResponse": "pan:DescribeClusterOperationResponse",
+    "S3": "pan:S3",
+    "JmxExporterInfo": "pan:JmxExporterInfo",
+    "GetBootstrapBrokersRequest": "pan:GetBootstrapBrokersRequest",
+    "RebootBrokerResponse": "pan:RebootBrokerResponse",
+    "ClientAuthentication": "pan:ClientAuthentication",
+    "MutableClusterInfo": "pan:MutableClusterInfo",
+    "ListConfigurationsResponse": "pan:ListConfigurationsResponse",
+    "NodeType": "pan:NodeType",
+    "UpdateConnectivityResponse": "pan:UpdateConnectivityResponse",
+    "CreateConfigurationRequest": "pan:CreateConfigurationRequest",
+    "UpdateBrokerStorageRequest": "pan:UpdateBrokerStorageRequest",
+    "DeleteConfigurationRequest": "pan:DeleteConfigurationRequest",
+    "ProvisionedRequest": "pan:ProvisionedRequest",
+    "UpdateStorageRequest": "pan:UpdateStorageRequest",
+    "Configuration": "pan:Configuration",
+    "DescribeClusterRequest": "pan:DescribeClusterRequest",
+    "ListClustersV2Response": "pan:ListClustersV2Response",
+    "Provisioned": "pan:Provisioned",
+    "ListClustersV2Request": "pan:ListClustersV2Request",
+    "ListNodesResponse": "pan:ListNodesResponse",
+    "UpdateConfigurationResponse": "pan:UpdateConfigurationResponse",
+    "Prometheus": "pan:Prometheus",
+    "ClusterType": "pan:ClusterType",
+    "DescribeClusterV2Request": "pan:DescribeClusterV2Request",
+    "EncryptionInTransit": "pan:EncryptionInTransit",
+    "ListTagsForResourceResponse": "pan:ListTagsForResourceResponse",
+    "BrokerSoftwareInfo": "pan:BrokerSoftwareInfo",
+    "ebsStorageInfo": {
+      "@id": "pan:ebs_storage_info",
+      "@type": "xsd:string"
+    },
+    "addedToClusterTime": {
+      "@id": "pan:added_to_cluster_time",
+      "@type": "xsd:string"
+    },
+    "brokerNodeInfo": {
+      "@id": "pan:broker_node_info",
+      "@type": "xsd:string"
+    },
+    "instanceType": {
+      "@id": "pan:instance_type",
+      "@type": "xsd:string"
+    },
+    "nodeArn": {
+      "@id": "pan:node_arn",
+      "@type": "xsd:string"
+    },
+    "nodeType": {
+      "@id": "pan:node_type",
+      "@type": "xsd:string"
+    },
+    "zookeeperNodeInfo": {
+      "@id": "pan:zookeeper_node_info",
+      "@type": "xsd:string"
+    },
+    "stepInfo": {
+      "@id": "pan:step_info",
+      "@type": "xsd:string"
+    },
+    "stepName": {
+      "@id": "pan:step_name",
+      "@type": "xsd:string"
+    },
+    "clusterArn": {
+      "@id": "pan:cluster_arn",
+      "@type": "xsd:string"
+    },
+    "clusterOperationArn": {
+      "@id": "pan:cluster_operation_arn",
+      "@type": "xsd:string"
+    },
+    "description": "schema:description",
+    "serverProperties": {
+      "@id": "pan:server_properties",
+      "@type": "xsd:string"
+    },
+    "dataVolumeKmsKeyId": {
+      "@id": "pan:data_volume_kms_key_id",
+      "@type": "xsd:string"
+    },
+    "clusterInfoList": {
+      "@id": "pan:cluster_info_list",
+      "@type": "xsd:string"
+    },
+    "nextToken": {
+      "@id": "pan:next_token",
+      "@type": "xsd:string"
+    },
+    "enabled": {
+      "@id": "pan:enabled",
+      "@type": "xsd:string"
+    },
+    "arn": {
+      "@id": "pan:arn",
+      "@type": "xsd:string"
+    },
+    "revision": {
+      "@id": "pan:revision",
+      "@type": "xsd:string"
+    },
+    "clusterInfo": {
+      "@id": "pan:cluster_info",
+      "@type": "xsd:string"
+    },
+    "brokerIds": {
+      "@id": "pan:broker_ids",
+      "@type": "xsd:string"
+    },
+    "secretArnList": {
+      "@id": "pan:secret_arn_list",
+      "@type": "xsd:string"
+    },
+    "cloudWatchLogs": {
+      "@id": "pan:cloud_watch_logs",
+      "@type": "xsd:string"
+    },
+    "firehose": {
+      "@id": "pan:firehose",
+      "@type": "xsd:string"
+    },
+    "s3": {
+      "@id": "pan:s3",
+      "@type": "xsd:string"
+    },
+    "configurationInfo": {
+      "@id": "pan:configuration_info",
+      "@type": "xsd:string"
+    },
+    "currentVersion": {
+      "@id": "pan:current_version",
+      "@type": "xsd:string"
+    },
+    "targetKafkaVersion": {
+      "@id": "pan:target_kafka_version",
+      "@type": "xsd:string"
+    },
+    "version": "schema:version",
+    "status": {
+      "@id": "pan:status",
+      "@type": "xsd:string"
+    },
+    "iam": {
+      "@id": "pan:iam",
+      "@type": "xsd:string"
+    },
+    "certificateAuthorityArnList": {
+      "@id": "pan:certificate_authority_arn_list",
+      "@type": "xsd:string"
+    },
+    "publicAccess": {
+      "@id": "pan:public_access",
+      "@type": "xsd:string"
+    },
+    "compatibleKafkaVersions": {
+      "@id": "pan:compatible_kafka_versions",
+      "@type": "xsd:string"
+    },
+    "clusterName": {
+      "@id": "pan:cluster_name",
+      "@type": "xsd:string"
+    },
+    "tags": {
+      "@id": "pan:tags",
+      "@type": "xsd:string"
+    },
+    "provisioned": {
+      "@id": "pan:provisioned",
+      "@type": "xsd:string"
+    },
+    "serverless": {
+      "@id": "pan:serverless",
+      "@type": "xsd:string"
+    },
+    "sourceVersion": {
+      "@id": "pan:source_version",
+      "@type": "xsd:string"
+    },
+    "targetVersions": {
+      "@id": "pan:target_versions",
+      "@type": "xsd:string"
+    },
+    "activeOperationArn": {
+      "@id": "pan:active_operation_arn",
+      "@type": "xsd:string"
+    },
+    "brokerNodeGroupInfo": {
+      "@id": "pan:broker_node_group_info",
+      "@type": "xsd:string"
+    },
+    "clientAuthentication": {
+      "@id": "pan:client_authentication",
+      "@type": "xsd:string"
+    },
+    "creationTime": "schema:dateCreated",
+    "currentBrokerSoftwareInfo": {
+      "@id": "pan:current_broker_software_info",
+      "@type": "xsd:string"
+    },
+    "encryptionInfo": {
+      "@id": "pan:encryption_info",
+      "@type": "xsd:string"
+    },
+    "enhancedMonitoring": {
+      "@id": "pan:enhanced_monitoring",
+      "@type": "xsd:string"
+    },
+    "openMonitoring": {
+      "@id": "pan:open_monitoring",
+      "@type": "xsd:string"
+    },
+    "loggingInfo": {
+      "@id": "pan:logging_info",
+      "@type": "xsd:string"
+    },
+    "numberOfBrokerNodes": {
+      "@id": "pan:number_of_broker_nodes",
+      "@type": "xsd:string"
+    },
+    "state": {
+      "@id": "pan:state",
+      "@type": "xsd:string"
+    },
+    "stateInfo": {
+      "@id": "pan:state_info",
+      "@type": "xsd:string"
+    },
+    "zookeeperConnectString": {
+      "@id": "pan:zookeeper_connect_string",
+      "@type": "xsd:string"
+    },
+    "zookeeperConnectStringTls": {
+      "@id": "pan:zookeeper_connect_string_tls",
+      "@type": "xsd:string"
+    },
+    "storageMode": {
+      "@id": "pan:storage_mode",
+      "@type": "xsd:string"
+    },
+    "brokerLogs": {
+      "@id": "pan:broker_logs",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "pan:type",
+      "@type": "xsd:string"
+    },
+    "logGroup": {
+      "@id": "pan:log_group",
+      "@type": "xsd:string"
+    },
+    "deliveryStream": {
+      "@id": "pan:delivery_stream",
+      "@type": "xsd:string"
+    },
+    "enabledInBroker": {
+      "@id": "pan:enabled_in_broker",
+      "@type": "xsd:string"
+    },
+    "subnetIds": {
+      "@id": "pan:subnet_ids",
+      "@type": "xsd:string"
+    },
+    "securityGroupIds": {
+      "@id": "pan:security_group_ids",
+      "@type": "xsd:string"
+    },
+    "vpcConfigs": {
+      "@id": "pan:vpc_configs",
+      "@type": "xsd:string"
+    },
+    "brokerAzDistribution": {
+      "@id": "pan:broker_az_distribution",
+      "@type": "xsd:string"
+    },
+    "clientSubnets": {
+      "@id": "pan:client_subnets",
+      "@type": "xsd:string"
+    },
+    "securityGroups": {
+      "@id": "pan:security_groups",
+      "@type": "xsd:string"
+    },
+    "storageInfo": {
+      "@id": "pan:storage_info",
+      "@type": "xsd:string"
+    },
+    "connectivityInfo": {
+      "@id": "pan:connectivity_info",
+      "@type": "xsd:string"
+    },
+    "kafkaBrokerNodeId": {
+      "@id": "pan:kafka_broker_node_id",
+      "@type": "xsd:string"
+    },
+    "provisionedThroughput": {
+      "@id": "pan:provisioned_throughput",
+      "@type": "xsd:string"
+    },
+    "volumeSizeGb": {
+      "@id": "pan:volume_size_gb",
+      "@type": "xsd:string"
+    },
+    "code": {
+      "@id": "pan:code",
+      "@type": "xsd:string"
+    },
+    "message": {
+      "@id": "pan:message",
+      "@type": "xsd:string"
+    },
+    "revisions": {
+      "@id": "pan:revisions",
+      "@type": "xsd:string"
+    },
+    "attachedEniId": {
+      "@id": "pan:attached_eni_id",
+      "@type": "xsd:string"
+    },
+    "clientVpcIpAddress": {
+      "@id": "pan:client_vpc_ip_address",
+      "@type": "xsd:string"
+    },
+    "endpoints": {
+      "@id": "pan:endpoints",
+      "@type": "xsd:string"
+    },
+    "zookeeperId": {
+      "@id": "pan:zookeeper_id",
+      "@type": "xsd:string"
+    },
+    "zookeeperVersion": {
+      "@id": "pan:zookeeper_version",
+      "@type": "xsd:string"
+    },
+    "volumeSize": {
+      "@id": "pan:volume_size",
+      "@type": "xsd:string"
+    },
+    "unprocessedScramSecrets": {
+      "@id": "pan:unprocessed_scram_secrets",
+      "@type": "xsd:string"
+    },
+    "targetInstanceType": {
+      "@id": "pan:target_instance_type",
+      "@type": "xsd:string"
+    },
+    "sasl": {
+      "@id": "pan:sasl",
+      "@type": "xsd:string"
+    },
+    "jmxExporter": {
+      "@id": "pan:jmx_exporter",
+      "@type": "xsd:string"
+    },
+    "nodeExporter": {
+      "@id": "pan:node_exporter",
+      "@type": "xsd:string"
+    },
+    "stepStatus": {
+      "@id": "pan:step_status",
+      "@type": "xsd:string"
+    },
+    "latestRevision": {
+      "@id": "pan:latest_revision",
+      "@type": "xsd:string"
+    },
+    "name": "schema:name",
+    "prometheus": {
+      "@id": "pan:prometheus",
+      "@type": "xsd:string"
+    },
+    "kafkaVersion": {
+      "@id": "pan:kafka_version",
+      "@type": "xsd:string"
+    },
+    "targetNumberOfBrokerNodes": {
+      "@id": "pan:target_number_of_broker_nodes",
+      "@type": "xsd:string"
+    },
+    "volumeThroughput": {
+      "@id": "pan:volume_throughput",
+      "@type": "xsd:string"
+    },
+    "scram": {
+      "@id": "pan:scram",
+      "@type": "xsd:string"
+    },
+    "errorCode": {
+      "@id": "pan:error_code",
+      "@type": "xsd:string"
+    },
+    "errorString": {
+      "@id": "pan:error_string",
+      "@type": "xsd:string"
+    },
+    "brokerId": {
+      "@id": "pan:broker_id",
+      "@type": "xsd:string"
+    },
+    "clientSubnet": {
+      "@id": "pan:client_subnet",
+      "@type": "xsd:string"
+    },
+    "clusterOperationInfoList": {
+      "@id": "pan:cluster_operation_info_list",
+      "@type": "xsd:string"
+    },
+    "kafkaVersions": {
+      "@id": "pan:kafka_versions",
+      "@type": "xsd:string"
+    },
+    "clientRequestId": {
+      "@id": "pan:client_request_id",
+      "@type": "xsd:string"
+    },
+    "endTime": {
+      "@id": "pan:end_time",
+      "@type": "xsd:string"
+    },
+    "errorInfo": {
+      "@id": "pan:error_info",
+      "@type": "xsd:string"
+    },
+    "operationArn": {
+      "@id": "pan:operation_arn",
+      "@type": "xsd:string"
+    },
+    "operationState": {
+      "@id": "pan:operation_state",
+      "@type": "xsd:string"
+    },
+    "operationSteps": {
+      "@id": "pan:operation_steps",
+      "@type": "xsd:string"
+    },
+    "operationType": {
+      "@id": "pan:operation_type",
+      "@type": "xsd:string"
+    },
+    "sourceClusterInfo": {
+      "@id": "pan:source_cluster_info",
+      "@type": "xsd:string"
+    },
+    "targetClusterInfo": {
+      "@id": "pan:target_cluster_info",
+      "@type": "xsd:string"
+    },
+    "encryptionAtRest": {
+      "@id": "pan:encryption_at_rest",
+      "@type": "xsd:string"
+    },
+    "encryptionInTransit": {
+      "@id": "pan:encryption_in_transit",
+      "@type": "xsd:string"
+    },
+    "errorMessage": {
+      "@id": "pan:error_message",
+      "@type": "xsd:string"
+    },
+    "secretArn": {
+      "@id": "pan:secret_arn",
+      "@type": "xsd:string"
+    },
+    "clusterType": {
+      "@id": "pan:cluster_type",
+      "@type": "xsd:string"
+    },
+    "bootstrapBrokerString": {
+      "@id": "pan:bootstrap_broker_string",
+      "@type": "xsd:string"
+    },
+    "bootstrapBrokerStringTls": {
+      "@id": "pan:bootstrap_broker_string_tls",
+      "@type": "xsd:string"
+    },
+    "bootstrapBrokerStringSaslScram": {
+      "@id": "pan:bootstrap_broker_string_sasl_scram",
+      "@type": "xsd:string"
+    },
+    "bootstrapBrokerStringSaslIam": {
+      "@id": "pan:bootstrap_broker_string_sasl_iam",
+      "@type": "xsd:string"
+    },
+    "bootstrapBrokerStringPublicTls": {
+      "@id": "pan:bootstrap_broker_string_public_tls",
+      "@type": "xsd:string"
+    },
+    "bootstrapBrokerStringPublicSaslScram": {
+      "@id": "pan:bootstrap_broker_string_public_sasl_scram",
+      "@type": "xsd:string"
+    },
+    "bootstrapBrokerStringPublicSaslIam": {
+      "@id": "pan:bootstrap_broker_string_public_sasl_iam",
+      "@type": "xsd:string"
+    },
+    "clusterOperationInfo": {
+      "@id": "pan:cluster_operation_info",
+      "@type": "xsd:string"
+    },
+    "bucket": {
+      "@id": "pan:bucket",
+      "@type": "xsd:string"
+    },
+    "prefix": {
+      "@id": "pan:prefix",
+      "@type": "xsd:string"
+    },
+    "tls": {
+      "@id": "pan:tls",
+      "@type": "xsd:string"
+    },
+    "unauthenticated": {
+      "@id": "pan:unauthenticated",
+      "@type": "xsd:string"
+    },
+    "brokerEbsVolumeInfo": {
+      "@id": "pan:broker_ebs_volume_info",
+      "@type": "xsd:string"
+    },
+    "configurations": {
+      "@id": "pan:configurations",
+      "@type": "xsd:string"
+    },
+    "targetBrokerEbsVolumeInfo": {
+      "@id": "pan:target_broker_ebs_volume_info",
+      "@type": "xsd:string"
+    },
+    "nodeInfoList": {
+      "@id": "pan:node_info_list",
+      "@type": "xsd:string"
+    },
+    "clientBroker": {
+      "@id": "pan:client_broker",
+      "@type": "xsd:string"
+    },
+    "inCluster": {
+      "@id": "pan:in_cluster",
+      "@type": "xsd:string"
+    },
+    "configurationArn": {
+      "@id": "pan:configuration_arn",
+      "@type": "xsd:string"
+    },
+    "configurationRevision": {
+      "@id": "pan:configuration_revision",
+      "@type": "xsd:string"
+    }
+  }
+}

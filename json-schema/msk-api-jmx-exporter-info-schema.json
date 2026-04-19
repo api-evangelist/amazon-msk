@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-jmx-exporter-info-schema.json",
+  "title": "JmxExporterInfo",
+  "description": "\n            <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>",
+  "type": "object",
+  "properties": {
+    "EnabledInBroker": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__boolean"
+        },
+        {
+          "xml": {
+            "name": "enabledInBroker"
+          },
+          "description": "\n            <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>"
+        }
+      ]
+    }
+  },
+  "required": [
+    "EnabledInBroker"
+  ]
+}

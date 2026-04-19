@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-update-cluster-configuration-request-structure.json",
+  "name": "UpdateClusterConfigurationRequest",
+  "type": "object",
+  "description": "UpdateClusterConfigurationRequest schema from Amazon MSK API",
+  "properties": {
+    "ConfigurationInfo": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ConfigurationInfo"
+        },
+        {
+          "xml": {
+            "name": "configurationInfo"
+          },
+          "description": "\n            <p>Represents the configuration that you want MSK to use for the brokers in a cluster.</p>"
+        }
+      ]
+    },
+    "CurrentVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "currentVersion"
+          },
+          "description": "\n            <p>The version of the cluster that needs to be updated.</p>"
+        }
+      ]
+    }
+  },
+  "required": [
+    "CurrentVersion",
+    "ConfigurationInfo"
+  ]
+}

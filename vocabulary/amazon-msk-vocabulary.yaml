@@ -1,0 +1,392 @@
+vocabulary: 1.0.0
+info:
+  provider: Amazon MSK
+  description: Unified vocabulary for Amazon MSK APIs and capabilities.
+  created: '2026-04-19'
+  modified: '2026-04-19'
+operational:
+  apis:
+  - name: Amazon MSK API
+    namespace: msk
+    version: '2018-11-14'
+    baseUrl: http://kafka.{region}.amazonaws.com
+    status: active
+  resources:
+  - name: v1
+    api: Amazon MSK API
+    actions:
+    - list
+    - get
+    - create
+    - update
+    - delete
+  - name: clusters
+    api: Amazon MSK API
+    actions:
+    - list
+    - get
+    - create
+    - update
+    - delete
+  - name: scram-secrets
+    api: Amazon MSK API
+    actions:
+    - list
+    - get
+    - create
+    - update
+    - delete
+  - name: api
+    api: Amazon MSK API
+    actions:
+    - list
+    - get
+    - create
+    - update
+    - delete
+  - name: v2
+    api: Amazon MSK API
+    actions:
+    - list
+    - get
+    - create
+    - update
+    - delete
+  - name: configurations
+    api: Amazon MSK API
+    actions:
+    - list
+    - get
+    - create
+    - update
+    - delete
+  - name: operations
+    api: Amazon MSK API
+    actions:
+    - list
+    - get
+    - create
+    - update
+    - delete
+  - name: revisions
+    api: Amazon MSK API
+    actions:
+    - list
+    - get
+    - create
+    - update
+    - delete
+  - name: bootstrap-brokers
+    api: Amazon MSK API
+    actions:
+    - list
+    - get
+    - create
+    - update
+    - delete
+  - name: compatible-kafka-versions
+    api: Amazon MSK API
+    actions:
+    - list
+    - get
+    - create
+    - update
+    - delete
+  - name: kafka-versions
+    api: Amazon MSK API
+    actions:
+    - list
+    - get
+    - create
+    - update
+    - delete
+  - name: nodes
+    api: Amazon MSK API
+    actions:
+    - list
+    - get
+    - create
+    - update
+    - delete
+  - name: tags
+    api: Amazon MSK API
+    actions:
+    - list
+    - get
+    - create
+    - update
+    - delete
+  - name: reboot-broker
+    api: Amazon MSK API
+    actions:
+    - list
+    - get
+    - create
+    - update
+    - delete
+  - name: count
+    api: Amazon MSK API
+    actions:
+    - list
+    - get
+    - create
+    - update
+    - delete
+  - name: type
+    api: Amazon MSK API
+    actions:
+    - list
+    - get
+    - create
+    - update
+    - delete
+  - name: storage
+    api: Amazon MSK API
+    actions:
+    - list
+    - get
+    - create
+    - update
+    - delete
+  - name: connectivity
+    api: Amazon MSK API
+    actions:
+    - list
+    - get
+    - create
+    - update
+    - delete
+  - name: configuration
+    api: Amazon MSK API
+    actions:
+    - list
+    - get
+    - create
+    - update
+    - delete
+  - name: version
+    api: Amazon MSK API
+    actions:
+    - list
+    - get
+    - create
+    - update
+    - delete
+  - name: monitoring
+    api: Amazon MSK API
+    actions:
+    - list
+    - get
+    - create
+    - update
+    - delete
+  - name: security
+    api: Amazon MSK API
+    actions:
+    - list
+    - get
+    - create
+    - update
+    - delete
+  actions:
+  - name: list
+    httpMethod: GET
+    pattern: read
+  - name: get
+    httpMethod: GET
+    pattern: read
+  - name: create
+    httpMethod: POST
+    pattern: write
+  - name: update
+    httpMethod: PUT
+    pattern: write
+  - name: delete
+    httpMethod: DELETE
+    pattern: write
+  schemas:
+    core:
+    - BatchAssociateScramSecretResponse
+    - CreateClusterResponse
+    - BrokerAZDistribution
+    - StorageInfo
+    - ConnectivityInfo
+  parameters:
+    pagination:
+    - name: nextToken
+      description: Pagination token
+    - name: maxResults
+      description: Max results per page
+  authentication:
+    schemes:
+    - type: awsSigV4
+      description: AWS Signature Version 4
+capability:
+  workflows:
+  - name: Amazon MSK Workflow
+    file: capabilities/amazon-msk-media-workflow.yaml
+    description: Amazon MSK media processing workflow
+    personas:
+    - Broadcast Engineer
+    - Media Developer
+    domains:
+    - Media Processing
+  personas:
+  - id: broadcast-engineer
+    name: Broadcast Engineer
+    description: Engineer managing broadcast media workflows
+    workflows:
+    - Amazon MSK Workflow
+  - id: media-developer
+    name: Media Developer
+    description: Developer building media processing applications
+    workflows:
+    - Amazon MSK Workflow
+  domains:
+  - name: Media Processing
+    description: AWS media processing and delivery
+  namespaces:
+  - name: msk
+    type: consumed
+  - name: msk-workflow-api
+    type: rest
+    port: 8080
+  - name: msk-workflow-mcp
+    type: mcp
+    port: 9090
+  binds:
+  - name: AWS_ACCESS_KEY_ID
+  - name: AWS_SECRET_ACCESS_KEY
+crossReference:
+- resource: v1
+  api: Amazon MSK API
+  workflows:
+  - Amazon MSK Workflow
+  personas:
+  - Broadcast Engineer
+- resource: clusters
+  api: Amazon MSK API
+  workflows:
+  - Amazon MSK Workflow
+  personas:
+  - Broadcast Engineer
+- resource: scram-secrets
+  api: Amazon MSK API
+  workflows:
+  - Amazon MSK Workflow
+  personas:
+  - Broadcast Engineer
+- resource: api
+  api: Amazon MSK API
+  workflows:
+  - Amazon MSK Workflow
+  personas:
+  - Broadcast Engineer
+- resource: v2
+  api: Amazon MSK API
+  workflows:
+  - Amazon MSK Workflow
+  personas:
+  - Broadcast Engineer
+- resource: configurations
+  api: Amazon MSK API
+  workflows:
+  - Amazon MSK Workflow
+  personas:
+  - Broadcast Engineer
+- resource: operations
+  api: Amazon MSK API
+  workflows:
+  - Amazon MSK Workflow
+  personas:
+  - Broadcast Engineer
+- resource: revisions
+  api: Amazon MSK API
+  workflows:
+  - Amazon MSK Workflow
+  personas:
+  - Broadcast Engineer
+- resource: bootstrap-brokers
+  api: Amazon MSK API
+  workflows:
+  - Amazon MSK Workflow
+  personas:
+  - Broadcast Engineer
+- resource: compatible-kafka-versions
+  api: Amazon MSK API
+  workflows:
+  - Amazon MSK Workflow
+  personas:
+  - Broadcast Engineer
+- resource: kafka-versions
+  api: Amazon MSK API
+  workflows:
+  - Amazon MSK Workflow
+  personas:
+  - Broadcast Engineer
+- resource: nodes
+  api: Amazon MSK API
+  workflows:
+  - Amazon MSK Workflow
+  personas:
+  - Broadcast Engineer
+- resource: tags
+  api: Amazon MSK API
+  workflows:
+  - Amazon MSK Workflow
+  personas:
+  - Broadcast Engineer
+- resource: reboot-broker
+  api: Amazon MSK API
+  workflows:
+  - Amazon MSK Workflow
+  personas:
+  - Broadcast Engineer
+- resource: count
+  api: Amazon MSK API
+  workflows:
+  - Amazon MSK Workflow
+  personas:
+  - Broadcast Engineer
+- resource: type
+  api: Amazon MSK API
+  workflows:
+  - Amazon MSK Workflow
+  personas:
+  - Broadcast Engineer
+- resource: storage
+  api: Amazon MSK API
+  workflows:
+  - Amazon MSK Workflow
+  personas:
+  - Broadcast Engineer
+- resource: connectivity
+  api: Amazon MSK API
+  workflows:
+  - Amazon MSK Workflow
+  personas:
+  - Broadcast Engineer
+- resource: configuration
+  api: Amazon MSK API
+  workflows:
+  - Amazon MSK Workflow
+  personas:
+  - Broadcast Engineer
+- resource: version
+  api: Amazon MSK API
+  workflows:
+  - Amazon MSK Workflow
+  personas:
+  - Broadcast Engineer
+- resource: monitoring
+  api: Amazon MSK API
+  workflows:
+  - Amazon MSK Workflow
+  personas:
+  - Broadcast Engineer
+- resource: security
+  api: Amazon MSK API
+  workflows:
+  - Amazon MSK Workflow
+  personas:
+  - Broadcast Engineer

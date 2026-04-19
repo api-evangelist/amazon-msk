@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-logging-info-schema.json",
+  "title": "LoggingInfo",
+  "description": "LoggingInfo schema from Amazon MSK API",
+  "type": "object",
+  "properties": {
+    "BrokerLogs": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BrokerLogs"
+        },
+        {
+          "xml": {
+            "name": "brokerLogs"
+          }
+        }
+      ]
+    }
+  },
+  "required": [
+    "BrokerLogs"
+  ]
+}

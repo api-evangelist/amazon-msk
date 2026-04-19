@@ -1,0 +1,14 @@
+{
+  "BrokerEBSVolumeInfo": "example-value",
+  "ConfigurationInfo": "example-value",
+  "NumberOfBrokerNodes": "example-value",
+  "EnhancedMonitoring": "example-value",
+  "OpenMonitoring": "example-value",
+  "KafkaVersion": "example-value",
+  "LoggingInfo": "example-value",
+  "InstanceType": "STANDARD",
+  "ClientAuthentication": "example-value",
+  "EncryptionInfo": "example-value",
+  "ConnectivityInfo": "example-value",
+  "StorageMode": "example-value"
+}

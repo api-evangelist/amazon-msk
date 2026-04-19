@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-node-exporter-structure.json",
+  "name": "NodeExporter",
+  "type": "object",
+  "description": "\n            <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>",
+  "properties": {
+    "EnabledInBroker": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__boolean"
+        },
+        {
+          "xml": {
+            "name": "enabledInBroker"
+          },
+          "description": "\n            <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>"
+        }
+      ]
+    }
+  },
+  "required": [
+    "EnabledInBroker"
+  ]
+}

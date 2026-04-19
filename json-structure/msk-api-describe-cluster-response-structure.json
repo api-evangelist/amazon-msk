@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-describe-cluster-response-structure.json",
+  "name": "DescribeClusterResponse",
+  "type": "object",
+  "description": "DescribeClusterResponse schema from Amazon MSK API",
+  "properties": {
+    "ClusterInfo": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ClusterInfo"
+        },
+        {
+          "xml": {
+            "name": "clusterInfo"
+          },
+          "description": "\n            <p>The cluster information.</p>"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,116 @@
+naftiko: 1.0.0-alpha1
+info:
+  label: Amazon MSK Workflow
+  description: Workflow capability for Amazon MSK media processing operations for broadcast engineers and media developers.
+  tags:
+  - AWS
+  - Media
+  - Broadcasting
+  - Workflow
+  created: '2026-04-19'
+  modified: '2026-04-19'
+binds:
+- namespace: env
+  keys:
+    AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
+    AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
+    AWS_REGION: AWS_REGION
+capability:
+  consumes:
+  - import: msk
+    location: ./shared/msk.yaml
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: msk-workflow-api
+    description: Unified REST API for Amazon MSK workflow management.
+    resources:
+    - path: /v1/jobs
+      name: jobs
+      description: Manage media processing jobs
+      operations:
+      - method: GET
+        name: list-jobs
+        description: List jobs
+        call: msk.list-jobs
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: msk-workflow-mcp
+    transport: http
+    description: MCP server for AI-assisted Amazon MSK workflow management.
+    tools:
+    - name: list-scram-secrets
+      description: ListScramSecrets
+      hints:
+        readOnly: true
+        openWorld: true
+      call: msk.list-scram-secrets
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: batch-associate-scram-secret
+      description: BatchAssociateScramSecret
+      hints:
+        readOnly: false
+        openWorld: true
+      call: msk.batch-associate-scram-secret
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: batch-disassociate-scram-secret
+      description: BatchDisassociateScramSecret
+      hints:
+        readOnly: false
+        openWorld: true
+      call: msk.batch-disassociate-scram-secret
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-clusters
+      description: ListClusters
+      hints:
+        readOnly: true
+        openWorld: true
+      call: msk.list-clusters
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-cluster
+      description: CreateCluster
+      hints:
+        readOnly: false
+        openWorld: true
+      call: msk.create-cluster
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-clusters-v2
+      description: ListClustersV2
+      hints:
+        readOnly: true
+        openWorld: true
+      call: msk.list-clusters-v2
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-cluster-v2
+      description: CreateClusterV2
+      hints:
+        readOnly: false
+        openWorld: true
+      call: msk.create-cluster-v2
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-configurations
+      description: ListConfigurations
+      hints:
+        readOnly: true
+        openWorld: true
+      call: msk.list-configurations
+      outputParameters:
+      - type: object
+        mapping: $.

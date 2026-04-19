@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-compatible-kafka-version-schema.json",
+  "title": "CompatibleKafkaVersion",
+  "description": "\n            <p>Contains source Apache Kafka versions and compatible target Apache Kafka versions.</p>",
+  "type": "object",
+  "properties": {
+    "SourceVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "sourceVersion"
+          },
+          "description": "\n            <p>An Apache Kafka version.</p>"
+        }
+      ]
+    },
+    "TargetVersions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOf__string"
+        },
+        {
+          "xml": {
+            "name": "targetVersions"
+          },
+          "description": "\n            <p>A list of Apache Kafka versions.</p>"
+        }
+      ]
+    }
+  }
+}

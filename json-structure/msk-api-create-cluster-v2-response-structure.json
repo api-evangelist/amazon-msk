@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-create-cluster-v2-response-structure.json",
+  "name": "CreateClusterV2Response",
+  "type": "object",
+  "description": "CreateClusterV2Response schema from Amazon MSK API",
+  "properties": {
+    "ClusterArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "clusterArn"
+          },
+          "description": "\n            <p>The Amazon Resource Name (ARN) of the cluster.</p>"
+        }
+      ]
+    },
+    "ClusterName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "clusterName"
+          },
+          "description": "\n            <p>The name of the MSK cluster.</p>"
+        }
+      ]
+    },
+    "State": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ClusterState"
+        },
+        {
+          "xml": {
+            "name": "state"
+          },
+          "description": "\n            <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>"
+        }
+      ]
+    },
+    "ClusterType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ClusterType"
+        },
+        {
+          "xml": {
+            "name": "clusterType"
+          },
+          "description": "\n            <p>The type of the cluster. The possible states are PROVISIONED or SERVERLESS.</p>"
+        }
+      ]
+    }
+  }
+}

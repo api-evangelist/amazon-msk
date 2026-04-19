@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-create-cluster-request-schema.json",
+  "title": "CreateClusterRequest",
+  "description": "CreateClusterRequest schema from Amazon MSK API",
+  "type": "object",
+  "properties": {
+    "BrokerNodeGroupInfo": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BrokerNodeGroupInfo"
+        },
+        {
+          "xml": {
+            "name": "brokerNodeGroupInfo"
+          },
+          "description": "\n            <p>Information about the broker nodes in the cluster.</p>"
+        }
+      ]
+    },
+    "ClientAuthentication": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ClientAuthentication"
+        },
+        {
+          "xml": {
+            "name": "clientAuthentication"
+          },
+          "description": "\n            <p>Includes all client authentication related information.</p>"
+        }
+      ]
+    },
+    "ClusterName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__stringMin1Max64"
+        },
+        {
+          "xml": {
+            "name": "clusterName"
+          },
+          "description": "\n            <p>The name of the cluster.</p>"
+        }
+      ]
+    },
+    "ConfigurationInfo": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ConfigurationInfo"
+        },
+        {
+          "xml": {
+            "name": "configurationInfo"
+          },
+          "description": "\n            <p>Represents the configuration that you want MSK to use for the brokers in a cluster.</p>"
+        }
+      ]
+    },
+    "EncryptionInfo": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EncryptionInfo"
+        },
+        {
+          "xml": {
+            "name": "encryptionInfo"
+          },
+          "description": "\n            <p>Includes all encryption-related information.</p>"
+        }
+      ]
+    },
+    "EnhancedMonitoring": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EnhancedMonitoring"
+        },
+        {
+          "xml": {
+            "name": "enhancedMonitoring"
+          },
+          "description": "\n            <p>Specifies the level of monitoring for the MSK cluster. The possible values are DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION.</p>"
+        }
+      ]
+    },
+    "OpenMonitoring": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/OpenMonitoringInfo"
+        },
+        {
+          "xml": {
+            "name": "openMonitoring"
+          },
+          "description": "\n            <p>The settings for open monitoring.</p>"
+        }
+      ]
+    },
+    "KafkaVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__stringMin1Max128"
+        },
+        {
+          "xml": {
+            "name": "kafkaVersion"
+          },
+          "description": "\n            <p>The version of Apache Kafka.</p>"
+        }
+      ]
+    },
+    "LoggingInfo": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LoggingInfo"
+        },
+        {
+          "xml": {
+            "name": "loggingInfo"
+          }
+        }
+      ]
+    },
+    "NumberOfBrokerNodes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__integerMin1Max15"
+        },
+        {
+          "xml": {
+            "name": "numberOfBrokerNodes"
+          },
+          "description": "\n            <p>The number of broker nodes in the cluster.</p>"
+        }
+      ]
+    },
+    "Tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__mapOf__string"
+        },
+        {
+          "xml": {
+            "name": "tags"
+          },
+          "description": "\n            <p>Create tags when creating the cluster.</p>"
+        }
+      ]
+    },
+    "StorageMode": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StorageMode"
+        },
+        {
+          "xml": {
+            "name": "storageMode"
+          },
+          "description": "\n            <p>This controls storage mode for supported storage tiers.</p>"
+        }
+      ]
+    }
+  },
+  "required": [
+    "BrokerNodeGroupInfo",
+    "KafkaVersion",
+    "NumberOfBrokerNodes",
+    "ClusterName"
+  ]
+}

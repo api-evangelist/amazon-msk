@@ -1,0 +1,5 @@
+{
+  "ClusterArn": "arn:aws:service:us-east-1:123456789012:resource/example",
+  "ClusterName": "example-resource",
+  "State": "example-value"
+}

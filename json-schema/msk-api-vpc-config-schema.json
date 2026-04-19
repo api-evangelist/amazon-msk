@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-vpc-config-schema.json",
+  "title": "VpcConfig",
+  "description": "\n            <p>The configuration of the Amazon VPCs for the cluster.</p>",
+  "type": "object",
+  "properties": {
+    "SubnetIds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOf__string"
+        },
+        {
+          "xml": {
+            "name": "subnetIds"
+          },
+          "description": "\n            <p>The IDs of the subnets associated with the cluster.</p>"
+        }
+      ]
+    },
+    "SecurityGroupIds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOf__string"
+        },
+        {
+          "xml": {
+            "name": "securityGroupIds"
+          },
+          "description": "\n            <p>The IDs of the security groups associated with the cluster.</p>"
+        }
+      ]
+    }
+  },
+  "required": [
+    "SubnetIds"
+  ]
+}

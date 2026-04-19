@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-get-bootstrap-brokers-response-schema.json",
+  "title": "GetBootstrapBrokersResponse",
+  "description": "GetBootstrapBrokersResponse schema from Amazon MSK API",
+  "type": "object",
+  "properties": {
+    "BootstrapBrokerString": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "bootstrapBrokerString"
+          },
+          "description": "\n            <p>A string containing one or more hostname:port pairs.</p>"
+        }
+      ]
+    },
+    "BootstrapBrokerStringTls": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "bootstrapBrokerStringTls"
+          },
+          "description": "\n            <p>A string containing one or more DNS names (or IP) and TLS port pairs.</p>"
+        }
+      ]
+    },
+    "BootstrapBrokerStringSaslScram": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "bootstrapBrokerStringSaslScram"
+          },
+          "description": "\n            <p>A string containing one or more DNS names (or IP) and Sasl Scram port pairs.</p>"
+        }
+      ]
+    },
+    "BootstrapBrokerStringSaslIam": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "bootstrapBrokerStringSaslIam"
+          },
+          "description": "\n            <p>A string that contains one or more DNS names (or IP addresses) and SASL IAM port pairs.</p>"
+        }
+      ]
+    },
+    "BootstrapBrokerStringPublicTls": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "bootstrapBrokerStringPublicTls"
+          },
+          "description": "\n            <p>A string containing one or more DNS names (or IP) and TLS port pairs.</p>"
+        }
+      ]
+    },
+    "BootstrapBrokerStringPublicSaslScram": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "bootstrapBrokerStringPublicSaslScram"
+          },
+          "description": "\n            <p>A string containing one or more DNS names (or IP) and Sasl Scram port pairs.</p>"
+        }
+      ]
+    },
+    "BootstrapBrokerStringPublicSaslIam": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "bootstrapBrokerStringPublicSaslIam"
+          },
+          "description": "\n            <p>A string that contains one or more DNS names (or IP addresses) and SASL IAM port pairs.</p>"
+        }
+      ]
+    }
+  }
+}

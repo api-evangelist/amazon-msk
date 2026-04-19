@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-open-monitoring-info-schema.json",
+  "title": "OpenMonitoringInfo",
+  "description": "\n            <p>JMX and Node monitoring for the MSK cluster.</p>",
+  "type": "object",
+  "properties": {
+    "Prometheus": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PrometheusInfo"
+        },
+        {
+          "xml": {
+            "name": "prometheus"
+          },
+          "description": "\n            <p>Prometheus settings.</p>"
+        }
+      ]
+    }
+  },
+  "required": [
+    "Prometheus"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-encryption-in-transit-structure.json",
+  "name": "EncryptionInTransit",
+  "type": "object",
+  "description": "\n            <p>The settings for encrypting data in transit.</p>",
+  "properties": {
+    "ClientBroker": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ClientBroker"
+        },
+        {
+          "xml": {
+            "name": "clientBroker"
+          },
+          "description": "\n            <p>Indicates the encryption setting for data in transit between clients and brokers. The following are the possible values.</p>\n            <p>\n               TLS means that client-broker communication is enabled with TLS only.</p>\n            <p>\n               TLS_PLAINTEXT means that client-broker communication is enabled for both TLS-encrypted, as well as plaintext data.</p>\n            <p>\n               PLAINTEXT means that client-broker communication is enabled in plaintext only.</p>\n            <p>The default value is TLS_PLAINTEXT.</p>"
+        }
+      ]
+    },
+    "InCluster": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__boolean"
+        },
+        {
+          "xml": {
+            "name": "inCluster"
+          },
+          "description": "\n            <p>When set to true, it indicates that data communication among the broker nodes of the cluster is encrypted. When set to false, the communication happens in plaintext.</p>\n            <p>The default value is true.</p>"
+        }
+      ]
+    }
+  }
+}

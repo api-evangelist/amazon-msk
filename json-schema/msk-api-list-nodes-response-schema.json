@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-list-nodes-response-schema.json",
+  "title": "ListNodesResponse",
+  "description": "ListNodesResponse schema from Amazon MSK API",
+  "type": "object",
+  "properties": {
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "nextToken"
+          },
+          "description": "\n            <p>The paginated results marker. When the result of a ListNodes operation is truncated, the call returns NextToken in the response. \n               To get another batch of nodes, provide this token in your next request.</p>"
+        }
+      ]
+    },
+    "NodeInfoList": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOfNodeInfo"
+        },
+        {
+          "xml": {
+            "name": "nodeInfoList"
+          },
+          "description": "\n            <p>List containing a NodeInfo object.</p>"
+        }
+      ]
+    }
+  }
+}

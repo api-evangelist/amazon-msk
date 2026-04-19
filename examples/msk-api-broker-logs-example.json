@@ -1,0 +1,5 @@
+{
+  "CloudWatchLogs": "example-value",
+  "Firehose": "example-value",
+  "S3": "example-value"
+}

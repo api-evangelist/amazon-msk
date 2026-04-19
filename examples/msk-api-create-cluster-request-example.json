@@ -1,0 +1,14 @@
+{
+  "BrokerNodeGroupInfo": "example-value",
+  "ClientAuthentication": "example-value",
+  "ClusterName": "example-resource",
+  "ConfigurationInfo": "example-value",
+  "EncryptionInfo": "example-value",
+  "EnhancedMonitoring": "example-value",
+  "OpenMonitoring": "example-value",
+  "KafkaVersion": "example-value",
+  "LoggingInfo": "example-value",
+  "NumberOfBrokerNodes": "example-value",
+  "Tags": "example-value",
+  "StorageMode": "example-value"
+}

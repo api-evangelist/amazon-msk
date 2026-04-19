@@ -1,0 +1,5 @@
+{
+  "Sasl": "example-value",
+  "Tls": "example-value",
+  "Unauthenticated": "example-value"
+}

@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-mutable-cluster-info-structure.json",
+  "name": "MutableClusterInfo",
+  "type": "object",
+  "description": "\n            <p>Information about cluster attributes that can be updated via update APIs.</p>",
+  "properties": {
+    "BrokerEBSVolumeInfo": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOfBrokerEBSVolumeInfo"
+        },
+        {
+          "xml": {
+            "name": "brokerEBSVolumeInfo"
+          },
+          "description": "\n            <p>Specifies the size of the EBS volume and the ID of the associated broker.</p>"
+        }
+      ]
+    },
+    "ConfigurationInfo": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ConfigurationInfo"
+        },
+        {
+          "xml": {
+            "name": "configurationInfo"
+          },
+          "description": "\n            <p>Information about the changes in the configuration of the brokers.</p>"
+        }
+      ]
+    },
+    "NumberOfBrokerNodes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__integer"
+        },
+        {
+          "xml": {
+            "name": "numberOfBrokerNodes"
+          },
+          "description": "\n            <p>The number of broker nodes in the cluster.</p>"
+        }
+      ]
+    },
+    "EnhancedMonitoring": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EnhancedMonitoring"
+        },
+        {
+          "xml": {
+            "name": "enhancedMonitoring"
+          },
+          "description": "\n            <p>Specifies which Apache Kafka metrics Amazon MSK gathers and sends to Amazon CloudWatch for this cluster.</p>"
+        }
+      ]
+    },
+    "OpenMonitoring": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/OpenMonitoring"
+        },
+        {
+          "xml": {
+            "name": "openMonitoring"
+          },
+          "description": "\n            <p>The settings for open monitoring.</p>"
+        }
+      ]
+    },
+    "KafkaVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "kafkaVersion"
+          },
+          "description": "\n            <p>The Apache Kafka version.</p>"
+        }
+      ]
+    },
+    "LoggingInfo": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LoggingInfo"
+        },
+        {
+          "xml": {
+            "name": "loggingInfo"
+          },
+          "description": "\n            <p>You can configure your MSK cluster to send broker logs to different destination types. This is a container for the configuration details related to broker logs.</p>"
+        }
+      ]
+    },
+    "InstanceType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__stringMin5Max32"
+        },
+        {
+          "xml": {
+            "name": "instanceType"
+          },
+          "description": "\n            <p>Information about the Amazon MSK broker type.</p>"
+        }
+      ]
+    },
+    "ClientAuthentication": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ClientAuthentication"
+        },
+        {
+          "xml": {
+            "name": "clientAuthentication"
+          },
+          "description": "\n            <p>Includes all client authentication information.</p>"
+        }
+      ]
+    },
+    "EncryptionInfo": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EncryptionInfo"
+        },
+        {
+          "xml": {
+            "name": "encryptionInfo"
+          },
+          "description": "\n            <p>Includes all encryption-related information.</p>"
+        }
+      ]
+    },
+    "ConnectivityInfo": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ConnectivityInfo"
+        },
+        {
+          "xml": {
+            "name": "connectivityInfo"
+          },
+          "description": "\n            <p>Information about the broker access configuration.</p>"
+        }
+      ]
+    },
+    "StorageMode": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StorageMode"
+        },
+        {
+          "xml": {
+            "name": "storageMode"
+          },
+          "description": "\n            <p>This controls storage mode for supported storage tiers.</p>"
+        }
+      ]
+    }
+  }
+}

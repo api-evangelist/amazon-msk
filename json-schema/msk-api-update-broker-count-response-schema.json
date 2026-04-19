@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-update-broker-count-response-schema.json",
+  "title": "UpdateBrokerCountResponse",
+  "description": "UpdateBrokerCountResponse schema from Amazon MSK API",
+  "type": "object",
+  "properties": {
+    "ClusterArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "clusterArn"
+          },
+          "description": "\n            <p>The Amazon Resource Name (ARN) of the cluster.</p>"
+        }
+      ]
+    },
+    "ClusterOperationArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "clusterOperationArn"
+          },
+          "description": "\n            <p>The Amazon Resource Name (ARN) of the cluster operation.</p>"
+        }
+      ]
+    }
+  }
+}

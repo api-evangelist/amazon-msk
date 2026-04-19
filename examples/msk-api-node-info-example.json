@@ -1,0 +1,8 @@
+{
+  "AddedToClusterTime": "example-value",
+  "BrokerNodeInfo": "example-value",
+  "InstanceType": "STANDARD",
+  "NodeARN": "arn:aws:service:us-east-1:123456789012:resource/example",
+  "NodeType": "STANDARD",
+  "ZookeeperNodeInfo": "example-value"
+}

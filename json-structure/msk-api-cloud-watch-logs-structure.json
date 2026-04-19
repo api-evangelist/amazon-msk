@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-cloud-watch-logs-structure.json",
+  "name": "CloudWatchLogs",
+  "type": "object",
+  "description": "CloudWatchLogs schema from Amazon MSK API",
+  "properties": {
+    "Enabled": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__boolean"
+        },
+        {
+          "xml": {
+            "name": "enabled"
+          }
+        }
+      ]
+    },
+    "LogGroup": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "logGroup"
+          }
+        }
+      ]
+    }
+  },
+  "required": [
+    "Enabled"
+  ]
+}

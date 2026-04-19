@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-encryption-info-structure.json",
+  "name": "EncryptionInfo",
+  "type": "object",
+  "description": "\n            <p>Includes encryption-related information, such as the AWS KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.</p>",
+  "properties": {
+    "EncryptionAtRest": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EncryptionAtRest"
+        },
+        {
+          "xml": {
+            "name": "encryptionAtRest"
+          },
+          "description": "\n            <p>The data-volume encryption details.</p>"
+        }
+      ]
+    },
+    "EncryptionInTransit": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EncryptionInTransit"
+        },
+        {
+          "xml": {
+            "name": "encryptionInTransit"
+          },
+          "description": "\n            <p>The details for encryption in transit.</p>"
+        }
+      ]
+    }
+  }
+}

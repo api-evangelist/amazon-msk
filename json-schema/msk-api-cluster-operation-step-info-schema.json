@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-cluster-operation-step-info-schema.json",
+  "title": "ClusterOperationStepInfo",
+  "description": "\n            <p>State information about the operation step.</p>",
+  "type": "object",
+  "properties": {
+    "StepStatus": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "stepStatus"
+          },
+          "description": "\n            <p>The steps current status.</p>"
+        }
+      ]
+    }
+  }
+}

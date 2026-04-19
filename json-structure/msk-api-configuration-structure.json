@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-configuration-structure.json",
+  "name": "Configuration",
+  "type": "object",
+  "description": "\n            <p>Represents an MSK Configuration.</p>",
+  "properties": {
+    "Arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "arn"
+          },
+          "description": "\n            <p>The Amazon Resource Name (ARN) of the configuration.</p>"
+        }
+      ]
+    },
+    "CreationTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__timestampIso8601"
+        },
+        {
+          "xml": {
+            "name": "creationTime"
+          },
+          "description": "\n            <p>The time when the configuration was created.</p>"
+        }
+      ]
+    },
+    "Description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "description"
+          },
+          "description": "\n            <p>The description of the configuration.</p>"
+        }
+      ]
+    },
+    "KafkaVersions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOf__string"
+        },
+        {
+          "xml": {
+            "name": "kafkaVersions"
+          },
+          "description": "\n            <p>An array of the versions of Apache Kafka with which you can use this MSK configuration. You can use this configuration for an MSK cluster only if the Apache Kafka version specified for the cluster appears in this array.</p>"
+        }
+      ]
+    },
+    "LatestRevision": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ConfigurationRevision"
+        },
+        {
+          "xml": {
+            "name": "latestRevision"
+          },
+          "description": "\n            <p>Latest revision of the configuration.</p>"
+        }
+      ]
+    },
+    "Name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "name"
+          },
+          "description": "\n            <p>The name of the configuration.</p>"
+        }
+      ]
+    },
+    "State": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ConfigurationState"
+        },
+        {
+          "xml": {
+            "name": "state"
+          },
+          "description": "\n            <p>The state of the configuration. The possible states are ACTIVE, DELETING, and DELETE_FAILED. </p>"
+        }
+      ]
+    }
+  },
+  "required": [
+    "Description",
+    "LatestRevision",
+    "CreationTime",
+    "KafkaVersions",
+    "Arn",
+    "Name",
+    "State"
+  ]
+}

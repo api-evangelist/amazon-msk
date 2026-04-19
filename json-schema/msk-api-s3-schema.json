@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-s3-schema.json",
+  "title": "S3",
+  "description": "S3 schema from Amazon MSK API",
+  "type": "object",
+  "properties": {
+    "Bucket": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "bucket"
+          }
+        }
+      ]
+    },
+    "Enabled": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__boolean"
+        },
+        {
+          "xml": {
+            "name": "enabled"
+          }
+        }
+      ]
+    },
+    "Prefix": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "prefix"
+          }
+        }
+      ]
+    }
+  },
+  "required": [
+    "Enabled"
+  ]
+}

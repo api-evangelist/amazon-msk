@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-encryption-at-rest-schema.json",
+  "title": "EncryptionAtRest",
+  "description": "\n            <p>The data-volume encryption details.</p>",
+  "type": "object",
+  "properties": {
+    "DataVolumeKMSKeyId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "dataVolumeKMSKeyId"
+          },
+          "description": "\n            <p>The ARN of the AWS KMS key for encrypting data at rest. If you don't specify a KMS key, MSK creates one for you and uses it.</p>"
+        }
+      ]
+    }
+  },
+  "required": [
+    "DataVolumeKMSKeyId"
+  ]
+}

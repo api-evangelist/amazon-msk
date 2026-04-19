@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-storage-info-structure.json",
+  "name": "StorageInfo",
+  "type": "object",
+  "description": "\n            <p>Contains information about storage volumes attached to MSK broker nodes.</p>",
+  "properties": {
+    "EbsStorageInfo": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EBSStorageInfo"
+        },
+        {
+          "xml": {
+            "name": "ebsStorageInfo"
+          },
+          "description": "\n            <p>EBS volume information.</p>"
+        }
+      ]
+    }
+  }
+}

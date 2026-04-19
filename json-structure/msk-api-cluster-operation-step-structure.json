@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-cluster-operation-step-structure.json",
+  "name": "ClusterOperationStep",
+  "type": "object",
+  "description": "\n            <p>Step taken during a cluster operation.</p>",
+  "properties": {
+    "StepInfo": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ClusterOperationStepInfo"
+        },
+        {
+          "xml": {
+            "name": "stepInfo"
+          },
+          "description": "\n            <p>Information about the step and its status.</p>"
+        }
+      ]
+    },
+    "StepName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "stepName"
+          },
+          "description": "\n            <p>The name of the step.</p>"
+        }
+      ]
+    }
+  }
+}

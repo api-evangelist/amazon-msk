@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-update-cluster-kafka-version-request-schema.json",
+  "title": "UpdateClusterKafkaVersionRequest",
+  "description": "UpdateClusterKafkaVersionRequest schema from Amazon MSK API",
+  "type": "object",
+  "properties": {
+    "ConfigurationInfo": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ConfigurationInfo"
+        },
+        {
+          "xml": {
+            "name": "configurationInfo"
+          },
+          "description": "\n            <p>The custom configuration that should be applied on the new version of cluster.</p>"
+        }
+      ]
+    },
+    "CurrentVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "currentVersion"
+          },
+          "description": "\n            <p>Current cluster version.</p>"
+        }
+      ]
+    },
+    "TargetKafkaVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "targetKafkaVersion"
+          },
+          "description": "\n            <p>Target Kafka version.</p>"
+        }
+      ]
+    }
+  },
+  "required": [
+    "TargetKafkaVersion",
+    "CurrentVersion"
+  ]
+}

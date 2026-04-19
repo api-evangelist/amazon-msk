@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-delete-configuration-response-structure.json",
+  "name": "DeleteConfigurationResponse",
+  "type": "object",
+  "description": "DeleteConfigurationResponse schema from Amazon MSK API",
+  "properties": {
+    "Arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "arn"
+          },
+          "description": "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration.</p>"
+        }
+      ]
+    },
+    "State": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ConfigurationState"
+        },
+        {
+          "xml": {
+            "name": "state"
+          },
+          "description": "\n            <p>The state of the configuration. The possible states are ACTIVE, DELETING, and DELETE_FAILED. </p>"
+        }
+      ]
+    }
+  }
+}

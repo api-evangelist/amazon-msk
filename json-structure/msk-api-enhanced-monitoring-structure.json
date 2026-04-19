@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-enhanced-monitoring-structure.json",
+  "name": "EnhancedMonitoring",
+  "type": "string",
+  "description": "\n            <p>Specifies which metrics are gathered for the MSK cluster. This property has the following possible values: DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION. For a list of the metrics associated with each of these levels of monitoring, see <a href=\"https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html\">Monitoring</a>.</p>",
+  "enum": [
+    "DEFAULT",
+    "PER_BROKER",
+    "PER_TOPIC_PER_BROKER",
+    "PER_TOPIC_PER_PARTITION"
+  ]
+}

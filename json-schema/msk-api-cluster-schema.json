@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-cluster-schema.json",
+  "title": "Cluster",
+  "description": "\n            <p>Returns information about a cluster.</p>",
+  "type": "object",
+  "properties": {
+    "ActiveOperationArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "activeOperationArn"
+          },
+          "description": "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies a cluster operation.</p>"
+        }
+      ]
+    },
+    "ClusterType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ClusterType"
+        },
+        {
+          "xml": {
+            "name": "clusterType"
+          },
+          "description": "\n            <p>Cluster Type.</p>"
+        }
+      ]
+    },
+    "ClusterArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "clusterArn"
+          },
+          "description": "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>"
+        }
+      ]
+    },
+    "ClusterName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "clusterName"
+          },
+          "description": "\n            <p>The name of the cluster.</p>"
+        }
+      ]
+    },
+    "CreationTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__timestampIso8601"
+        },
+        {
+          "xml": {
+            "name": "creationTime"
+          },
+          "description": "\n            <p>The time when the cluster was created.</p>"
+        }
+      ]
+    },
+    "CurrentVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "currentVersion"
+          },
+          "description": "\n            <p>The current version of the MSK cluster.</p>"
+        }
+      ]
+    },
+    "State": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ClusterState"
+        },
+        {
+          "xml": {
+            "name": "state"
+          },
+          "description": "\n            <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>"
+        }
+      ]
+    },
+    "StateInfo": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StateInfo"
+        },
+        {
+          "xml": {
+            "name": "stateInfo"
+          },
+          "description": "\n            <p>State Info for the Amazon MSK cluster.</p>"
+        }
+      ]
+    },
+    "Tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__mapOf__string"
+        },
+        {
+          "xml": {
+            "name": "tags"
+          },
+          "description": "\n            <p>Tags attached to the cluster.</p>"
+        }
+      ]
+    },
+    "Provisioned": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Provisioned"
+        },
+        {
+          "xml": {
+            "name": "provisioned"
+          },
+          "description": "\n            <p>Information about the provisioned cluster.</p>"
+        }
+      ]
+    },
+    "Serverless": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Serverless"
+        },
+        {
+          "xml": {
+            "name": "serverless"
+          },
+          "description": "\n            <p>Information about the serverless cluster.</p>"
+        }
+      ]
+    }
+  }
+}

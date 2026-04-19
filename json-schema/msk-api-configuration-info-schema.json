@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-configuration-info-schema.json",
+  "title": "ConfigurationInfo",
+  "description": "\n            <p>Specifies the configuration to use for the brokers.</p>",
+  "type": "object",
+  "properties": {
+    "Arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "arn"
+          },
+          "description": "\n            <p>ARN of the configuration to use.</p>"
+        }
+      ]
+    },
+    "Revision": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__long"
+        },
+        {
+          "xml": {
+            "name": "revision"
+          },
+          "description": "\n            <p>The revision of the configuration to use.</p>"
+        }
+      ]
+    }
+  },
+  "required": [
+    "Revision",
+    "Arn"
+  ]
+}

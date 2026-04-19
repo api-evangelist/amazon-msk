@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-update-broker-count-request-schema.json",
+  "title": "UpdateBrokerCountRequest",
+  "description": "UpdateBrokerCountRequest schema from Amazon MSK API",
+  "type": "object",
+  "properties": {
+    "CurrentVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "currentVersion"
+          },
+          "description": "\n            <p>The version of cluster to update from. A successful operation will then generate a new version.</p>"
+        }
+      ]
+    },
+    "TargetNumberOfBrokerNodes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__integerMin1Max15"
+        },
+        {
+          "xml": {
+            "name": "targetNumberOfBrokerNodes"
+          },
+          "description": "\n            <p>The number of broker nodes that you want the cluster to have after this operation completes successfully.</p>"
+        }
+      ]
+    }
+  },
+  "required": [
+    "CurrentVersion",
+    "TargetNumberOfBrokerNodes"
+  ]
+}

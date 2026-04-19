@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-logging-info-structure.json",
+  "name": "LoggingInfo",
+  "type": "object",
+  "description": "LoggingInfo schema from Amazon MSK API",
+  "properties": {
+    "BrokerLogs": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BrokerLogs"
+        },
+        {
+          "xml": {
+            "name": "brokerLogs"
+          }
+        }
+      ]
+    }
+  },
+  "required": [
+    "BrokerLogs"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-untag-resource-request-structure.json",
+  "name": "UntagResourceRequest",
+  "type": "object",
+  "description": "UntagResourceRequest schema from Amazon MSK API",
+  "properties": {}
+}

@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-cluster-operation-info-structure.json",
+  "name": "ClusterOperationInfo",
+  "type": "object",
+  "description": "\n            <p>Returns information about a cluster operation.</p>",
+  "properties": {
+    "ClientRequestId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "clientRequestId"
+          },
+          "description": "\n            <p>The ID of the API request that triggered this operation.</p>"
+        }
+      ]
+    },
+    "ClusterArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "clusterArn"
+          },
+          "description": "\n            <p>ARN of the cluster.</p>"
+        }
+      ]
+    },
+    "CreationTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__timestampIso8601"
+        },
+        {
+          "xml": {
+            "name": "creationTime"
+          },
+          "description": "\n            <p>The time that the operation was created.</p>"
+        }
+      ]
+    },
+    "EndTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__timestampIso8601"
+        },
+        {
+          "xml": {
+            "name": "endTime"
+          },
+          "description": "\n            <p>The time at which the operation finished.</p>"
+        }
+      ]
+    },
+    "ErrorInfo": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ErrorInfo"
+        },
+        {
+          "xml": {
+            "name": "errorInfo"
+          },
+          "description": "\n            <p>Describes the error if the operation fails.</p>"
+        }
+      ]
+    },
+    "OperationArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "operationArn"
+          },
+          "description": "\n            <p>ARN of the cluster operation.</p>"
+        }
+      ]
+    },
+    "OperationState": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "operationState"
+          },
+          "description": "\n            <p>State of the cluster operation.</p>"
+        }
+      ]
+    },
+    "OperationSteps": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOfClusterOperationStep"
+        },
+        {
+          "xml": {
+            "name": "operationSteps"
+          },
+          "description": "\n            <p>Steps completed during the operation.</p>"
+        }
+      ]
+    },
+    "OperationType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "operationType"
+          },
+          "description": "\n            <p>Type of the cluster operation.</p>"
+        }
+      ]
+    },
+    "SourceClusterInfo": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MutableClusterInfo"
+        },
+        {
+          "xml": {
+            "name": "sourceClusterInfo"
+          },
+          "description": "\n            <p>Information about cluster attributes before a cluster is updated.</p>"
+        }
+      ]
+    },
+    "TargetClusterInfo": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MutableClusterInfo"
+        },
+        {
+          "xml": {
+            "name": "targetClusterInfo"
+          },
+          "description": "\n            <p>Information about cluster attributes after a cluster is updated.</p>"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-error-info-schema.json",
+  "title": "ErrorInfo",
+  "description": "\n            <p>Returns information about an error state of the cluster.</p>",
+  "type": "object",
+  "properties": {
+    "ErrorCode": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "errorCode"
+          },
+          "description": "\n            <p>A number describing the error programmatically.</p>"
+        }
+      ]
+    },
+    "ErrorString": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "errorString"
+          },
+          "description": "\n            <p>An optional field to provide more details about the error.</p>"
+        }
+      ]
+    }
+  }
+}

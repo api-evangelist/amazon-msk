@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-list-cluster-operations-response-schema.json",
+  "title": "ListClusterOperationsResponse",
+  "description": "ListClusterOperationsResponse schema from Amazon MSK API",
+  "type": "object",
+  "properties": {
+    "ClusterOperationInfoList": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOfClusterOperationInfo"
+        },
+        {
+          "xml": {
+            "name": "clusterOperationInfoList"
+          },
+          "description": "\n            <p>An array of cluster operation information objects.</p>"
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "nextToken"
+          },
+          "description": "\n            <p>If the response of ListClusterOperations is truncated, it returns a NextToken in the response. This Nexttoken should be sent in the subsequent request to ListClusterOperations.</p>"
+        }
+      ]
+    }
+  }
+}

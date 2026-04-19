@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-provisioned-throughput-structure.json",
+  "name": "ProvisionedThroughput",
+  "type": "object",
+  "description": "\n            <p>Contains information about provisioned throughput for EBS storage volumes attached to kafka broker nodes.</p>",
+  "properties": {
+    "Enabled": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__boolean"
+        },
+        {
+          "xml": {
+            "name": "enabled"
+          },
+          "description": "\n            <p>Provisioned throughput is enabled or not.</p>"
+        }
+      ]
+    },
+    "VolumeThroughput": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__integer"
+        },
+        {
+          "xml": {
+            "name": "volumeThroughput"
+          },
+          "description": "\n            <p>Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second.</p>"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-tls-schema.json",
+  "title": "Tls",
+  "description": "\n            <p>Details for client authentication using TLS.</p>",
+  "type": "object",
+  "properties": {
+    "CertificateAuthorityArnList": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOf__string"
+        },
+        {
+          "xml": {
+            "name": "certificateAuthorityArnList"
+          },
+          "description": "\n            <p>List of ACM Certificate Authority ARNs.</p>"
+        }
+      ]
+    },
+    "Enabled": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__boolean"
+        },
+        {
+          "xml": {
+            "name": "enabled"
+          },
+          "description": "\n            <p>Specifies whether you want to turn on or turn off TLS authentication.</p>"
+        }
+      ]
+    }
+  }
+}

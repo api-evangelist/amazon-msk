@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-public-access-structure.json",
+  "name": "PublicAccess",
+  "type": "object",
+  "description": "Public access control for brokers.",
+  "properties": {
+    "Type": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "type"
+          },
+          "description": "\n            <p>The value DISABLED indicates that public access is turned off. SERVICE_PROVIDED_EIPS indicates that public access is turned on.</p>"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "ActiveOperationArn": "arn:aws:service:us-east-1:123456789012:resource/example",
+  "BrokerNodeGroupInfo": "example-value",
+  "ClientAuthentication": "example-value",
+  "ClusterArn": "arn:aws:service:us-east-1:123456789012:resource/example",
+  "ClusterName": "example-resource",
+  "CreationTime": "example-value",
+  "CurrentBrokerSoftwareInfo": "example-value",
+  "CurrentVersion": "example-value",
+  "EncryptionInfo": "example-value",
+  "EnhancedMonitoring": "example-value",
+  "OpenMonitoring": "example-value",
+  "LoggingInfo": "example-value",
+  "NumberOfBrokerNodes": "example-value",
+  "State": "example-value",
+  "StateInfo": "example-value",
+  "Tags": "example-value",
+  "ZookeeperConnectString": "example-value",
+  "ZookeeperConnectStringTls": "example-value",
+  "StorageMode": "example-value"
+}

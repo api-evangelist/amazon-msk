@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-client-broker-structure.json",
+  "name": "ClientBroker",
+  "type": "string",
+  "description": "\n            <p>Client-broker encryption in transit setting.</p>",
+  "enum": [
+    "TLS",
+    "TLS_PLAINTEXT",
+    "PLAINTEXT"
+  ]
+}

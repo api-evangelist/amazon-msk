@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-broker-node-group-info-schema.json",
+  "title": "BrokerNodeGroupInfo",
+  "description": "\n            <p>Describes the setup to be used for Apache Kafka broker nodes in the cluster.</p>",
+  "type": "object",
+  "properties": {
+    "BrokerAZDistribution": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BrokerAZDistribution"
+        },
+        {
+          "xml": {
+            "name": "brokerAZDistribution"
+          },
+          "description": "\n            <p>The distribution of broker nodes across Availability Zones. This is an optional parameter. If you don't specify it, Amazon MSK gives it the value DEFAULT. You can also explicitly set this parameter to the value DEFAULT. No other values are currently allowed.</p>\n         <p>Amazon MSK distributes the broker nodes evenly across the Availability Zones that correspond to the subnets you provide when you create the cluster.</p>"
+        }
+      ]
+    },
+    "ClientSubnets": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOf__string"
+        },
+        {
+          "xml": {
+            "name": "clientSubnets"
+          },
+          "description": "\n            <p>The list of subnets to connect to in the client virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets. Client applications use elastic network interfaces to produce and consume data. Client subnets can't occupy the Availability Zone with ID use use1-az3.</p>"
+        }
+      ]
+    },
+    "InstanceType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__stringMin5Max32"
+        },
+        {
+          "xml": {
+            "name": "instanceType"
+          },
+          "description": "\n            <p>The type of Amazon EC2 instances to use for Apache Kafka brokers. The following instance types are allowed: kafka.m5.large, kafka.m5.xlarge, kafka.m5.2xlarge,\nkafka.m5.4xlarge, kafka.m5.12xlarge, and kafka.m5.24xlarge.</p>"
+        }
+      ]
+    },
+    "SecurityGroups": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOf__string"
+        },
+        {
+          "xml": {
+            "name": "securityGroups"
+          },
+          "description": "\n            <p>The AWS security groups to associate with the elastic network interfaces in order to specify who can connect to and communicate with the Amazon MSK cluster. If you don't specify a security group, Amazon MSK uses the default security group associated with the VPC.</p>"
+        }
+      ]
+    },
+    "StorageInfo": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StorageInfo"
+        },
+        {
+          "xml": {
+            "name": "storageInfo"
+          },
+          "description": "\n            <p>Contains information about storage volumes attached to MSK broker nodes.</p>"
+        }
+      ]
+    },
+    "ConnectivityInfo": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ConnectivityInfo"
+        },
+        {
+          "xml": {
+            "name": "connectivityInfo"
+          },
+          "description": "\n            <p>Information about the broker access configuration.</p>"
+        }
+      ]
+    }
+  },
+  "required": [
+    "ClientSubnets",
+    "InstanceType"
+  ]
+}

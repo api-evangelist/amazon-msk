@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-ebs-storage-info-structure.json",
+  "name": "EBSStorageInfo",
+  "type": "object",
+  "description": "\n            <p>Contains information about the EBS storage volumes attached to Apache Kafka broker nodes.</p>",
+  "properties": {
+    "ProvisionedThroughput": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ProvisionedThroughput"
+        },
+        {
+          "xml": {
+            "name": "provisionedThroughput"
+          },
+          "description": "\n            <p>EBS volume provisioned throughput information.</p>"
+        }
+      ]
+    },
+    "VolumeSize": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__integerMin1Max16384"
+        },
+        {
+          "xml": {
+            "name": "volumeSize"
+          },
+          "description": "\n            <p>The size in GiB of the EBS volume for the data drive on each broker node.</p>"
+        }
+      ]
+    }
+  }
+}

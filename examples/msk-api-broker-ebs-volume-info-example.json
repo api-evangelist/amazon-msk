@@ -1,0 +1,5 @@
+{
+  "KafkaBrokerNodeId": "id-abc123",
+  "ProvisionedThroughput": "example-value",
+  "VolumeSizeGB": "example-value"
+}

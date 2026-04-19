@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-reboot-broker-request-schema.json",
+  "title": "RebootBrokerRequest",
+  "description": "Reboots a node.",
+  "type": "object",
+  "properties": {
+    "BrokerIds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOf__string"
+        },
+        {
+          "xml": {
+            "name": "brokerIds"
+          },
+          "description": "\n            <p>The list of broker IDs to be rebooted. The reboot-broker operation supports rebooting one broker at a time.</p>"
+        }
+      ]
+    }
+  },
+  "required": [
+    "BrokerIds"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "ClusterName": "example-resource",
+  "Tags": "example-value",
+  "Provisioned": "example-value",
+  "Serverless": "example-value"
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-list-configuration-revisions-response-structure.json",
+  "name": "ListConfigurationRevisionsResponse",
+  "type": "object",
+  "description": "ListConfigurationRevisionsResponse schema from Amazon MSK API",
+  "properties": {
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "nextToken"
+          },
+          "description": "\n            <p>Paginated results marker.</p>"
+        }
+      ]
+    },
+    "Revisions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOfConfigurationRevision"
+        },
+        {
+          "xml": {
+            "name": "revisions"
+          },
+          "description": "\n            <p>List of ConfigurationRevision objects.</p>"
+        }
+      ]
+    }
+  }
+}

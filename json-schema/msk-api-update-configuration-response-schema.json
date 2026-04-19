@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-update-configuration-response-schema.json",
+  "title": "UpdateConfigurationResponse",
+  "description": "UpdateConfigurationResponse schema from Amazon MSK API",
+  "type": "object",
+  "properties": {
+    "Arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "arn"
+          },
+          "description": "\n            <p>The Amazon Resource Name (ARN) of the configuration.</p>"
+        }
+      ]
+    },
+    "LatestRevision": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ConfigurationRevision"
+        },
+        {
+          "xml": {
+            "name": "latestRevision"
+          },
+          "description": "\n            <p>Latest revision of the configuration.</p>"
+        }
+      ]
+    }
+  }
+}

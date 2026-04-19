@@ -1,0 +1,4 @@
+{
+  "ProvisionedThroughput": "example-value",
+  "VolumeSize": "example-value"
+}

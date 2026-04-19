@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-update-storage-request-schema.json",
+  "title": "UpdateStorageRequest",
+  "description": "\n            <p>Request object for UpdateStorage api. Its used to update the storage attributes for the cluster.</p>",
+  "type": "object",
+  "properties": {
+    "CurrentVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "currentVersion"
+          },
+          "description": "\n            <p>The version of cluster to update from. A successful operation will then generate a new version.</p>"
+        }
+      ]
+    },
+    "ProvisionedThroughput": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ProvisionedThroughput"
+        },
+        {
+          "xml": {
+            "name": "provisionedThroughput"
+          },
+          "description": "\n            <p>EBS volume provisioned throughput information.</p>"
+        }
+      ]
+    },
+    "StorageMode": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StorageMode"
+        },
+        {
+          "xml": {
+            "name": "storageMode"
+          },
+          "description": "\n            <p>Controls storage mode for supported storage tiers.</p>"
+        }
+      ]
+    },
+    "VolumeSizeGB": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__integer"
+        },
+        {
+          "xml": {
+            "name": "volumeSizeGB"
+          },
+          "description": "\n            <p>size of the EBS volume to update.</p>"
+        }
+      ]
+    }
+  },
+  "required": [
+    "CurrentVersion"
+  ]
+}

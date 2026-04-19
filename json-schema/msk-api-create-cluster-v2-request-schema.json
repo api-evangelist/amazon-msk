@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-create-cluster-v2-request-schema.json",
+  "title": "CreateClusterV2Request",
+  "description": "CreateClusterV2Request schema from Amazon MSK API",
+  "type": "object",
+  "properties": {
+    "ClusterName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__stringMin1Max64"
+        },
+        {
+          "xml": {
+            "name": "clusterName"
+          },
+          "description": "\n            <p>The name of the cluster.</p>"
+        }
+      ]
+    },
+    "Tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__mapOf__string"
+        },
+        {
+          "xml": {
+            "name": "tags"
+          },
+          "description": "\n            <p>A map of tags that you want the cluster to have.</p>"
+        }
+      ]
+    },
+    "Provisioned": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ProvisionedRequest"
+        },
+        {
+          "xml": {
+            "name": "provisioned"
+          },
+          "description": "\n            <p>Information about the provisioned cluster.</p>"
+        }
+      ]
+    },
+    "Serverless": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ServerlessRequest"
+        },
+        {
+          "xml": {
+            "name": "serverless"
+          },
+          "description": "\n            <p>Information about the serverless cluster.</p>"
+        }
+      ]
+    }
+  },
+  "required": [
+    "ClusterName"
+  ]
+}

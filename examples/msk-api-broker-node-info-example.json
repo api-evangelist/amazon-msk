@@ -1,0 +1,8 @@
+{
+  "AttachedENIId": "id-abc123",
+  "BrokerId": "id-abc123",
+  "ClientSubnet": "example-value",
+  "ClientVpcIpAddress": "example-value",
+  "CurrentBrokerSoftwareInfo": "example-value",
+  "Endpoints": "example-value"
+}

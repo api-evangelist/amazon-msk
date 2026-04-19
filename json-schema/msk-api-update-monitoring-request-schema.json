@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-update-monitoring-request-schema.json",
+  "title": "UpdateMonitoringRequest",
+  "description": "Request body for UpdateMonitoring.",
+  "type": "object",
+  "properties": {
+    "CurrentVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "currentVersion"
+          },
+          "description": "\n            <p>The version of the MSK cluster to update. Cluster versions aren't simple numbers. You can describe an MSK cluster to find its version. When this update operation is successful, it generates a new cluster version.</p>"
+        }
+      ]
+    },
+    "EnhancedMonitoring": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EnhancedMonitoring"
+        },
+        {
+          "xml": {
+            "name": "enhancedMonitoring"
+          },
+          "description": "\n            <p>Specifies which Apache Kafka metrics Amazon MSK gathers and sends to Amazon CloudWatch for this cluster.</p>"
+        }
+      ]
+    },
+    "OpenMonitoring": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/OpenMonitoringInfo"
+        },
+        {
+          "xml": {
+            "name": "openMonitoring"
+          },
+          "description": "\n            <p>The settings for open monitoring.</p>"
+        }
+      ]
+    },
+    "LoggingInfo": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LoggingInfo"
+        },
+        {
+          "xml": {
+            "name": "loggingInfo"
+          }
+        }
+      ]
+    }
+  },
+  "required": [
+    "CurrentVersion"
+  ]
+}

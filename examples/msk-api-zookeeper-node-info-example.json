@@ -1,0 +1,7 @@
+{
+  "AttachedENIId": "id-abc123",
+  "ClientVpcIpAddress": "example-value",
+  "Endpoints": "example-value",
+  "ZookeeperId": "id-abc123",
+  "ZookeeperVersion": "example-value"
+}

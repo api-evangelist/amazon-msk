@@ -1,0 +1,853 @@
+naftiko: 1.0.0-alpha1
+info:
+  label: Amazon MSK API
+  description: Amazon Managed Streaming for Apache Kafka (Amazon MSK) is a fully managed service that enables you to build and run applications that use Apache Kafka to process streaming data, with 
+    the infrastructure management handled by AWS.
+  tags:
+  - AWS
+  - Media
+  - Broadcasting
+  created: '2026-04-19'
+  modified: '2026-04-19'
+binds:
+- namespace: env
+  keys:
+    AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
+    AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
+    AWS_REGION: AWS_REGION
+capability:
+  consumes:
+  - type: http
+    namespace: msk
+    baseUri: http://kafka.{region}.amazonaws.com
+    description: Amazon MSK REST API
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{AWS_ACCESS_KEY_ID}}'
+      placement: header
+    resources:
+    - name: default
+      path: /
+      description: Amazon MSK resources
+      operations:
+      - name: list-scram-secrets
+        method: GET
+        description: ListScramSecrets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: clusterArn
+          in: path
+          type: string
+          required: true
+          description: "\n            <p>The arn of the cluster.</p>"
+        - name: maxResults
+          in: query
+          type: integer
+          required: false
+          description: "\n            <p>The maxResults of the query.</p>"
+        - name: nextToken
+          in: query
+          type: string
+          required: false
+          description: "\n            <p>The nextToken of the query.</p>"
+        - name: MaxResults
+          in: query
+          type: string
+          required: false
+          description: Pagination limit
+        - name: NextToken
+          in: query
+          type: string
+          required: false
+          description: Pagination token
+      - name: batch-associate-scram-secret
+        method: POST
+        description: BatchAssociateScramSecret
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: clusterArn
+          in: path
+          type: string
+          required: true
+          description: "\n            <p>The Amazon Resource Name (ARN) of the cluster to be updated.</p>"
+        body:
+          type: json
+          data: {}
+      - name: batch-disassociate-scram-secret
+        method: PATCH
+        description: BatchDisassociateScramSecret
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: clusterArn
+          in: path
+          type: string
+          required: true
+          description: "\n            <p>The Amazon Resource Name (ARN) of the cluster to be updated.</p>"
+        body:
+          type: json
+          data: {}
+      - name: list-clusters
+        method: GET
+        description: ListClusters
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: clusterNameFilter
+          in: query
+          type: string
+          required: false
+          description: "\n            <p>Specify a prefix of the name of the clusters that you want to list. The service lists all the clusters whose names start with this prefix.</p>"
+        - name: maxResults
+          in: query
+          type: integer
+          required: false
+          description: "\n            <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>"
+        - name: nextToken
+          in: query
+          type: string
+          required: false
+          description: "\n            <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. \n            To get the next batch, provide
+            this token in your next request.</p>"
+        - name: MaxResults
+          in: query
+          type: string
+          required: false
+          description: Pagination limit
+        - name: NextToken
+          in: query
+          type: string
+          required: false
+          description: Pagination token
+      - name: create-cluster
+        method: POST
+        description: CreateCluster
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        body:
+          type: json
+          data: {}
+      - name: list-clusters-v2
+        method: GET
+        description: ListClustersV2
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: clusterNameFilter
+          in: query
+          type: string
+          required: false
+          description: "\n            <p>Specify a prefix of the names of the clusters that you want to list. The service lists all the clusters whose names start with this prefix.</p>"
+        - name: clusterTypeFilter
+          in: query
+          type: string
+          required: false
+          description: "\n            <p>Specify either PROVISIONED or SERVERLESS.</p>"
+        - name: maxResults
+          in: query
+          type: integer
+          required: false
+          description: "\n            <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>"
+        - name: nextToken
+          in: query
+          type: string
+          required: false
+          description: "\n            <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. \n            To get the next batch, provide
+            this token in your next request.</p>"
+        - name: MaxResults
+          in: query
+          type: string
+          required: false
+          description: Pagination limit
+        - name: NextToken
+          in: query
+          type: string
+          required: false
+          description: Pagination token
+      - name: create-cluster-v2
+        method: POST
+        description: CreateClusterV2
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        body:
+          type: json
+          data: {}
+      - name: list-configurations
+        method: GET
+        description: ListConfigurations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: maxResults
+          in: query
+          type: integer
+          required: false
+          description: "\n            <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>"
+        - name: nextToken
+          in: query
+          type: string
+          required: false
+          description: "\n            <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. \n            To get the next batch, provide
+            this token in your next request.</p>"
+        - name: MaxResults
+          in: query
+          type: string
+          required: false
+          description: Pagination limit
+        - name: NextToken
+          in: query
+          type: string
+          required: false
+          description: Pagination token
+      - name: create-configuration
+        method: POST
+        description: CreateConfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        body:
+          type: json
+          data: {}
+      - name: describe-cluster
+        method: GET
+        description: DescribeCluster
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: clusterArn
+          in: path
+          type: string
+          required: true
+          description: "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>"
+      - name: delete-cluster
+        method: DELETE
+        description: DeleteCluster
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: clusterArn
+          in: path
+          type: string
+          required: true
+          description: "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>"
+        - name: currentVersion
+          in: query
+          type: string
+          required: false
+          description: "\n            <p>The current version of the MSK cluster.</p>"
+      - name: describe-configuration
+        method: GET
+        description: DescribeConfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: arn
+          in: path
+          type: string
+          required: true
+          description: "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration and all of its revisions.</p>"
+      - name: update-configuration
+        method: PUT
+        description: UpdateConfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: arn
+          in: path
+          type: string
+          required: true
+          description: "\n            <p>The Amazon Resource Name (ARN) of the configuration.</p>"
+        body:
+          type: json
+          data: {}
+      - name: delete-configuration
+        method: DELETE
+        description: DeleteConfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: arn
+          in: path
+          type: string
+          required: true
+          description: "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration.</p>"
+      - name: describe-cluster-v2
+        method: GET
+        description: DescribeClusterV2
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: clusterArn
+          in: path
+          type: string
+          required: true
+          description: "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>"
+      - name: describe-cluster-operation
+        method: GET
+        description: DescribeClusterOperation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: clusterOperationArn
+          in: path
+          type: string
+          required: true
+          description: "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies the MSK cluster operation.</p>"
+      - name: describe-configuration-revision
+        method: GET
+        description: DescribeConfigurationRevision
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: arn
+          in: path
+          type: string
+          required: true
+          description: "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration and all of its revisions.</p>"
+        - name: revision
+          in: path
+          type: integer
+          required: true
+          description: "\n            <p>A string that uniquely identifies a revision of an MSK configuration.</p>"
+      - name: get-bootstrap-brokers
+        method: GET
+        description: GetBootstrapBrokers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: clusterArn
+          in: path
+          type: string
+          required: true
+          description: "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>"
+      - name: get-compatible-kafka-versions
+        method: GET
+        description: GetCompatibleKafkaVersions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: clusterArn
+          in: query
+          type: string
+          required: false
+          description: "\n            <p>The Amazon Resource Name (ARN) of the cluster check.</p>"
+      - name: list-cluster-operations
+        method: GET
+        description: ListClusterOperations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: clusterArn
+          in: path
+          type: string
+          required: true
+          description: "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>"
+        - name: maxResults
+          in: query
+          type: integer
+          required: false
+          description: "\n            <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>"
+        - name: nextToken
+          in: query
+          type: string
+          required: false
+          description: "\n            <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. \n            To get the next batch, provide
+            this token in your next request.</p>"
+        - name: MaxResults
+          in: query
+          type: string
+          required: false
+          description: Pagination limit
+        - name: NextToken
+          in: query
+          type: string
+          required: false
+          description: Pagination token
+      - name: list-configuration-revisions
+        method: GET
+        description: ListConfigurationRevisions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: arn
+          in: path
+          type: string
+          required: true
+          description: "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration and all of its revisions.</p>"
+        - name: maxResults
+          in: query
+          type: integer
+          required: false
+          description: "\n            <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>"
+        - name: nextToken
+          in: query
+          type: string
+          required: false
+          description: "\n            <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. \n            To get the next batch, provide
+            this token in your next request.</p>"
+        - name: MaxResults
+          in: query
+          type: string
+          required: false
+          description: Pagination limit
+        - name: NextToken
+          in: query
+          type: string
+          required: false
+          description: Pagination token
+      - name: list-kafka-versions
+        method: GET
+        description: ListKafkaVersions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: maxResults
+          in: query
+          type: integer
+          required: false
+          description: "\n            <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>"
+        - name: nextToken
+          in: query
+          type: string
+          required: false
+          description: "\n            <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. To get the next batch, provide this token
+            in your next request.</p>"
+        - name: MaxResults
+          in: query
+          type: string
+          required: false
+          description: Pagination limit
+        - name: NextToken
+          in: query
+          type: string
+          required: false
+          description: Pagination token
+      - name: list-nodes
+        method: GET
+        description: ListNodes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: clusterArn
+          in: path
+          type: string
+          required: true
+          description: "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>"
+        - name: maxResults
+          in: query
+          type: integer
+          required: false
+          description: "\n            <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>"
+        - name: nextToken
+          in: query
+          type: string
+          required: false
+          description: "\n            <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. \n            To get the next batch, provide
+            this token in your next request.</p>"
+        - name: MaxResults
+          in: query
+          type: string
+          required: false
+          description: Pagination limit
+        - name: NextToken
+          in: query
+          type: string
+          required: false
+          description: Pagination token
+      - name: list-tags-for-resource
+        method: GET
+        description: ListTagsForResource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceArn
+          in: path
+          type: string
+          required: true
+          description: "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies the resource that's associated with the tags.</p>"
+      - name: tag-resource
+        method: POST
+        description: TagResource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceArn
+          in: path
+          type: string
+          required: true
+          description: "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies the resource that's associated with the tags.</p>"
+        body:
+          type: json
+          data: {}
+      - name: reboot-broker
+        method: PUT
+        description: RebootBroker
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: clusterArn
+          in: path
+          type: string
+          required: true
+          description: "\n            <p>The Amazon Resource Name (ARN) of the cluster to be updated.</p>"
+        body:
+          type: json
+          data: {}
+      - name: untag-resource
+        method: DELETE
+        description: UntagResource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceArn
+          in: path
+          type: string
+          required: true
+          description: "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies the resource that's associated with the tags.</p>"
+        - name: tagKeys
+          in: query
+          type: array
+          required: true
+          description: "\n            <p>Tag keys must be unique for a given cluster. In addition, the following restrictions apply:</p>\n            <ul>\n               <li>\n                  <p>Each
+            tag key must be unique. If you add a tag with a key that's already in\n                  use, your new tag overwrites the existing key-value pair. </p>\n               </li>\n              \
+            \ <li>\n                  <p>You can't start a tag key with aws: because this prefix is reserved for use\n                  by  AWS.  AWS creates tags that begin with this prefix on your behalf,
+            but\n                  you can't edit or delete them.</p>\n               </li>\n               <li>\n                  <p>Tag keys must be between 1 and 128 Unicode characters in length.</p>\n\
+            \               </li>\n               <li>\n                  <p>Tag keys must consist of the following characters: Unicode letters, digits,\n                  white space, and the following
+            special characters: _ . / = + -\n                     @.</p>\n               </li>\n            </ul>"
+      - name: update-broker-count
+        method: PUT
+        description: UpdateBrokerCount
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: clusterArn
+          in: path
+          type: string
+          required: true
+          description: "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>"
+        body:
+          type: json
+          data: {}
+      - name: update-broker-type
+        method: PUT
+        description: UpdateBrokerType
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: clusterArn
+          in: path
+          type: string
+          required: true
+          description: "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>"
+        body:
+          type: json
+          data: {}
+      - name: update-broker-storage
+        method: PUT
+        description: UpdateBrokerStorage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: clusterArn
+          in: path
+          type: string
+          required: true
+          description: "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>"
+        body:
+          type: json
+          data: {}
+      - name: update-connectivity
+        method: PUT
+        description: UpdateConnectivity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: clusterArn
+          in: path
+          type: string
+          required: true
+          description: "\n            <p>The Amazon Resource Name (ARN) of the configuration.</p>"
+        body:
+          type: json
+          data: {}
+      - name: update-cluster-configuration
+        method: PUT
+        description: UpdateClusterConfiguration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: clusterArn
+          in: path
+          type: string
+          required: true
+          description: "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>"
+        body:
+          type: json
+          data: {}
+      - name: update-cluster-kafka-version
+        method: PUT
+        description: UpdateClusterKafkaVersion
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: clusterArn
+          in: path
+          type: string
+          required: true
+          description: "\n            <p>The Amazon Resource Name (ARN) of the cluster to be updated.</p>"
+        body:
+          type: json
+          data: {}
+      - name: update-monitoring
+        method: PUT
+        description: UpdateMonitoring
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: clusterArn
+          in: path
+          type: string
+          required: true
+          description: "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>"
+        body:
+          type: json
+          data: {}
+      - name: update-security
+        method: PATCH
+        description: UpdateSecurity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: clusterArn
+          in: path
+          type: string
+          required: true
+          description: "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>"
+        body:
+          type: json
+          data: {}
+      - name: update-storage
+        method: PUT
+        description: UpdateStorage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: clusterArn
+          in: path
+          type: string
+          required: true
+          description: "\n            <p>The Amazon Resource Name (ARN) of the cluster to be updated.</p>"
+        body:
+          type: json
+          data: {}
+  exposes:
+  - type: rest
+    port: 8100
+    namespace: msk-rest
+    resources:
+    - path: /v1/resources
+      name: resources
+      description: Amazon MSK resources
+      operations:
+      - method: GET
+        name: list-resources
+        description: List Amazon MSK resources
+        call: msk.list
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9100
+    namespace: msk-mcp
+    transport: http
+    tools:
+    - name: list-scram-secrets
+      description: ListScramSecrets
+      hints:
+        readOnly: true
+      call: msk.list-scram-secrets
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: batch-associate-scram-secret
+      description: BatchAssociateScramSecret
+      hints:
+        readOnly: false
+      call: msk.batch-associate-scram-secret
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: batch-disassociate-scram-secret
+      description: BatchDisassociateScramSecret
+      hints:
+        readOnly: false
+      call: msk.batch-disassociate-scram-secret
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-clusters
+      description: ListClusters
+      hints:
+        readOnly: true
+      call: msk.list-clusters
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-cluster
+      description: CreateCluster
+      hints:
+        readOnly: false
+      call: msk.create-cluster
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-clusters-v2
+      description: ListClustersV2
+      hints:
+        readOnly: true
+      call: msk.list-clusters-v2
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-cluster-v2
+      description: CreateClusterV2
+      hints:
+        readOnly: false
+      call: msk.create-cluster-v2
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-configurations
+      description: ListConfigurations
+      hints:
+        readOnly: true
+      call: msk.list-configurations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-configuration
+      description: CreateConfiguration
+      hints:
+        readOnly: false
+      call: msk.create-configuration
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: describe-cluster
+      description: DescribeCluster
+      hints:
+        readOnly: true
+      call: msk.describe-cluster
+      outputParameters:
+      - type: object
+        mapping: $.

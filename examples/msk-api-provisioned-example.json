@@ -1,0 +1,13 @@
+{
+  "BrokerNodeGroupInfo": "example-value",
+  "CurrentBrokerSoftwareInfo": "example-value",
+  "ClientAuthentication": "example-value",
+  "EncryptionInfo": "example-value",
+  "EnhancedMonitoring": "example-value",
+  "OpenMonitoring": "example-value",
+  "LoggingInfo": "example-value",
+  "NumberOfBrokerNodes": "example-value",
+  "ZookeeperConnectString": "example-value",
+  "ZookeeperConnectStringTls": "example-value",
+  "StorageMode": "example-value"
+}

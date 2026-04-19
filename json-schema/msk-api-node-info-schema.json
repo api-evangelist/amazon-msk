@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-node-info-schema.json",
+  "title": "NodeInfo",
+  "description": "\n            <p>The node information object.</p>",
+  "type": "object",
+  "properties": {
+    "AddedToClusterTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "addedToClusterTime"
+          },
+          "description": "\n            <p>The start time.</p>"
+        }
+      ]
+    },
+    "BrokerNodeInfo": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BrokerNodeInfo"
+        },
+        {
+          "xml": {
+            "name": "brokerNodeInfo"
+          },
+          "description": "\n            <p>The broker node info.</p>"
+        }
+      ]
+    },
+    "InstanceType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "instanceType"
+          },
+          "description": "\n            <p>The instance type.</p>"
+        }
+      ]
+    },
+    "NodeARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "nodeARN"
+          },
+          "description": "\n            <p>The Amazon Resource Name (ARN) of the node.</p>"
+        }
+      ]
+    },
+    "NodeType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodeType"
+        },
+        {
+          "xml": {
+            "name": "nodeType"
+          },
+          "description": "\n            <p>The node type.</p>"
+        }
+      ]
+    },
+    "ZookeeperNodeInfo": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ZookeeperNodeInfo"
+        },
+        {
+          "xml": {
+            "name": "zookeeperNodeInfo"
+          },
+          "description": "\n            <p>The ZookeeperNodeInfo.</p>"
+        }
+      ]
+    }
+  }
+}

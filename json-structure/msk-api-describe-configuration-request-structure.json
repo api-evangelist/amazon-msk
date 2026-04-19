@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-describe-configuration-request-structure.json",
+  "name": "DescribeConfigurationRequest",
+  "type": "object",
+  "description": "DescribeConfigurationRequest schema from Amazon MSK API",
+  "properties": {}
+}

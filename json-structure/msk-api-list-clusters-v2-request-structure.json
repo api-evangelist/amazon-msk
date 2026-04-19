@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-list-clusters-v2-request-structure.json",
+  "name": "ListClustersV2Request",
+  "type": "object",
+  "description": "ListClustersV2Request schema from Amazon MSK API",
+  "properties": {}
+}

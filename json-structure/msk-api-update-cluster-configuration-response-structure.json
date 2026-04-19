@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-update-cluster-configuration-response-structure.json",
+  "name": "UpdateClusterConfigurationResponse",
+  "type": "object",
+  "description": "UpdateClusterConfigurationResponse schema from Amazon MSK API",
+  "properties": {
+    "ClusterArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "clusterArn"
+          },
+          "description": "\n            <p>The Amazon Resource Name (ARN) of the cluster.</p>"
+        }
+      ]
+    },
+    "ClusterOperationArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "clusterOperationArn"
+          },
+          "description": "\n            <p>The Amazon Resource Name (ARN) of the cluster operation.</p>"
+        }
+      ]
+    }
+  }
+}

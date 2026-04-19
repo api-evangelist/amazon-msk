@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-update-connectivity-request-schema.json",
+  "title": "UpdateConnectivityRequest",
+  "description": "Request body for UpdateConnectivity.",
+  "type": "object",
+  "properties": {
+    "ConnectivityInfo": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ConnectivityInfo"
+        },
+        {
+          "xml": {
+            "name": "connectivityInfo"
+          },
+          "description": "\n            <p>Information about the broker access configuration.</p>"
+        }
+      ]
+    },
+    "CurrentVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "currentVersion"
+          },
+          "description": "\n            <p>The version of the MSK cluster to update. Cluster versions aren't simple numbers. You can describe an MSK cluster to find its version. When this update operation is successful, it generates a new cluster version.</p>"
+        }
+      ]
+    }
+  },
+  "required": [
+    "ConnectivityInfo",
+    "CurrentVersion"
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-broker-node-info-schema.json",
+  "title": "BrokerNodeInfo",
+  "description": "\n            <p>BrokerNodeInfo</p>",
+  "type": "object",
+  "properties": {
+    "AttachedENIId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "attachedENIId"
+          },
+          "description": "\n            <p>The attached elastic network interface of the broker.</p>"
+        }
+      ]
+    },
+    "BrokerId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__double"
+        },
+        {
+          "xml": {
+            "name": "brokerId"
+          },
+          "description": "\n            <p>The ID of the broker.</p>"
+        }
+      ]
+    },
+    "ClientSubnet": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "clientSubnet"
+          },
+          "description": "\n            <p>The client subnet to which this broker node belongs.</p>"
+        }
+      ]
+    },
+    "ClientVpcIpAddress": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "clientVpcIpAddress"
+          },
+          "description": "\n            <p>The virtual private cloud (VPC) of the client.</p>"
+        }
+      ]
+    },
+    "CurrentBrokerSoftwareInfo": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BrokerSoftwareInfo"
+        },
+        {
+          "xml": {
+            "name": "currentBrokerSoftwareInfo"
+          },
+          "description": "\n            <p>Information about the version of software currently deployed on the Apache Kafka brokers in the cluster.</p>"
+        }
+      ]
+    },
+    "Endpoints": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOf__string"
+        },
+        {
+          "xml": {
+            "name": "endpoints"
+          },
+          "description": "\n            <p>Endpoints for accessing the broker.</p>"
+        }
+      ]
+    }
+  }
+}

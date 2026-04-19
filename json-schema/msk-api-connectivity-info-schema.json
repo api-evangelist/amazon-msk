@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-connectivity-info-schema.json",
+  "title": "ConnectivityInfo",
+  "description": "\n            <p>Information about the broker access configuration.</p>",
+  "type": "object",
+  "properties": {
+    "PublicAccess": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PublicAccess"
+        },
+        {
+          "xml": {
+            "name": "publicAccess"
+          },
+          "description": "\n            <p>Public access control for brokers.</p>"
+        }
+      ]
+    }
+  }
+}

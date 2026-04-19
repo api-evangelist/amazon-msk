@@ -1,0 +1,13 @@
+{
+  "ClientRequestId": "id-abc123",
+  "ClusterArn": "arn:aws:service:us-east-1:123456789012:resource/example",
+  "CreationTime": "example-value",
+  "EndTime": "example-value",
+  "ErrorInfo": "example-value",
+  "OperationArn": "arn:aws:service:us-east-1:123456789012:resource/example",
+  "OperationState": "example-value",
+  "OperationSteps": "example-value",
+  "OperationType": "STANDARD",
+  "SourceClusterInfo": "example-value",
+  "TargetClusterInfo": "example-value"
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-broker-logs-structure.json",
+  "name": "BrokerLogs",
+  "type": "object",
+  "description": "BrokerLogs schema from Amazon MSK API",
+  "properties": {
+    "CloudWatchLogs": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CloudWatchLogs"
+        },
+        {
+          "xml": {
+            "name": "cloudWatchLogs"
+          }
+        }
+      ]
+    },
+    "Firehose": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Firehose"
+        },
+        {
+          "xml": {
+            "name": "firehose"
+          }
+        }
+      ]
+    },
+    "S3": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3"
+        },
+        {
+          "xml": {
+            "name": "s3"
+          }
+        }
+      ]
+    }
+  }
+}

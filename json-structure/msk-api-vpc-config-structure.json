@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-vpc-config-structure.json",
+  "name": "VpcConfig",
+  "type": "object",
+  "description": "\n            <p>The configuration of the Amazon VPCs for the cluster.</p>",
+  "properties": {
+    "SubnetIds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOf__string"
+        },
+        {
+          "xml": {
+            "name": "subnetIds"
+          },
+          "description": "\n            <p>The IDs of the subnets associated with the cluster.</p>"
+        }
+      ]
+    },
+    "SecurityGroupIds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOf__string"
+        },
+        {
+          "xml": {
+            "name": "securityGroupIds"
+          },
+          "description": "\n            <p>The IDs of the security groups associated with the cluster.</p>"
+        }
+      ]
+    }
+  },
+  "required": [
+    "SubnetIds"
+  ]
+}

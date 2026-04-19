@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-describe-configuration-revision-request-schema.json",
+  "title": "DescribeConfigurationRevisionRequest",
+  "description": "DescribeConfigurationRevisionRequest schema from Amazon MSK API",
+  "type": "object",
+  "properties": {}
+}

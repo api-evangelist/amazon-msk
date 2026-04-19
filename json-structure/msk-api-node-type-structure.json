@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-node-type-structure.json",
+  "name": "NodeType",
+  "type": "string",
+  "description": "\n            <p>The broker or Zookeeper node.</p>",
+  "enum": [
+    "BROKER"
+  ]
+}

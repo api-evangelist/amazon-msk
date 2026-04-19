@@ -1,0 +1,6 @@
+{
+  "CurrentVersion": "example-value",
+  "ProvisionedThroughput": "example-value",
+  "StorageMode": "example-value",
+  "VolumeSizeGB": "example-value"
+}

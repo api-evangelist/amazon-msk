@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-list-configurations-response-schema.json",
+  "title": "ListConfigurationsResponse",
+  "description": "ListConfigurationsResponse schema from Amazon MSK API",
+  "type": "object",
+  "properties": {
+    "Configurations": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOfConfiguration"
+        },
+        {
+          "xml": {
+            "name": "configurations"
+          },
+          "description": "\n            <p>An array of MSK configurations.</p>"
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "nextToken"
+          },
+          "description": "\n            <p>The paginated results marker. When the result of a ListConfigurations operation is truncated, the call returns NextToken in the response. \n               To get another batch of configurations, provide this token in your next request.</p>"
+        }
+      ]
+    }
+  }
+}

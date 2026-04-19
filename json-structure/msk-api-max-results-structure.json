@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-max-results-structure.json",
+  "name": "MaxResults",
+  "type": "integer",
+  "description": "MaxResults schema from Amazon MSK API",
+  "minimum": 1,
+  "maximum": 100
+}

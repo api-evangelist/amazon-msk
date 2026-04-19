@@ -1,0 +1,13 @@
+{
+  "ActiveOperationArn": "arn:aws:service:us-east-1:123456789012:resource/example",
+  "ClusterType": "STANDARD",
+  "ClusterArn": "arn:aws:service:us-east-1:123456789012:resource/example",
+  "ClusterName": "example-resource",
+  "CreationTime": "example-value",
+  "CurrentVersion": "example-value",
+  "State": "example-value",
+  "StateInfo": "example-value",
+  "Tags": "example-value",
+  "Provisioned": "example-value",
+  "Serverless": "example-value"
+}

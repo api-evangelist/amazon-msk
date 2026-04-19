@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-list-clusters-v2-response-structure.json",
+  "name": "ListClustersV2Response",
+  "type": "object",
+  "description": "ListClustersV2Response schema from Amazon MSK API",
+  "properties": {
+    "ClusterInfoList": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOfCluster"
+        },
+        {
+          "xml": {
+            "name": "clusterInfoList"
+          },
+          "description": "\n            <p>Information on each of the MSK clusters in the response.</p>"
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "nextToken"
+          },
+          "description": "\n            <p>The paginated results marker. When the result of a ListClusters operation is truncated, the call returns NextToken in the response. \n               To get another batch of clusters, provide this token in your next request.</p>"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-configuration-state-schema.json",
+  "title": "ConfigurationState",
+  "description": "\n            <p>The state of a configuration.</p>",
+  "type": "string",
+  "enum": [
+    "ACTIVE",
+    "DELETING",
+    "DELETE_FAILED"
+  ]
+}

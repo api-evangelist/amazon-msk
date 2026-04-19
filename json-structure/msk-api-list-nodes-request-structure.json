@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-list-nodes-request-structure.json",
+  "name": "ListNodesRequest",
+  "type": "object",
+  "description": "ListNodesRequest schema from Amazon MSK API",
+  "properties": {}
+}

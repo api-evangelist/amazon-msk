@@ -1,0 +1,9 @@
+{
+  "Arn": "arn:aws:service:us-east-1:123456789012:resource/example",
+  "CreationTime": "example-value",
+  "Description": "example-value",
+  "KafkaVersions": "example-value",
+  "LatestRevision": "example-value",
+  "Name": "example-resource",
+  "State": "example-value"
+}

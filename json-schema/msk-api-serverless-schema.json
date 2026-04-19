@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-serverless-schema.json",
+  "title": "Serverless",
+  "description": "\n            <p>Serverless cluster.</p>",
+  "type": "object",
+  "properties": {
+    "VpcConfigs": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__listOfVpcConfig"
+        },
+        {
+          "xml": {
+            "name": "vpcConfigs"
+          },
+          "description": "\n            <p>The configuration of the Amazon VPCs for the cluster.</p>"
+        }
+      ]
+    },
+    "ClientAuthentication": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ServerlessClientAuthentication"
+        },
+        {
+          "xml": {
+            "name": "clientAuthentication"
+          },
+          "description": "\n            <p>Includes all client authentication information.</p>"
+        }
+      ]
+    }
+  },
+  "required": [
+    "VpcConfigs"
+  ]
+}

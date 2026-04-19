@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-cluster-type-structure.json",
+  "name": "ClusterType",
+  "type": "string",
+  "description": "\n            <p>The type of cluster.</p>",
+  "enum": [
+    "PROVISIONED",
+    "SERVERLESS"
+  ]
+}

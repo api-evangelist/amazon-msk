@@ -1,0 +1,9 @@
+{
+  "BootstrapBrokerString": "example-value",
+  "BootstrapBrokerStringTls": "example-value",
+  "BootstrapBrokerStringSaslScram": "example-value",
+  "BootstrapBrokerStringSaslIam": "example-value",
+  "BootstrapBrokerStringPublicTls": "example-value",
+  "BootstrapBrokerStringPublicSaslScram": "example-value",
+  "BootstrapBrokerStringPublicSaslIam": "example-value"
+}

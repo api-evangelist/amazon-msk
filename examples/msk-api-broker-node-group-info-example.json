@@ -1,0 +1,8 @@
+{
+  "BrokerAZDistribution": "example-value",
+  "ClientSubnets": "example-value",
+  "InstanceType": "STANDARD",
+  "SecurityGroups": "example-value",
+  "StorageInfo": "example-value",
+  "ConnectivityInfo": "example-value"
+}

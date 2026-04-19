@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-serverless-sasl-schema.json",
+  "title": "ServerlessSasl",
+  "description": "\n            <p>Details for client authentication using SASL.</p>",
+  "type": "object",
+  "properties": {
+    "Iam": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Iam"
+        },
+        {
+          "xml": {
+            "name": "iam"
+          },
+          "description": "\n            <p>Indicates whether IAM access control is enabled.</p>"
+        }
+      ]
+    }
+  }
+}

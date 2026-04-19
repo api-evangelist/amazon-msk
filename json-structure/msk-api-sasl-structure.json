@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-structure/msk-api-sasl-structure.json",
+  "name": "Sasl",
+  "type": "object",
+  "description": "\n            <p>Details for client authentication using SASL.</p>",
+  "properties": {
+    "Scram": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Scram"
+        },
+        {
+          "xml": {
+            "name": "scram"
+          },
+          "description": "\n            <p>Details for SASL/SCRAM client authentication.</p>"
+        }
+      ]
+    },
+    "Iam": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Iam"
+        },
+        {
+          "xml": {
+            "name": "iam"
+          },
+          "description": "\n            <p>Indicates whether IAM access control is enabled.</p>"
+        }
+      ]
+    }
+  }
+}

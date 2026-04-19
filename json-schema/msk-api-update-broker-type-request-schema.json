@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-update-broker-type-request-schema.json",
+  "title": "UpdateBrokerTypeRequest",
+  "description": "UpdateBrokerTypeRequest schema from Amazon MSK API",
+  "type": "object",
+  "properties": {
+    "CurrentVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "currentVersion"
+          },
+          "description": "\n            <p>The cluster version that you want to change. After this operation completes successfully, the cluster will have a new version.</p>"
+        }
+      ]
+    },
+    "TargetInstanceType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "targetInstanceType"
+          },
+          "description": "\n            <p>The Amazon MSK broker type that you want all of the brokers in this cluster to be.</p>"
+        }
+      ]
+    }
+  },
+  "required": [
+    "CurrentVersion",
+    "TargetInstanceType"
+  ]
+}

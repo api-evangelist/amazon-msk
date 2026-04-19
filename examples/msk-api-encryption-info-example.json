@@ -1,0 +1,4 @@
+{
+  "EncryptionAtRest": "example-value",
+  "EncryptionInTransit": "example-value"
+}

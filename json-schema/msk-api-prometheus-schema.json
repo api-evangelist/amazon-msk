@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-prometheus-schema.json",
+  "title": "Prometheus",
+  "description": "\n            <p>Prometheus settings.</p>",
+  "type": "object",
+  "properties": {
+    "JmxExporter": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JmxExporter"
+        },
+        {
+          "xml": {
+            "name": "jmxExporter"
+          },
+          "description": "\n            <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>"
+        }
+      ]
+    },
+    "NodeExporter": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodeExporter"
+        },
+        {
+          "xml": {
+            "name": "nodeExporter"
+          },
+          "description": "\n            <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>"
+        }
+      ]
+    }
+  }
+}

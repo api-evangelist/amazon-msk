@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/json-schema/msk-api-broker-ebs-volume-info-schema.json",
+  "title": "BrokerEBSVolumeInfo",
+  "description": "\n            <p>Specifies the EBS volume upgrade information. The broker identifier must be set to the keyword ALL. This means the changes apply to all the brokers in the cluster.</p>",
+  "type": "object",
+  "properties": {
+    "KafkaBrokerNodeId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__string"
+        },
+        {
+          "xml": {
+            "name": "kafkaBrokerNodeId"
+          },
+          "description": "\n            <p>The ID of the broker to update.</p>"
+        }
+      ]
+    },
+    "ProvisionedThroughput": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ProvisionedThroughput"
+        },
+        {
+          "xml": {
+            "name": "provisionedThroughput"
+          },
+          "description": "\n            <p>EBS volume provisioned throughput information.</p>"
+        }
+      ]
+    },
+    "VolumeSizeGB": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/__integer"
+        },
+        {
+          "xml": {
+            "name": "volumeSizeGB"
+          },
+          "description": "\n            <p>Size of the EBS volume to update.</p>"
+        }
+      ]
+    }
+  },
+  "required": [
+    "KafkaBrokerNodeId"
+  ]
+}
