@@ -1,0 +1,34 @@
+---
+title: "AWS Partners driving AI adoption and bringing the future to life for media and entertainment customers worldwide"
+url: "https://aws.amazon.com/blogs/media/aws-partners-driving-ai-adoption-and-bringing-the-future-to-life-for-media-and-entertainment-customers-worldwide/"
+date: "Thu, 23 Apr 2026 17:45:59 +0000"
+author: "Christopher Bell"
+feed_url: "https://aws.amazon.com/blogs/media/feed/"
+---
+<p>As part of AWS’s Three Big Questions podcast series, leaders from AWS partners <a href="https://partners.amazonaws.com/partners/001E000000Ufa9FIAR/Thoughtworks" rel="noopener" target="_blank">Thoughtworks</a>, <a href="https://partners.amazonaws.com/partners/0018W00002Im1BWQAZ/TwelveLabs" rel="noopener" target="_blank">TwelveLabs</a>, and <a href="https://partners.amazonaws.com/partners/0010L00001nEl71QAC/LucidLink%20Corporation" rel="noopener" target="_blank">LucidLink</a> shared insights on the trends driving media and entertainment growth and innovation.</p> 
+<h3>Audience evolution</h3> 
+<p>Vishnu Nair and Parvinder Singh Kalra of Thoughtworks pointed out that the media industry is experiencing a profound generational shift in consumption patterns with younger audiences migrating to mobile devices and shorter form content. This is increasing the need for effective content personalization and tailored experiences that precisely match a viewer’s interest with available content. This is especially pronounced in sports viewing and betting environments where creating “micro opportunities” to make frequent choices or engage at a deeper level with the live event helps convert passive viewers into actively engaged platform users.</p> 
+<p>Soyoung Lee of TwelveLabs highlighted the evolution of audience engagement by using AI and semantic understanding to organize content as logical, connected stories and not just linear collections. This deeper understanding of content supports faster and more customized creation in diverse areas from sports and live events features and highlights to editing of long-form fiction features.</p> 
+<h3>Evolving content workflows</h3> 
+<p>As audience expectations are changing, so are the content workflows that produce what people are watching. Richard Yu of LucidLink highlighted the shift from highly linear workflows which stepped from production planning to content capture to post-production to distribution and delivery to now far more iterative processes. Content comes from many sources, is often processed in real-time, and is delivered immediately or remixed into new material as it is optimized for different platforms and experiences. Quality advancements in consumer grade technology has greatly expanded the rate and volume of content captured and created, which is driving corresponding changes to how content creators think about production. With new material increasingly easy to produce, access to the right portion is a growing challenge that requires new tools as Lee highlighted.</p> 
+<p>These growing collections of audio, video, visual materials, and text content are often added by multiple contributors and editors, and the producers need access along with a host of automated tools that might also act on that content. The LucidLink software enables multiple software agents and remote individual users access to these large, diverse content collections stored in Amazon S3 as if the content were local to each user which greatly simplifies operations.</p> 
+<h3>Expand content reach</h3> 
+<p>Content owners have an opportunity to drive more value from both current and archived productions by better understanding what’s valuable in the petabytes of new content created daily instead of just storing it where it “goes to die,” as Yu noted. Instead, by leveraging cloud-native collaboration coupled with better semantic understanding of what has been captured, more of the created content can be used, reducing the need for duplicated or wasted material creation. Lee cited how TwelveLabs supports multiple news broadcasters in creating content that uniquely matches their audiences on specific platforms while maintaining the essential story throughout. What is needed to explain a news item for a television broadcast is distinct from what’s needed for telling the same story on social platforms, but the key elements must be included in each version. Now editors can use draft scripts and creative targets for each platform and pull the right footage automatically.</p> 
+<p>As the Thoughtworks team noted, organizations seeking such solutions require a well-architected platform modernization strategy to support these workflows. In turn, Thoughtworks leverages a full ecosystem view considering not only specific technologies, but also capability models, company culture, and operating structures. The results include significant cost savings and accelerated deployments for customers.</p> 
+<h3>Insights</h3> 
+<ol> 
+ <li>Common themes emerged during the discussions of current trends and major industry disruptions: 1. Speed is essential at every stage and every step of content production through to delivery.</li> 
+ <li>Audiences have high expectations and if not engaged quickly, they will move on to alternatives.</li> 
+ <li>Personalization is essential for long-term engagement.</li> 
+ <li>Production is complicated by rising volumes of content captured coupled with shorter timelines and constrained budgets.</li> 
+ <li>Efficient workflows, supported by cloud-based automation and collaboration are essential components of successful production operations.</li> 
+</ol> 
+<p>Efficient platform architectures like the one from Thoughtworks, along with semantic tools from TwelveLabs supported by ready-access to content from capture to distribution as supported by LucidLink are all good examples of how to embrace the opportunities for successful media and entertainment operators.</p> 
+<h3>Three Big Questions with AWS</h3> 
+<p>View each of these interviews to dive deeper into the specific capabilities and unique perspectives:</p> 
+<ul> 
+ <li><a href="https://www.brighttalk.com/webcast/20790/667106?utm_source=AWS&amp;utm_medium=brighttalk&amp;utm_campaign=6%E2%80%A6">Vishnu Nair and Parvinder Singh Kalra of Thoughtworks</a></li> 
+ <li><a href="https://www.brighttalk.com/webcast/20790/667106?utm_source=AWS&amp;utm_medium=brighttalk&amp;utm_campaign=6%E2%80%A6">Soyoung Lee of Twelvelabs</a></li> 
+ <li><a href="https://www.brighttalk.com/webcast/20790/667117?utm_source=AWS&amp;utm_medium=brighttalk&amp;utm_campaign=6%E2%80%A6">Richard Yu of LucidLink</a></li> 
+</ul> 
+<p>AWS’s <em>Three Big Questions</em> video podcast series was live again during the NAB Show, April 19-22, 2026, from Las Vegas with more interviews with partners, customers, and experts from throughout AWS sharing their insights and success stories.</p>
