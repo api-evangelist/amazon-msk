@@ -102,6 +102,17 @@ common:
     description: Authenticate Kafka clients using IAM roles for MSK cluster access control.
   - name: AWS Glue Schema Registry
     description: Enforce data schemas for Kafka producers and consumers.
+- type: Integrations
+  url: https://aws.amazon.com/marketplace
+integrations:
+  - name: Agent Mode
+  - name: Sign in
+  - name: Become a Channel Partner
+  - name: Resources
+  - name: Sell in AWS Marketplace
+  - name: 'Why AWS Marketplace?'
+  - name: Get started in AWS Marketplace
+  - name: Manage Your Account
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
