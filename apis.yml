@@ -1,7 +1,7 @@
 aid: amazon-msk
 name: Amazon MSK
-description: Amazon Managed Streaming for Apache Kafka (Amazon MSK) is a fully managed service that enables you to build and run applications that use Apache Kafka to process streaming data, with the 
-  infrastructure management handled by AWS.
+description: Amazon Managed Streaming for Apache Kafka (Amazon MSK) is a fully managed service that enables you to build and
+  run applications that use Apache Kafka to process streaming data, with the infrastructure management handled by AWS.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
@@ -11,13 +11,13 @@ tags:
 - Media
 url: https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/apis.yml
 created: '2026-03-16'
-modified: '2026-04-19'
+modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
 - aid: amazon-msk:msk-api
   name: Amazon MSK API
-  description: Amazon Managed Streaming for Apache Kafka (Amazon MSK) is a fully managed service that enables you to build and run applications that use Apache Kafka to process streaming data, with 
-    the infrastructure management handled by AWS.
+  description: Amazon Managed Streaming for Apache Kafka (Amazon MSK) is a fully managed service that enables you to build
+    and run applications that use Apache Kafka to process streaming data, with the infrastructure management handled by AWS.
   humanURL: https://aws.amazon.com/msk/
   baseURL: http://kafka.{region}.amazonaws.com
   tags:
@@ -35,6 +35,8 @@ apis:
     url: https://aws.amazon.com/msk/pricing/
   - type: FAQ
     url: https://aws.amazon.com/msk/faqs/
+  - type: NaftikoCapability
+    url: capabilities/amazon-msk.yaml
 common:
 - type: Portal
   url: https://aws.amazon.com/msk/
@@ -62,8 +64,6 @@ common:
   url: rules/amazon-msk-spectral-rules.yml
 - type: Vocabulary
   url: vocabulary/amazon-msk-vocabulary.yaml
-- type: NaftikoCapability
-  url: capabilities/amazon-msk-media-workflow.yaml
 - type: Features
   data:
   - name: Fully Managed Kafka
@@ -105,14 +105,14 @@ common:
 - type: Integrations
   url: https://aws.amazon.com/marketplace
 integrations:
-  - name: Agent Mode
-  - name: Sign in
-  - name: Become a Channel Partner
-  - name: Resources
-  - name: Sell in AWS Marketplace
-  - name: 'Why AWS Marketplace?'
-  - name: Get started in AWS Marketplace
-  - name: Manage Your Account
+- name: Agent Mode
+- name: Sign in
+- name: Become a Channel Partner
+- name: Resources
+- name: Sell in AWS Marketplace
+- name: Why AWS Marketplace?
+- name: Get started in AWS Marketplace
+- name: Manage Your Account
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
