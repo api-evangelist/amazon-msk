@@ -1,0 +1,9 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon MSK API",
+    "version": "2018-11-14"
+  },
+  "items": [],
+  "bundled": true
+}
