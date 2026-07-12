@@ -39,6 +39,14 @@ apis:
       - type: FAQ
         url: https://aws.amazon.com/msk/faqs/
 common:
+  - type: TrustCenter
+    url: security/amazon-msk-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/amazon-msk-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/amazon-msk-domain-security.yml
+  - type: Authentication
+    url: authentication/amazon-msk-authentication.yml
   - type: Portal
     url: https://aws.amazon.com/msk/
   - type: Documentation
