@@ -39,6 +39,8 @@ apis:
       - type: FAQ
         url: https://aws.amazon.com/msk/faqs/
 common:
+  - type: AgenticAccess
+    url: agentic-access/amazon-msk-agentic-access.yml
   - type: TrustCenter
     url: security/amazon-msk-trust-center.yml
   - type: VulnerabilityDisclosure
