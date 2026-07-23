@@ -1,0 +1,330 @@
+openapi: 3.0.0
+info:
+  version: 2018-11-14
+  x-release: v4
+  title: Managed Streaming for Kafka Clusters Compatible Kafka Versions API
+  description: "\n               <p>The operations for managing an Amazon MSK cluster.</p>"
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: kafka
+  x-aws-signingName: kafka
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/kafka-2018-11-14.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://kafka.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Kafka multi-region endpoint
+- url: https://kafka.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Kafka multi-region endpoint
+- url: http://kafka.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Kafka endpoint for China (Beijing) and China (Ningxia)
+- url: https://kafka.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Kafka endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Compatible Kafka Versions
+paths:
+  /v1/compatible-kafka-versions:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: GetCompatibleKafkaVersions
+      description: "\n            <p>Gets the Apache Kafka versions to which you can update the MSK cluster.</p>"
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCompatibleKafkaVersionsResponse'
+              examples:
+                GetCompatibleKafkaVersions200Example:
+                  summary: Default GetCompatibleKafkaVersions 200 response
+                  x-microcks-default: true
+                  value:
+                    CompatibleKafkaVersions: example-value
+        '480':
+          description: BadRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestException'
+              examples:
+                GetCompatibleKafkaVersions480Example:
+                  summary: Default GetCompatibleKafkaVersions 480 response
+                  x-microcks-default: true
+                  value: {}
+        '481':
+          description: UnauthorizedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+              examples:
+                GetCompatibleKafkaVersions481Example:
+                  summary: Default GetCompatibleKafkaVersions 481 response
+                  x-microcks-default: true
+                  value: {}
+        '482':
+          description: InternalServerErrorException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorException'
+              examples:
+                GetCompatibleKafkaVersions482Example:
+                  summary: Default GetCompatibleKafkaVersions 482 response
+                  x-microcks-default: true
+                  value: {}
+        '483':
+          description: ForbiddenException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenException'
+              examples:
+                GetCompatibleKafkaVersions483Example:
+                  summary: Default GetCompatibleKafkaVersions 483 response
+                  x-microcks-default: true
+                  value: {}
+        '484':
+          description: NotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundException'
+              examples:
+                GetCompatibleKafkaVersions484Example:
+                  summary: Default GetCompatibleKafkaVersions 484 response
+                  x-microcks-default: true
+                  value: {}
+        '485':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+              examples:
+                GetCompatibleKafkaVersions485Example:
+                  summary: Default GetCompatibleKafkaVersions 485 response
+                  x-microcks-default: true
+                  value: {}
+        '486':
+          description: TooManyRequestsException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsException'
+              examples:
+                GetCompatibleKafkaVersions486Example:
+                  summary: Default GetCompatibleKafkaVersions 486 response
+                  x-microcks-default: true
+                  value: {}
+      parameters:
+      - name: clusterArn
+        in: query
+        required: false
+        description: "\n            <p>The Amazon Resource Name (ARN) of the cluster check.</p>"
+        schema:
+          type: string
+      summary: Amazon MSK Get Compatible Kafka Versions
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Compatible Kafka Versions
+components:
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    __listOf__string:
+      type: array
+      items:
+        $ref: '#/components/schemas/__string'
+    CompatibleKafkaVersion:
+      type: object
+      properties:
+        SourceVersion:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: sourceVersion
+            description: "\n            <p>An Apache Kafka version.</p>"
+        TargetVersions:
+          allOf:
+          - $ref: '#/components/schemas/__listOf__string'
+          - xml:
+              name: targetVersions
+            description: "\n            <p>A list of Apache Kafka versions.</p>"
+      description: "\n            <p>Contains source Apache Kafka versions and compatible target Apache Kafka versions.</p>"
+    GetCompatibleKafkaVersionsResponse:
+      type: object
+      properties:
+        CompatibleKafkaVersions:
+          allOf:
+          - $ref: '#/components/schemas/__listOfCompatibleKafkaVersion'
+          - xml:
+              name: compatibleKafkaVersions
+            description: "\n            <p>A list of CompatibleKafkaVersion objects.</p>"
+    InternalServerErrorException: {}
+    ForbiddenException: {}
+    UnauthorizedException: {}
+    BadRequestException: {}
+    NotFoundException: {}
+    ServiceUnavailableException: {}
+    __listOfCompatibleKafkaVersion:
+      type: array
+      items:
+        $ref: '#/components/schemas/CompatibleKafkaVersion'
+    TooManyRequestsException: {}
+    __string:
+      type: string
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/kafka/
+x-hasEquivalentPaths: true
