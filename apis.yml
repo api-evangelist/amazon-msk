@@ -4,7 +4,20 @@ description: >-
   Amazon Managed Streaming for Apache Kafka (Amazon MSK) is a fully managed service that enables you to build and run
   applications that use Apache Kafka to process streaming data, with the infrastructure management handled by AWS.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-msk.png
 tags:
   - AWS
   - Broadcasting
@@ -15,30 +28,118 @@ created: '2026-03-16'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: amazon-msk:msk-api
-    name: Amazon MSK API
-    description: >-
-      Amazon Managed Streaming for Apache Kafka (Amazon MSK) is a fully managed service that enables you to build and
-      run applications that use Apache Kafka to process streaming data, with the infrastructure management handled by
-      AWS.
-    humanURL: https://aws.amazon.com/msk/
-    baseURL: http://kafka.{region}.amazonaws.com
-    tags:
-      - Broadcasting
-      - Media Processing
-      - Media
-    properties:
-      - type: Documentation
-        url: https://docs.aws.amazon.com/msk/
-      - type: OpenAPI
-        url: openapi/amazon-msk-openapi-original.yml
-      - type: GettingStarted
-        url: https://aws.amazon.com/msk/getting-started/
-      - type: Pricing
-        url: https://aws.amazon.com/msk/pricing/
-      - type: FAQ
-        url: https://aws.amazon.com/msk/faqs/
+- aid: amazon-msk:amazon-msk-clusters-api
+  name: Amazon MSK Clusters API
+  description: The Clusters API from Amazon MSK — 18 operation(s) for clusters.
+  humanURL: https://aws.amazon.com/msk/
+  baseURL: http://kafka.{region}.amazonaws.com
+  tags:
+  - Clusters
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-msk-clusters-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/msk/
+  - type: GettingStarted
+    url: https://aws.amazon.com/msk/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/msk/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/msk/faqs/
+- aid: amazon-msk:amazon-msk-compatible-kafka-versions-api
+  name: Amazon MSK Compatible Kafka Versions API
+  description: >-
+    The Compatible Kafka Versions API from Amazon MSK — 1 operation(s) for compatible kafka versions.
+  humanURL: https://aws.amazon.com/msk/
+  baseURL: http://kafka.{region}.amazonaws.com
+  tags:
+  - Compatible Kafka Versions
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-msk-compatible-kafka-versions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/msk/
+  - type: GettingStarted
+    url: https://aws.amazon.com/msk/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/msk/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/msk/faqs/
+- aid: amazon-msk:amazon-msk-configurations-api
+  name: Amazon MSK Configurations API
+  description: The Configurations API from Amazon MSK — 4 operation(s) for configurations.
+  humanURL: https://aws.amazon.com/msk/
+  baseURL: http://kafka.{region}.amazonaws.com
+  tags:
+  - Configurations
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-msk-configurations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/msk/
+  - type: GettingStarted
+    url: https://aws.amazon.com/msk/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/msk/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/msk/faqs/
+- aid: amazon-msk:amazon-msk-kafka-versions-api
+  name: Amazon MSK Kafka Versions API
+  description: The Kafka Versions API from Amazon MSK — 1 operation(s) for kafka versions.
+  humanURL: https://aws.amazon.com/msk/
+  baseURL: http://kafka.{region}.amazonaws.com
+  tags:
+  - Kafka Versions
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-msk-kafka-versions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/msk/
+  - type: GettingStarted
+    url: https://aws.amazon.com/msk/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/msk/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/msk/faqs/
+- aid: amazon-msk:amazon-msk-operations-api
+  name: Amazon MSK Operations API
+  description: The Operations API from Amazon MSK — 1 operation(s) for operations.
+  humanURL: https://aws.amazon.com/msk/
+  baseURL: http://kafka.{region}.amazonaws.com
+  tags:
+  - Operations
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-msk-operations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/msk/
+  - type: GettingStarted
+    url: https://aws.amazon.com/msk/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/msk/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/msk/faqs/
+- aid: amazon-msk:amazon-msk-tags-api
+  name: Amazon MSK Tags API
+  description: The Tags API from Amazon MSK — 2 operation(s) for tags.
+  humanURL: https://aws.amazon.com/msk/
+  baseURL: http://kafka.{region}.amazonaws.com
+  tags:
+  - Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-msk-tags-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/msk/
+  - type: GettingStarted
+    url: https://aws.amazon.com/msk/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/msk/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/msk/faqs/
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/amazon-msk/overview
   - type: AgenticAccess
     url: agentic-access/amazon-msk-agentic-access.yml
   - type: TrustCenter
