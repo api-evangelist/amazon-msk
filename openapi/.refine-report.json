@@ -1,0 +1,24 @@
+{
+  "provider": "amazon-msk",
+  "sources": [
+    "amazon-msk-clusters-api-openapi.yml",
+    "amazon-msk-compatible-kafka-versions-api-openapi.yml",
+    "amazon-msk-configurations-api-openapi.yml",
+    "amazon-msk-kafka-versions-api-openapi.yml",
+    "amazon-msk-operations-api-openapi.yml",
+    "amazon-msk-tags-api-openapi.yml"
+  ],
+  "outputs": [
+    "amazon-msk-clusters-api-openapi.yml",
+    "amazon-msk-compatible-kafka-versions-api-openapi.yml",
+    "amazon-msk-configurations-api-openapi.yml",
+    "amazon-msk-kafka-versions-api-openapi.yml",
+    "amazon-msk-operations-api-openapi.yml",
+    "amazon-msk-tags-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

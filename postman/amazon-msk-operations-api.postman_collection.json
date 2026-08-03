@@ -1,0 +1,592 @@
+{
+  "info": {
+    "_postman_id": "78ee9162-906a-41d6-be65-9a25f5f375b9",
+    "name": "Managed Streaming for Kafka Clusters Operations API",
+    "description": "\n               <p>The operations for managing an Amazon MSK cluster.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:40:41.000Z",
+    "updatedAt": "2026-07-28T10:40:41.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-78ee9162-906a-41d6-be65-9a25f5f375b9"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "operations",
+          "item": [
+            {
+              "name": "{clusterOperationArn}",
+              "item": [
+                {
+                  "name": "Amazon MSK Describe Cluster Operation",
+                  "id": "a52da0ec-f1c3-49e5-aef9-4c0534036ff5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/operations/:clusterOperationArn",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "operations",
+                        ":clusterOperationArn"
+                      ],
+                      "variable": [
+                        {
+                          "id": "67d70bcd-5882-4237-80cf-45f62ac80dc1",
+                          "key": "clusterOperationArn",
+                          "value": "<string>",
+                          "description": "(Required) \n            <p>The Amazon Resource Name (ARN) that uniquely identifies the MSK cluster operation.</p>"
+                        }
+                      ]
+                    },
+                    "description": "\n            <p>Returns a description of the cluster operation specified by the ARN.</p>"
+                  },
+                  "response": [
+                    {
+                      "id": "540f967f-a46c-464c-a894-702f7f1db591",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/operations/:clusterOperationArn",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "operations",
+                            ":clusterOperationArn"
+                          ],
+                          "variable": [
+                            {
+                              "key": "clusterOperationArn"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"ClusterOperationInfo\": {\n    \"ClientRequestId\": \"<string>\",\n    \"ClusterArn\": \"<string>\",\n    \"CreationTime\": \"<dateTime>\",\n    \"EndTime\": \"<dateTime>\",\n    \"ErrorInfo\": {\n      \"ErrorCode\": \"<string>\",\n      \"ErrorString\": \"<string>\"\n    },\n    \"OperationArn\": \"<string>\",\n    \"OperationState\": \"<string>\",\n    \"OperationSteps\": [\n      {\n        \"StepInfo\": {\n          \"StepStatus\": \"<string>\"\n        },\n        \"StepName\": \"<string>\"\n      },\n      {\n        \"StepInfo\": {\n          \"StepStatus\": \"<string>\"\n        },\n        \"StepName\": \"<string>\"\n      }\n    ],\n    \"OperationType\": \"<string>\",\n    \"SourceClusterInfo\": {\n      \"BrokerEBSVolumeInfo\": [\n        {\n          \"KafkaBrokerNodeId\": \"<string>\",\n          \"ProvisionedThroughput\": {\n            \"Enabled\": \"<boolean>\",\n            \"VolumeThroughput\": \"<integer>\"\n          },\n          \"VolumeSizeGB\": \"<integer>\"\n        },\n        {\n          \"KafkaBrokerNodeId\": \"<string>\",\n          \"ProvisionedThroughput\": {\n            \"Enabled\": \"<boolean>\",\n            \"VolumeThroughput\": \"<integer>\"\n          },\n          \"VolumeSizeGB\": \"<integer>\"\n        }\n      ],\n      \"ConfigurationInfo\": {\n        \"Revision\": \"<integer>\",\n        \"Arn\": \"<string>\"\n      },\n      \"NumberOfBrokerNodes\": \"<integer>\",\n      \"EnhancedMonitoring\": \"PER_BROKER\",\n      \"OpenMonitoring\": {\n        \"Prometheus\": {\n          \"JmxExporter\": {\n            \"EnabledInBroker\": \"<boolean>\"\n          },\n          \"NodeExporter\": {\n            \"EnabledInBroker\": \"<boolean>\"\n          }\n        }\n      },\n      \"KafkaVersion\": \"<string>\",\n      \"LoggingInfo\": {\n        \"BrokerLogs\": {\n          \"CloudWatchLogs\": {\n            \"Enabled\": \"<boolean>\",\n            \"LogGroup\": \"<string>\"\n          },\n          \"Firehose\": {\n            \"Enabled\": \"<boolean>\",\n            \"DeliveryStream\": \"<string>\"\n          },\n          \"S3\": {\n            \"Enabled\": \"<boolean>\",\n            \"Bucket\": \"<string>\",\n            \"Prefix\": \"<string>\"\n          }\n        }\n      },\n      \"InstanceType\": \"<string>\",\n      \"ClientAuthentication\": {\n        \"Sasl\": {\n          \"Scram\": {\n            \"Enabled\": \"<boolean>\"\n          },\n          \"Iam\": {\n            \"Enabled\": \"<boolean>\"\n          }\n        },\n        \"Tls\": {\n          \"CertificateAuthorityArnList\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"Enabled\": \"<boolean>\"\n        },\n        \"Unauthenticated\": {\n          \"Enabled\": \"<boolean>\"\n        }\n      },\n      \"EncryptionInfo\": {\n        \"EncryptionAtRest\": {\n          \"DataVolumeKMSKeyId\": \"<string>\"\n        },\n        \"EncryptionInTransit\": {\n          \"ClientBroker\": \"TLS\",\n          \"InCluster\": \"<boolean>\"\n        }\n      },\n      \"ConnectivityInfo\": {\n        \"PublicAccess\": {\n          \"Type\": \"<string>\"\n        }\n      },\n      \"StorageMode\": \"LOCAL\"\n    },\n    \"TargetClusterInfo\": {\n      \"BrokerEBSVolumeInfo\": [\n        {\n          \"KafkaBrokerNodeId\": \"<string>\",\n          \"ProvisionedThroughput\": {\n            \"Enabled\": \"<boolean>\",\n            \"VolumeThroughput\": \"<integer>\"\n          },\n          \"VolumeSizeGB\": \"<integer>\"\n        },\n        {\n          \"KafkaBrokerNodeId\": \"<string>\",\n          \"ProvisionedThroughput\": {\n            \"Enabled\": \"<boolean>\",\n            \"VolumeThroughput\": \"<integer>\"\n          },\n          \"VolumeSizeGB\": \"<integer>\"\n        }\n      ],\n      \"ConfigurationInfo\": {\n        \"Revision\": \"<integer>\",\n        \"Arn\": \"<string>\"\n      },\n      \"NumberOfBrokerNodes\": \"<integer>\",\n      \"EnhancedMonitoring\": \"PER_TOPIC_PER_BROKER\",\n      \"OpenMonitoring\": {\n        \"Prometheus\": {\n          \"JmxExporter\": {\n            \"EnabledInBroker\": \"<boolean>\"\n          },\n          \"NodeExporter\": {\n            \"EnabledInBroker\": \"<boolean>\"\n          }\n        }\n      },\n      \"KafkaVersion\": \"<string>\",\n      \"LoggingInfo\": {\n        \"BrokerLogs\": {\n          \"CloudWatchLogs\": {\n            \"Enabled\": \"<boolean>\",\n            \"LogGroup\": \"<string>\"\n          },\n          \"Firehose\": {\n            \"Enabled\": \"<boolean>\",\n            \"DeliveryStream\": \"<string>\"\n          },\n          \"S3\": {\n            \"Enabled\": \"<boolean>\",\n            \"Bucket\": \"<string>\",\n            \"Prefix\": \"<string>\"\n          }\n        }\n      },\n      \"InstanceType\": \"<string>\",\n      \"ClientAuthentication\": {\n        \"Sasl\": {\n          \"Scram\": {\n            \"Enabled\": \"<boolean>\"\n          },\n          \"Iam\": {\n            \"Enabled\": \"<boolean>\"\n          }\n        },\n        \"Tls\": {\n          \"CertificateAuthorityArnList\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"Enabled\": \"<boolean>\"\n        },\n        \"Unauthenticated\": {\n          \"Enabled\": \"<boolean>\"\n        }\n      },\n      \"EncryptionInfo\": {\n        \"EncryptionAtRest\": {\n          \"DataVolumeKMSKeyId\": \"<string>\"\n        },\n        \"EncryptionInTransit\": {\n          \"ClientBroker\": \"PLAINTEXT\",\n          \"InCluster\": \"<boolean>\"\n        }\n      },\n      \"ConnectivityInfo\": {\n        \"PublicAccess\": {\n          \"Type\": \"<string>\"\n        }\n      },\n      \"StorageMode\": \"TIERED\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T10:40:42.000Z",
+                      "updatedAt": "2026-07-28T10:40:42.000Z",
+                      "uid": "35240-540f967f-a46c-464c-a894-702f7f1db591"
+                    },
+                    {
+                      "id": "a5edf325-a51a-4412-ae7d-33443b9106ce",
+                      "name": "NotFoundException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/operations/:clusterOperationArn",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "operations",
+                            ":clusterOperationArn"
+                          ],
+                          "variable": [
+                            {
+                              "key": "clusterOperationArn"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:40:42.000Z",
+                      "updatedAt": "2026-07-28T10:40:42.000Z",
+                      "uid": "35240-a5edf325-a51a-4412-ae7d-33443b9106ce"
+                    },
+                    {
+                      "id": "9c723c4f-b091-4ed9-87df-fdcffc1b8530",
+                      "name": "BadRequestException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/operations/:clusterOperationArn",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "operations",
+                            ":clusterOperationArn"
+                          ],
+                          "variable": [
+                            {
+                              "key": "clusterOperationArn"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:40:42.000Z",
+                      "updatedAt": "2026-07-28T10:40:42.000Z",
+                      "uid": "35240-9c723c4f-b091-4ed9-87df-fdcffc1b8530"
+                    },
+                    {
+                      "id": "311bb944-2398-4934-8134-a2c439383d2c",
+                      "name": "UnauthorizedException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/operations/:clusterOperationArn",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "operations",
+                            ":clusterOperationArn"
+                          ],
+                          "variable": [
+                            {
+                              "key": "clusterOperationArn"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:40:42.000Z",
+                      "updatedAt": "2026-07-28T10:40:42.000Z",
+                      "uid": "35240-311bb944-2398-4934-8134-a2c439383d2c"
+                    },
+                    {
+                      "id": "1aaccc4f-6479-40b9-bdc0-786366f3e353",
+                      "name": "InternalServerErrorException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/operations/:clusterOperationArn",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "operations",
+                            ":clusterOperationArn"
+                          ],
+                          "variable": [
+                            {
+                              "key": "clusterOperationArn"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:40:42.000Z",
+                      "updatedAt": "2026-07-28T10:40:42.000Z",
+                      "uid": "35240-1aaccc4f-6479-40b9-bdc0-786366f3e353"
+                    },
+                    {
+                      "id": "83897321-a318-4129-a31c-5db6cb7c6726",
+                      "name": "ForbiddenException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/operations/:clusterOperationArn",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "operations",
+                            ":clusterOperationArn"
+                          ],
+                          "variable": [
+                            {
+                              "key": "clusterOperationArn"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:40:42.000Z",
+                      "updatedAt": "2026-07-28T10:40:42.000Z",
+                      "uid": "35240-83897321-a318-4129-a31c-5db6cb7c6726"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T10:40:42.000Z",
+                  "updatedAt": "2026-07-28T10:40:42.000Z",
+                  "uid": "35240-a52da0ec-f1c3-49e5-aef9-4c0534036ff5"
+                }
+              ],
+              "id": "d3a0f9b6-8115-4cd4-b44e-4e8c3a295bf7",
+              "createdAt": "2026-07-28T10:40:42.000Z",
+              "updatedAt": "2026-07-28T10:40:42.000Z",
+              "uid": "35240-d3a0f9b6-8115-4cd4-b44e-4e8c3a295bf7"
+            }
+          ],
+          "id": "725492e0-970b-4eb0-83fe-348988ec80ef",
+          "createdAt": "2026-07-28T10:40:42.000Z",
+          "updatedAt": "2026-07-28T10:40:42.000Z",
+          "uid": "35240-725492e0-970b-4eb0-83fe-348988ec80ef"
+        }
+      ],
+      "id": "89f4a0a7-52ad-4cdc-86ab-195a13e69778",
+      "createdAt": "2026-07-28T10:40:42.000Z",
+      "updatedAt": "2026-07-28T10:40:42.000Z",
+      "uid": "35240-89f4a0a7-52ad-4cdc-86ab-195a13e69778"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://kafka.{{region}}.amazonaws.com"
+    }
+  ]
+}
