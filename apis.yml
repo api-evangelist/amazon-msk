@@ -25,7 +25,7 @@ tags:
   - Media
 url: https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/apis.yml
 created: '2026-03-16'
-modified: '2026-05-19'
+modified: '2026-08-06'
 specificationVersion: '0.19'
 apis:
 - aid: amazon-msk:amazon-msk-clusters-api
@@ -138,6 +138,12 @@ apis:
   - type: FAQ
     url: https://aws.amazon.com/msk/faqs/
 common:
+  - type: AgentSkills
+    name: Agent Skills for Amazon MSK
+    url: https://github.com/aws/agent-toolkit-for-aws/tree/main/skills/specialized-skills/analytics-skills
+  - type: MCPDocumentation
+    name: AWS Agent Toolkit Documentation
+    url: https://docs.aws.amazon.com/agent-toolkit/latest/userguide/getting-started-aws-mcp-server.html
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/amazon-msk/overview
   - type: AgenticAccess
