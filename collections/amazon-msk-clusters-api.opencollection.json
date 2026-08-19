@@ -1,0 +1,1325 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Managed Streaming for Kafka Clusters API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Clusters",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon MSK List Scram Secrets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://kafka.{region}.amazonaws.com/v1/clusters/:clusterArn/scram-secrets",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterArn",
+                "value": "",
+                "type": "path",
+                "description": "\n            <p>The arn of the cluster.</p>"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "\n            <p>The maxResults of the query.</p>"
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "\n            <p>The nextToken of the query.</p>"
+              },
+              {
+                "name": "MaxResults",
+                "value": "",
+                "type": "query",
+                "description": "Pagination limit"
+              },
+              {
+                "name": "NextToken",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token"
+              }
+            ]
+          },
+          "docs": "\n            <p>Returns a list of the Scram Secrets associated with an Amazon MSK cluster.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon MSK Batch Associate Scram Secret",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://kafka.{region}.amazonaws.com/v1/clusters/:clusterArn/scram-secrets",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterArn",
+                "value": "",
+                "type": "path",
+                "description": "\n            <p>The Amazon Resource Name (ARN) of the cluster to be updated.</p>"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "\n            <p>Associates one or more Scram Secrets with an Amazon MSK cluster.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon MSK Batch Disassociate Scram Secret",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "http://kafka.{region}.amazonaws.com/v1/clusters/:clusterArn/scram-secrets",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterArn",
+                "value": "",
+                "type": "path",
+                "description": "\n            <p>The Amazon Resource Name (ARN) of the cluster to be updated.</p>"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "\n            <p>Disassociates one or more Scram Secrets from an Amazon MSK cluster.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon MSK List Clusters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://kafka.{region}.amazonaws.com/v1/clusters",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterNameFilter",
+                "value": "",
+                "type": "query",
+                "description": "\n            <p>Specify a prefix of the name of the clusters that you want to list. The service lists all the clusters whose names start with this prefix.</p>"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "\n            <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>"
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "\n            <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. \n            To get the next batch, provide this token in your next request.</p>"
+              },
+              {
+                "name": "MaxResults",
+                "value": "",
+                "type": "query",
+                "description": "Pagination limit"
+              },
+              {
+                "name": "NextToken",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token"
+              }
+            ]
+          },
+          "docs": "\n            <p>Returns a list of all the MSK clusters in the current Region.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon MSK Create Cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://kafka.{region}.amazonaws.com/v1/clusters",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "\n            <p>Creates a new MSK cluster.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon MSK List Clusters V2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://kafka.{region}.amazonaws.com/api/v2/clusters",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterNameFilter",
+                "value": "",
+                "type": "query",
+                "description": "\n            <p>Specify a prefix of the names of the clusters that you want to list. The service lists all the clusters whose names start with this prefix.</p>"
+              },
+              {
+                "name": "clusterTypeFilter",
+                "value": "",
+                "type": "query",
+                "description": "\n            <p>Specify either PROVISIONED or SERVERLESS.</p>"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "\n            <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>"
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "\n            <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. \n            To get the next batch, provide this token in your next request.</p>"
+              },
+              {
+                "name": "MaxResults",
+                "value": "",
+                "type": "query",
+                "description": "Pagination limit"
+              },
+              {
+                "name": "NextToken",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token"
+              }
+            ]
+          },
+          "docs": "\n            <p>Returns a list of all the MSK clusters in the current Region.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon MSK Create Cluster V2",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://kafka.{region}.amazonaws.com/api/v2/clusters",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "\n            <p>Creates a new MSK cluster.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon MSK Describe Cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://kafka.{region}.amazonaws.com/v1/clusters/:clusterArn",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterArn",
+                "value": "",
+                "type": "path",
+                "description": "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>"
+              }
+            ]
+          },
+          "docs": "\n            <p>Returns a description of the MSK cluster whose Amazon Resource Name (ARN) is specified in the request.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon MSK Delete Cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://kafka.{region}.amazonaws.com/v1/clusters/:clusterArn",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterArn",
+                "value": "",
+                "type": "path",
+                "description": "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>"
+              },
+              {
+                "name": "currentVersion",
+                "value": "",
+                "type": "query",
+                "description": "\n            <p>The current version of the MSK cluster.</p>"
+              }
+            ]
+          },
+          "docs": "\n            <p>Deletes the MSK cluster specified by the Amazon Resource Name (ARN) in the request.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon MSK Describe Cluster V2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://kafka.{region}.amazonaws.com/api/v2/clusters/:clusterArn",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterArn",
+                "value": "",
+                "type": "path",
+                "description": "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>"
+              }
+            ]
+          },
+          "docs": "\n            <p>Returns a description of the MSK cluster whose Amazon Resource Name (ARN) is specified in the request.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon MSK Get Bootstrap Brokers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://kafka.{region}.amazonaws.com/v1/clusters/:clusterArn/bootstrap-brokers",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterArn",
+                "value": "",
+                "type": "path",
+                "description": "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>"
+              }
+            ]
+          },
+          "docs": "\n            <p>A list of brokers that a client application can use to bootstrap.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon MSK List Cluster Operations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://kafka.{region}.amazonaws.com/v1/clusters/:clusterArn/operations",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterArn",
+                "value": "",
+                "type": "path",
+                "description": "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "\n            <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>"
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "\n            <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. \n            To get the next batch, provide this token in your next request.</p>"
+              },
+              {
+                "name": "MaxResults",
+                "value": "",
+                "type": "query",
+                "description": "Pagination limit"
+              },
+              {
+                "name": "NextToken",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token"
+              }
+            ]
+          },
+          "docs": "\n            <p>Returns a list of all the operations that have been performed on the specified MSK cluster.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon MSK List Nodes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://kafka.{region}.amazonaws.com/v1/clusters/:clusterArn/nodes",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterArn",
+                "value": "",
+                "type": "path",
+                "description": "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "\n            <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>"
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "\n            <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. \n            To get the next batch, provide this token in your next request.</p>"
+              },
+              {
+                "name": "MaxResults",
+                "value": "",
+                "type": "query",
+                "description": "Pagination limit"
+              },
+              {
+                "name": "NextToken",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token"
+              }
+            ]
+          },
+          "docs": "\n            <p>Returns a list of the broker nodes in the cluster.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon MSK Reboot Broker",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://kafka.{region}.amazonaws.com/v1/clusters/:clusterArn/reboot-broker",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterArn",
+                "value": "",
+                "type": "path",
+                "description": "\n            <p>The Amazon Resource Name (ARN) of the cluster to be updated.</p>"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Reboots brokers."
+        },
+        {
+          "info": {
+            "name": "Amazon MSK Update Broker Count",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://kafka.{region}.amazonaws.com/v1/clusters/:clusterArn/nodes/count",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterArn",
+                "value": "",
+                "type": "path",
+                "description": "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "\n            <p>Updates the number of broker nodes in the cluster.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon MSK Update Broker Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://kafka.{region}.amazonaws.com/v1/clusters/:clusterArn/nodes/type",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterArn",
+                "value": "",
+                "type": "path",
+                "description": "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "\n            <p>Updates EC2 instance type.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon MSK Update Broker Storage",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://kafka.{region}.amazonaws.com/v1/clusters/:clusterArn/nodes/storage",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterArn",
+                "value": "",
+                "type": "path",
+                "description": "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "\n            <p>Updates the EBS storage associated with MSK brokers.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon MSK Update Connectivity",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://kafka.{region}.amazonaws.com/v1/clusters/:clusterArn/connectivity",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterArn",
+                "value": "",
+                "type": "path",
+                "description": "\n            <p>The Amazon Resource Name (ARN) of the configuration.</p>"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "\n            <p>Updates the cluster's connectivity configuration.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon MSK Update Cluster Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://kafka.{region}.amazonaws.com/v1/clusters/:clusterArn/configuration",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterArn",
+                "value": "",
+                "type": "path",
+                "description": "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "\n            <p>Updates the cluster with the configuration that is specified in the request body.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon MSK Update Cluster Kafka Version",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://kafka.{region}.amazonaws.com/v1/clusters/:clusterArn/version",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterArn",
+                "value": "",
+                "type": "path",
+                "description": "\n            <p>The Amazon Resource Name (ARN) of the cluster to be updated.</p>"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "\n            <p>Updates the Apache Kafka version for the cluster.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon MSK Update Monitoring",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://kafka.{region}.amazonaws.com/v1/clusters/:clusterArn/monitoring",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterArn",
+                "value": "",
+                "type": "path",
+                "description": "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "\n            <p>Updates the monitoring settings for the cluster. You can use this operation to specify which Apache Kafka metrics you want Amazon MSK to send to Amazon CloudWatch. You can also specify settings for open monitoring with Prometheus.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon MSK Update Security",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "http://kafka.{region}.amazonaws.com/v1/clusters/:clusterArn/security",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterArn",
+                "value": "",
+                "type": "path",
+                "description": "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "\n            <p>Updates the security settings for the cluster. You can use this operation to specify encryption and authentication on existing clusters.</p>"
+        },
+        {
+          "info": {
+            "name": "Amazon MSK Update Storage",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://kafka.{region}.amazonaws.com/v1/clusters/:clusterArn/storage",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterArn",
+                "value": "",
+                "type": "path",
+                "description": "\n            <p>The Amazon Resource Name (ARN) of the cluster to be updated.</p>"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates cluster broker volume size (or) sets cluster storage mode to TIERED."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

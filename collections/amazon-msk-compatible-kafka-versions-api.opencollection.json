@@ -1,0 +1,75 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Managed Streaming for Kafka Clusters Compatible Kafka Versions API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Compatible Kafka Versions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon MSK Get Compatible Kafka Versions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://kafka.{region}.amazonaws.com/v1/compatible-kafka-versions",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "clusterArn",
+                "value": "",
+                "type": "query",
+                "description": "\n            <p>The Amazon Resource Name (ARN) of the cluster check.</p>"
+              }
+            ]
+          },
+          "docs": "\n            <p>Gets the Apache Kafka versions to which you can update the MSK cluster.</p>"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
