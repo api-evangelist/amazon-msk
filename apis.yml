@@ -34,6 +34,8 @@ apis:
   humanURL: https://aws.amazon.com/msk/
   baseURL: http://kafka.{region}.amazonaws.com
   tags:
+  - Cluster
+  tags_raw:
   - Clusters
   properties:
   - type: OpenAPI
@@ -106,7 +108,8 @@ apis:
   description: The Operations API from Amazon MSK — 1 operation(s) for operations.
   humanURL: https://aws.amazon.com/msk/
   baseURL: http://kafka.{region}.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - Operations
   properties:
   - type: OpenAPI
