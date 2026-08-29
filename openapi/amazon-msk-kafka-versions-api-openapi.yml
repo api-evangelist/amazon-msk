@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 2018-11-14
   x-release: v4
-  title: Managed Streaming for Kafka Clusters Kafka Versions API
+  title: Managed Streaming for Kafka Kafka Versions API
   description: "\n               <p>The operations for managing an Amazon MSK cluster.</p>"
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -24,6 +24,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/kafka-2018-11-14.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -219,6 +220,10 @@ paths:
       - Kafka Versions
 components:
   schemas:
+    __listOfKafkaVersion:
+      type: array
+      items:
+        $ref: '#/components/schemas/KafkaVersion'
     ListKafkaVersionsResponse:
       type: object
       properties:
@@ -232,12 +237,8 @@ components:
           - $ref: '#/components/schemas/__string'
           - xml:
               name: nextToken
-    KafkaVersionStatus:
-      type: string
-      enum:
-      - ACTIVE
-      - DEPRECATED
-    InternalServerErrorException: {}
+    UnauthorizedException: {}
+    ForbiddenException: {}
     KafkaVersion:
       type: object
       properties:
@@ -251,30 +252,36 @@ components:
           - $ref: '#/components/schemas/KafkaVersionStatus'
           - xml:
               name: status
-    UnauthorizedException: {}
-    BadRequestException: {}
+    KafkaVersionStatus:
+      type: string
+      enum:
+      - ACTIVE
+      - DEPRECATED
+    InternalServerErrorException: {}
     __string:
       type: string
-    ForbiddenException: {}
-    __listOfKafkaVersion:
-      type: array
-      items:
-        $ref: '#/components/schemas/KafkaVersion'
+    BadRequestException: {}
   parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
       required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -291,14 +298,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

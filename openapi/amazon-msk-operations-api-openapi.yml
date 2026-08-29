@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 2018-11-14
   x-release: v4
-  title: Managed Streaming for Kafka Clusters Operations API
+  title: Managed Streaming for Kafka Operations API
   description: "\n               <p>The operations for managing an Amazon MSK cluster.</p>"
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -24,6 +24,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/kafka-2018-11-14.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -208,118 +209,19 @@ paths:
       tags:
       - Operations
 components:
-  parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    __stringMin5Max32:
-      type: string
-      minLength: 5
-      maxLength: 32
-    DescribeClusterOperationResponse:
-      type: object
-      properties:
-        ClusterOperationInfo:
-          allOf:
-          - $ref: '#/components/schemas/ClusterOperationInfo'
-          - xml:
-              name: clusterOperationInfo
-            description: "\n            <p>Cluster operation information</p>"
-    Prometheus:
-      type: object
-      properties:
-        JmxExporter:
-          allOf:
-          - $ref: '#/components/schemas/JmxExporter'
-          - xml:
-              name: jmxExporter
-            description: "\n            <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>"
-        NodeExporter:
-          allOf:
-          - $ref: '#/components/schemas/NodeExporter'
-          - xml:
-              name: nodeExporter
-            description: "\n            <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>"
-      description: "\n            <p>Prometheus settings.</p>"
-    __listOf__string:
-      type: array
-      items:
-        $ref: '#/components/schemas/__string'
-    ConfigurationInfo:
+    JmxExporter:
       type: object
       required:
-      - Revision
-      - Arn
+      - EnabledInBroker
       properties:
-        Arn:
+        EnabledInBroker:
           allOf:
-          - $ref: '#/components/schemas/__string'
+          - $ref: '#/components/schemas/__boolean'
           - xml:
-              name: arn
-            description: "\n            <p>ARN of the configuration to use.</p>"
-        Revision:
-          allOf:
-          - $ref: '#/components/schemas/__long'
-          - xml:
-              name: revision
-            description: "\n            <p>The revision of the configuration to use.</p>"
-      description: "\n            <p>Specifies the configuration to use for the brokers.</p>"
-    EncryptionInfo:
-      type: object
-      properties:
-        EncryptionAtRest:
-          allOf:
-          - $ref: '#/components/schemas/EncryptionAtRest'
-          - xml:
-              name: encryptionAtRest
-            description: "\n            <p>The data-volume encryption details.</p>"
-        EncryptionInTransit:
-          allOf:
-          - $ref: '#/components/schemas/EncryptionInTransit'
-          - xml:
-              name: encryptionInTransit
-            description: "\n            <p>The details for encryption in transit.</p>"
-      description: "\n            <p>Includes encryption-related information, such as the AWS KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.</p>"
+              name: enabledInBroker
+            description: "\n            <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>"
+      description: "\n            <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>"
     Tls:
       type: object
       properties:
@@ -336,168 +238,18 @@ components:
               name: enabled
             description: "\n            <p>Specifies whether you want to turn on or turn off TLS authentication.</p>"
       description: "\n            <p>Details for client authentication using TLS.</p>"
-    ErrorInfo:
+    PublicAccess:
       type: object
       properties:
-        ErrorCode:
+        Type:
           allOf:
           - $ref: '#/components/schemas/__string'
           - xml:
-              name: errorCode
-            description: "\n            <p>A number describing the error programmatically.</p>"
-        ErrorString:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: errorString
-            description: "\n            <p>An optional field to provide more details about the error.</p>"
-      description: "\n            <p>Returns information about an error state of the cluster.</p>"
-    EncryptionAtRest:
-      type: object
-      required:
-      - DataVolumeKMSKeyId
-      properties:
-        DataVolumeKMSKeyId:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: dataVolumeKMSKeyId
-            description: "\n            <p>The ARN of the AWS KMS key for encrypting data at rest. If you don't specify a KMS key, MSK creates one for you and uses it.</p>"
-      description: "\n            <p>The data-volume encryption details.</p>"
+              name: type
+            description: "\n            <p>The value DISABLED indicates that public access is turned off. SERVICE_PROVIDED_EIPS indicates that public access is turned on.</p>"
+      description: Public access control for brokers.
     __integer:
       type: integer
-    S3:
-      type: object
-      required:
-      - Enabled
-      properties:
-        Bucket:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: bucket
-        Enabled:
-          allOf:
-          - $ref: '#/components/schemas/__boolean'
-          - xml:
-              name: enabled
-        Prefix:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: prefix
-    __long:
-      type: integer
-    CloudWatchLogs:
-      type: object
-      required:
-      - Enabled
-      properties:
-        Enabled:
-          allOf:
-          - $ref: '#/components/schemas/__boolean'
-          - xml:
-              name: enabled
-        LogGroup:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: logGroup
-    Unauthenticated:
-      type: object
-      properties:
-        Enabled:
-          allOf:
-          - $ref: '#/components/schemas/__boolean'
-          - xml:
-              name: enabled
-            description: "\n            <p>Specifies whether you want to turn on or turn off unauthenticated traffic to your cluster.</p>"
-    Scram:
-      type: object
-      properties:
-        Enabled:
-          allOf:
-          - $ref: '#/components/schemas/__boolean'
-          - xml:
-              name: enabled
-            description: "\n            <p>SASL/SCRAM authentication is enabled or not.</p>"
-      description: "\n            <p>Details for SASL/SCRAM client authentication.</p>"
-    OpenMonitoring:
-      type: object
-      required:
-      - Prometheus
-      properties:
-        Prometheus:
-          allOf:
-          - $ref: '#/components/schemas/Prometheus'
-          - xml:
-              name: prometheus
-            description: "\n            <p>Prometheus settings.</p>"
-      description: "\n            <p>JMX and Node monitoring for the MSK cluster.</p>"
-    InternalServerErrorException: {}
-    ProvisionedThroughput:
-      type: object
-      properties:
-        Enabled:
-          allOf:
-          - $ref: '#/components/schemas/__boolean'
-          - xml:
-              name: enabled
-            description: "\n            <p>Provisioned throughput is enabled or not.</p>"
-        VolumeThroughput:
-          allOf:
-          - $ref: '#/components/schemas/__integer'
-          - xml:
-              name: volumeThroughput
-            description: "\n            <p>Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second.</p>"
-      description: "\n            <p>Contains information about provisioned throughput for EBS storage volumes attached to kafka broker nodes.</p>"
-    BrokerLogs:
-      type: object
-      properties:
-        CloudWatchLogs:
-          allOf:
-          - $ref: '#/components/schemas/CloudWatchLogs'
-          - xml:
-              name: cloudWatchLogs
-        Firehose:
-          allOf:
-          - $ref: '#/components/schemas/Firehose'
-          - xml:
-              name: firehose
-        S3:
-          allOf:
-          - $ref: '#/components/schemas/S3'
-          - xml:
-              name: s3
-    ClientBroker:
-      type: string
-      enum:
-      - TLS
-      - TLS_PLAINTEXT
-      - PLAINTEXT
-      description: "\n            <p>Client-broker encryption in transit setting.</p>"
-    NodeExporter:
-      type: object
-      required:
-      - EnabledInBroker
-      properties:
-        EnabledInBroker:
-          allOf:
-          - $ref: '#/components/schemas/__boolean'
-          - xml:
-              name: enabledInBroker
-            description: "\n            <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>"
-      description: "\n            <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>"
-    ClusterOperationStepInfo:
-      type: object
-      properties:
-        StepStatus:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: stepStatus
-            description: "\n            <p>The steps current status.</p>"
-      description: "\n            <p>State information about the operation step.</p>"
     Sasl:
       type: object
       properties:
@@ -514,28 +266,38 @@ components:
               name: iam
             description: "\n            <p>Indicates whether IAM access control is enabled.</p>"
       description: "\n            <p>Details for client authentication using SASL.</p>"
+    Iam:
+      type: object
+      properties:
+        Enabled:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - xml:
+              name: enabled
+            description: "\n            <p>Indicates whether IAM access control is enabled.</p>"
+      description: "\n            <p>Details for IAM access control.</p>"
+    EncryptionInfo:
+      type: object
+      properties:
+        EncryptionAtRest:
+          allOf:
+          - $ref: '#/components/schemas/EncryptionAtRest'
+          - xml:
+              name: encryptionAtRest
+            description: "\n            <p>The data-volume encryption details.</p>"
+        EncryptionInTransit:
+          allOf:
+          - $ref: '#/components/schemas/EncryptionInTransit'
+          - xml:
+              name: encryptionInTransit
+            description: "\n            <p>The details for encryption in transit.</p>"
+      description: "\n            <p>Includes encryption-related information, such as the AWS KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.</p>"
     StorageMode:
       type: string
       enum:
       - LOCAL
       - TIERED
       description: Controls storage mode for various supported storage tiers.
-    JmxExporter:
-      type: object
-      required:
-      - EnabledInBroker
-      properties:
-        EnabledInBroker:
-          allOf:
-          - $ref: '#/components/schemas/__boolean'
-          - xml:
-              name: enabledInBroker
-            description: "\n            <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>"
-      description: "\n            <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>"
-    __listOfClusterOperationStep:
-      type: array
-      items:
-        $ref: '#/components/schemas/ClusterOperationStep'
     ClusterOperationInfo:
       type: object
       properties:
@@ -606,6 +368,269 @@ components:
               name: targetClusterInfo
             description: "\n            <p>Information about cluster attributes after a cluster is updated.</p>"
       description: "\n            <p>Returns information about a cluster operation.</p>"
+    ClientAuthentication:
+      type: object
+      properties:
+        Sasl:
+          allOf:
+          - $ref: '#/components/schemas/Sasl'
+          - xml:
+              name: sasl
+            description: "\n            <p>Details for ClientAuthentication using SASL.</p>"
+        Tls:
+          allOf:
+          - $ref: '#/components/schemas/Tls'
+          - xml:
+              name: tls
+            description: "\n            <p>Details for ClientAuthentication using TLS.</p>"
+        Unauthenticated:
+          allOf:
+          - $ref: '#/components/schemas/Unauthenticated'
+          - xml:
+              name: unauthenticated
+            description: "\n            <p>Contains information about unauthenticated traffic to the cluster.</p>"
+      description: "\n            <p>Includes all client authentication information.</p>"
+    S3:
+      type: object
+      required:
+      - Enabled
+      properties:
+        Bucket:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: bucket
+        Enabled:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - xml:
+              name: enabled
+        Prefix:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: prefix
+    ConfigurationInfo:
+      type: object
+      required:
+      - Revision
+      - Arn
+      properties:
+        Arn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: arn
+            description: "\n            <p>ARN of the configuration to use.</p>"
+        Revision:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - xml:
+              name: revision
+            description: "\n            <p>The revision of the configuration to use.</p>"
+      description: "\n            <p>Specifies the configuration to use for the brokers.</p>"
+    __listOfBrokerEBSVolumeInfo:
+      type: array
+      items:
+        $ref: '#/components/schemas/BrokerEBSVolumeInfo'
+    __timestampIso8601:
+      type: string
+      format: date-time
+    __boolean:
+      type: boolean
+    BrokerLogs:
+      type: object
+      properties:
+        CloudWatchLogs:
+          allOf:
+          - $ref: '#/components/schemas/CloudWatchLogs'
+          - xml:
+              name: cloudWatchLogs
+        Firehose:
+          allOf:
+          - $ref: '#/components/schemas/Firehose'
+          - xml:
+              name: firehose
+        S3:
+          allOf:
+          - $ref: '#/components/schemas/S3'
+          - xml:
+              name: s3
+    InternalServerErrorException: {}
+    NodeExporter:
+      type: object
+      required:
+      - EnabledInBroker
+      properties:
+        EnabledInBroker:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - xml:
+              name: enabledInBroker
+            description: "\n            <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>"
+      description: "\n            <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>"
+    ProvisionedThroughput:
+      type: object
+      properties:
+        Enabled:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - xml:
+              name: enabled
+            description: "\n            <p>Provisioned throughput is enabled or not.</p>"
+        VolumeThroughput:
+          allOf:
+          - $ref: '#/components/schemas/__integer'
+          - xml:
+              name: volumeThroughput
+            description: "\n            <p>Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second.</p>"
+      description: "\n            <p>Contains information about provisioned throughput for EBS storage volumes attached to kafka broker nodes.</p>"
+    EnhancedMonitoring:
+      type: string
+      enum:
+      - DEFAULT
+      - PER_BROKER
+      - PER_TOPIC_PER_BROKER
+      - PER_TOPIC_PER_PARTITION
+      description: "\n            <p>Specifies which metrics are gathered for the MSK cluster. This property has the following possible values: DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION. For a list of the metrics associated with each of these levels of monitoring, see <a href=\"https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html\">Monitoring</a>.</p>"
+    Firehose:
+      type: object
+      required:
+      - Enabled
+      properties:
+        DeliveryStream:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: deliveryStream
+        Enabled:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - xml:
+              name: enabled
+    __listOfClusterOperationStep:
+      type: array
+      items:
+        $ref: '#/components/schemas/ClusterOperationStep'
+    ClientBroker:
+      type: string
+      enum:
+      - TLS
+      - TLS_PLAINTEXT
+      - PLAINTEXT
+      description: "\n            <p>Client-broker encryption in transit setting.</p>"
+    ConnectivityInfo:
+      type: object
+      properties:
+        PublicAccess:
+          allOf:
+          - $ref: '#/components/schemas/PublicAccess'
+          - xml:
+              name: publicAccess
+            description: "\n            <p>Public access control for brokers.</p>"
+      description: "\n            <p>Information about the broker access configuration.</p>"
+    Scram:
+      type: object
+      properties:
+        Enabled:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - xml:
+              name: enabled
+            description: "\n            <p>SASL/SCRAM authentication is enabled or not.</p>"
+      description: "\n            <p>Details for SASL/SCRAM client authentication.</p>"
+    BrokerEBSVolumeInfo:
+      type: object
+      required:
+      - KafkaBrokerNodeId
+      properties:
+        KafkaBrokerNodeId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: kafkaBrokerNodeId
+            description: "\n            <p>The ID of the broker to update.</p>"
+        ProvisionedThroughput:
+          allOf:
+          - $ref: '#/components/schemas/ProvisionedThroughput'
+          - xml:
+              name: provisionedThroughput
+            description: "\n            <p>EBS volume provisioned throughput information.</p>"
+        VolumeSizeGB:
+          allOf:
+          - $ref: '#/components/schemas/__integer'
+          - xml:
+              name: volumeSizeGB
+            description: "\n            <p>Size of the EBS volume to update.</p>"
+      description: "\n            <p>Specifies the EBS volume upgrade information. The broker identifier must be set to the keyword ALL. This means the changes apply to all the brokers in the cluster.</p>"
+    OpenMonitoring:
+      type: object
+      required:
+      - Prometheus
+      properties:
+        Prometheus:
+          allOf:
+          - $ref: '#/components/schemas/Prometheus'
+          - xml:
+              name: prometheus
+            description: "\n            <p>Prometheus settings.</p>"
+      description: "\n            <p>JMX and Node monitoring for the MSK cluster.</p>"
+    UnauthorizedException: {}
+    ErrorInfo:
+      type: object
+      properties:
+        ErrorCode:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: errorCode
+            description: "\n            <p>A number describing the error programmatically.</p>"
+        ErrorString:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: errorString
+            description: "\n            <p>An optional field to provide more details about the error.</p>"
+      description: "\n            <p>Returns information about an error state of the cluster.</p>"
+    ForbiddenException: {}
+    EncryptionAtRest:
+      type: object
+      required:
+      - DataVolumeKMSKeyId
+      properties:
+        DataVolumeKMSKeyId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: dataVolumeKMSKeyId
+            description: "\n            <p>The ARN of the AWS KMS key for encrypting data at rest. If you don't specify a KMS key, MSK creates one for you and uses it.</p>"
+      description: "\n            <p>The data-volume encryption details.</p>"
+    NotFoundException: {}
+    ClusterOperationStepInfo:
+      type: object
+      properties:
+        StepStatus:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: stepStatus
+            description: "\n            <p>The steps current status.</p>"
+      description: "\n            <p>State information about the operation step.</p>"
+    CloudWatchLogs:
+      type: object
+      required:
+      - Enabled
+      properties:
+        Enabled:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - xml:
+              name: enabled
+        LogGroup:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: logGroup
     EncryptionInTransit:
       type: object
       properties:
@@ -622,14 +647,34 @@ components:
               name: inCluster
             description: "\n            <p>When set to true, it indicates that data communication among the broker nodes of the cluster is encrypted. When set to false, the communication happens in plaintext.</p>\n            <p>The default value is true.</p>"
       description: "\n            <p>The settings for encrypting data in transit.</p>"
-    ForbiddenException: {}
-    UnauthorizedException: {}
+    __long:
+      type: integer
+    DescribeClusterOperationResponse:
+      type: object
+      properties:
+        ClusterOperationInfo:
+          allOf:
+          - $ref: '#/components/schemas/ClusterOperationInfo'
+          - xml:
+              name: clusterOperationInfo
+            description: "\n            <p>Cluster operation information</p>"
+    Prometheus:
+      type: object
+      properties:
+        JmxExporter:
+          allOf:
+          - $ref: '#/components/schemas/JmxExporter'
+          - xml:
+              name: jmxExporter
+            description: "\n            <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>"
+        NodeExporter:
+          allOf:
+          - $ref: '#/components/schemas/NodeExporter'
+          - xml:
+              name: nodeExporter
+            description: "\n            <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>"
+      description: "\n            <p>Prometheus settings.</p>"
     BadRequestException: {}
-    __boolean:
-      type: boolean
-    __timestampIso8601:
-      type: string
-      format: date-time
     MutableClusterInfo:
       type: object
       properties:
@@ -706,17 +751,14 @@ components:
               name: storageMode
             description: "\n            <p>This controls storage mode for supported storage tiers.</p>"
       description: "\n            <p>Information about cluster attributes that can be updated via update APIs.</p>"
-    PublicAccess:
-      type: object
-      properties:
-        Type:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: type
-            description: "\n            <p>The value DISABLED indicates that public access is turned off. SERVICE_PROVIDED_EIPS indicates that public access is turned on.</p>"
-      description: Public access control for brokers.
-    NotFoundException: {}
+    __stringMin5Max32:
+      type: string
+      minLength: 5
+      maxLength: 32
+    __listOf__string:
+      type: array
+      items:
+        $ref: '#/components/schemas/__string'
     ClusterOperationStep:
       type: object
       properties:
@@ -733,91 +775,6 @@ components:
               name: stepName
             description: "\n            <p>The name of the step.</p>"
       description: "\n            <p>Step taken during a cluster operation.</p>"
-    ConnectivityInfo:
-      type: object
-      properties:
-        PublicAccess:
-          allOf:
-          - $ref: '#/components/schemas/PublicAccess'
-          - xml:
-              name: publicAccess
-            description: "\n            <p>Public access control for brokers.</p>"
-      description: "\n            <p>Information about the broker access configuration.</p>"
-    Firehose:
-      type: object
-      required:
-      - Enabled
-      properties:
-        DeliveryStream:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: deliveryStream
-        Enabled:
-          allOf:
-          - $ref: '#/components/schemas/__boolean'
-          - xml:
-              name: enabled
-    ClientAuthentication:
-      type: object
-      properties:
-        Sasl:
-          allOf:
-          - $ref: '#/components/schemas/Sasl'
-          - xml:
-              name: sasl
-            description: "\n            <p>Details for ClientAuthentication using SASL.</p>"
-        Tls:
-          allOf:
-          - $ref: '#/components/schemas/Tls'
-          - xml:
-              name: tls
-            description: "\n            <p>Details for ClientAuthentication using TLS.</p>"
-        Unauthenticated:
-          allOf:
-          - $ref: '#/components/schemas/Unauthenticated'
-          - xml:
-              name: unauthenticated
-            description: "\n            <p>Contains information about unauthenticated traffic to the cluster.</p>"
-      description: "\n            <p>Includes all client authentication information.</p>"
-    EnhancedMonitoring:
-      type: string
-      enum:
-      - DEFAULT
-      - PER_BROKER
-      - PER_TOPIC_PER_BROKER
-      - PER_TOPIC_PER_PARTITION
-      description: "\n            <p>Specifies which metrics are gathered for the MSK cluster. This property has the following possible values: DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION. For a list of the metrics associated with each of these levels of monitoring, see <a href=\"https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html\">Monitoring</a>.</p>"
-    __string:
-      type: string
-    __listOfBrokerEBSVolumeInfo:
-      type: array
-      items:
-        $ref: '#/components/schemas/BrokerEBSVolumeInfo'
-    BrokerEBSVolumeInfo:
-      type: object
-      required:
-      - KafkaBrokerNodeId
-      properties:
-        KafkaBrokerNodeId:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: kafkaBrokerNodeId
-            description: "\n            <p>The ID of the broker to update.</p>"
-        ProvisionedThroughput:
-          allOf:
-          - $ref: '#/components/schemas/ProvisionedThroughput'
-          - xml:
-              name: provisionedThroughput
-            description: "\n            <p>EBS volume provisioned throughput information.</p>"
-        VolumeSizeGB:
-          allOf:
-          - $ref: '#/components/schemas/__integer'
-          - xml:
-              name: volumeSizeGB
-            description: "\n            <p>Size of the EBS volume to update.</p>"
-      description: "\n            <p>Specifies the EBS volume upgrade information. The broker identifier must be set to the keyword ALL. This means the changes apply to all the brokers in the cluster.</p>"
     LoggingInfo:
       type: object
       required:
@@ -828,7 +785,7 @@ components:
           - $ref: '#/components/schemas/BrokerLogs'
           - xml:
               name: brokerLogs
-    Iam:
+    Unauthenticated:
       type: object
       properties:
         Enabled:
@@ -836,8 +793,52 @@ components:
           - $ref: '#/components/schemas/__boolean'
           - xml:
               name: enabled
-            description: "\n            <p>Indicates whether IAM access control is enabled.</p>"
-      description: "\n            <p>Details for IAM access control.</p>"
+            description: "\n            <p>Specifies whether you want to turn on or turn off unauthenticated traffic to your cluster.</p>"
+    __string:
+      type: string
+  parameters:
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

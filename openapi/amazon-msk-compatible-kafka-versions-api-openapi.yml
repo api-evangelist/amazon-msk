@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 2018-11-14
   x-release: v4
-  title: Managed Streaming for Kafka Clusters Compatible Kafka Versions API
+  title: Managed Streaming for Kafka Compatible Kafka Versions API
   description: "\n               <p>The operations for managing an Amazon MSK cluster.</p>"
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -24,6 +24,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/kafka-2018-11-14.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -231,14 +232,20 @@ paths:
       - Compatible Kafka Versions
 components:
   parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -255,8 +262,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -267,17 +274,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    __listOf__string:
-      type: array
-      items:
-        $ref: '#/components/schemas/__string'
+    InternalServerErrorException: {}
     CompatibleKafkaVersion:
       type: object
       properties:
@@ -294,6 +292,16 @@ components:
               name: targetVersions
             description: "\n            <p>A list of Apache Kafka versions.</p>"
       description: "\n            <p>Contains source Apache Kafka versions and compatible target Apache Kafka versions.</p>"
+    UnauthorizedException: {}
+    ForbiddenException: {}
+    NotFoundException: {}
+    __listOfCompatibleKafkaVersion:
+      type: array
+      items:
+        $ref: '#/components/schemas/CompatibleKafkaVersion'
+    ServiceUnavailableException: {}
+    BadRequestException: {}
+    TooManyRequestsException: {}
     GetCompatibleKafkaVersionsResponse:
       type: object
       properties:
@@ -303,17 +311,10 @@ components:
           - xml:
               name: compatibleKafkaVersions
             description: "\n            <p>A list of CompatibleKafkaVersion objects.</p>"
-    InternalServerErrorException: {}
-    ForbiddenException: {}
-    UnauthorizedException: {}
-    BadRequestException: {}
-    NotFoundException: {}
-    ServiceUnavailableException: {}
-    __listOfCompatibleKafkaVersion:
+    __listOf__string:
       type: array
       items:
-        $ref: '#/components/schemas/CompatibleKafkaVersion'
-    TooManyRequestsException: {}
+        $ref: '#/components/schemas/__string'
     __string:
       type: string
   securitySchemes:
