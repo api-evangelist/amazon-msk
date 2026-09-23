@@ -60,7 +60,8 @@
     "amazon-msk-openapi-original.yml: declared missing tag: Kafka Versions",
     "amazon-msk-openapi-original.yml: declared missing tag: Operations",
     "amazon-msk-openapi-original.yml: declared missing tag: Tags",
-    "openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0"
+    "openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
   ],
   "skipped": [
     "amazon-msk-clusters-api-openapi.yml: previously refined output, superseded by openapi/_original/",

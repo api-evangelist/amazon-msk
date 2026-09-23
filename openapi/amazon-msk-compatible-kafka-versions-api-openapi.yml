@@ -3,7 +3,7 @@ info:
   version: 2018-11-14
   x-release: v4
   title: Managed Streaming for Kafka Compatible Kafka Versions API
-  description: "\n               <p>The operations for managing an Amazon MSK cluster.</p>"
+  description: The operations for managing an Amazon MSK cluster.
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -126,7 +126,7 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     get:
       operationId: GetCompatibleKafkaVersions
-      description: "\n            <p>Gets the Apache Kafka versions to which you can update the MSK cluster.</p>"
+      description: Gets the Apache Kafka versions to which you can update the MSK cluster.
       responses:
         '200':
           description: Success
@@ -231,51 +231,27 @@ paths:
       tags:
       - Compatible Kafka Versions
 components:
-  parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
+    __listOfCompatibleKafkaVersion:
+      type: array
+      items:
+        $ref: '#/components/schemas/CompatibleKafkaVersion'
     InternalServerErrorException: {}
+    UnauthorizedException: {}
+    BadRequestException: {}
+    GetCompatibleKafkaVersionsResponse:
+      type: object
+      properties:
+        CompatibleKafkaVersions:
+          allOf:
+          - $ref: '#/components/schemas/__listOfCompatibleKafkaVersion'
+          - xml:
+              name: compatibleKafkaVersions
+            description: "\n            <p>A list of CompatibleKafkaVersion objects.</p>"
+    __listOf__string:
+      type: array
+      items:
+        $ref: '#/components/schemas/__string'
     CompatibleKafkaVersion:
       type: object
       properties:
@@ -292,31 +268,55 @@ components:
               name: targetVersions
             description: "\n            <p>A list of Apache Kafka versions.</p>"
       description: "\n            <p>Contains source Apache Kafka versions and compatible target Apache Kafka versions.</p>"
-    UnauthorizedException: {}
-    ForbiddenException: {}
-    NotFoundException: {}
-    __listOfCompatibleKafkaVersion:
-      type: array
-      items:
-        $ref: '#/components/schemas/CompatibleKafkaVersion'
-    ServiceUnavailableException: {}
-    BadRequestException: {}
     TooManyRequestsException: {}
-    GetCompatibleKafkaVersionsResponse:
-      type: object
-      properties:
-        CompatibleKafkaVersions:
-          allOf:
-          - $ref: '#/components/schemas/__listOfCompatibleKafkaVersion'
-          - xml:
-              name: compatibleKafkaVersions
-            description: "\n            <p>A list of CompatibleKafkaVersion objects.</p>"
-    __listOf__string:
-      type: array
-      items:
-        $ref: '#/components/schemas/__string'
+    ServiceUnavailableException: {}
+    ForbiddenException: {}
     __string:
       type: string
+    NotFoundException: {}
+  parameters:
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

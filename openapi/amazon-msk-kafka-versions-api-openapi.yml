@@ -3,7 +3,7 @@ info:
   version: 2018-11-14
   x-release: v4
   title: Managed Streaming for Kafka Kafka Versions API
-  description: "\n               <p>The operations for managing an Amazon MSK cluster.</p>"
+  description: The operations for managing an Amazon MSK cluster.
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -126,7 +126,7 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     get:
       operationId: ListKafkaVersions
-      description: "\n            <p>Returns a list of Apache Kafka versions.</p>"
+      description: Returns a list of Apache Kafka versions.
       responses:
         '200':
           description: Success
@@ -220,10 +220,6 @@ paths:
       - Kafka Versions
 components:
   schemas:
-    __listOfKafkaVersion:
-      type: array
-      items:
-        $ref: '#/components/schemas/KafkaVersion'
     ListKafkaVersionsResponse:
       type: object
       properties:
@@ -237,8 +233,12 @@ components:
           - $ref: '#/components/schemas/__string'
           - xml:
               name: nextToken
-    UnauthorizedException: {}
-    ForbiddenException: {}
+    __string:
+      type: string
+    __listOfKafkaVersion:
+      type: array
+      items:
+        $ref: '#/components/schemas/KafkaVersion'
     KafkaVersion:
       type: object
       properties:
@@ -258,10 +258,16 @@ components:
       - ACTIVE
       - DEPRECATED
     InternalServerErrorException: {}
-    __string:
-      type: string
+    UnauthorizedException: {}
     BadRequestException: {}
+    ForbiddenException: {}
   parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
       in: header
@@ -286,20 +292,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Date:
       name: X-Amz-Date
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

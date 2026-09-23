@@ -3,7 +3,7 @@ info:
   version: 2018-11-14
   x-release: v4
   title: Managed Streaming for Kafka Tags API
-  description: "\n               <p>The operations for managing an Amazon MSK cluster.</p>"
+  description: The operations for managing an Amazon MSK cluster.
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -126,7 +126,7 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     get:
       operationId: ListTagsForResource
-      description: "\n            <p>Returns a list of the tags associated with the specified resource.</p>"
+      description: Returns a list of the tags associated with the specified resource.
       responses:
         '200':
           description: Success
@@ -188,7 +188,7 @@ paths:
       - Tags
     post:
       operationId: TagResource
-      description: "\n            <p>Adds tags to the specified MSK resource.</p>"
+      description: Adds tags to the specified MSK resource.
       responses:
         '204':
           description: Success
@@ -263,7 +263,7 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     delete:
       operationId: UntagResource
-      description: "\n            <p>Removes the tags associated with the keys that are provided in the query.</p>"
+      description: Removes the tags associated with the keys that are provided in the query.
       responses:
         '204':
           description: Success
@@ -329,6 +329,12 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Signature:
       name: X-Amz-Signature
       in: header
@@ -337,12 +343,6 @@ components:
       required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -359,13 +359,17 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
   schemas:
+    __string:
+      type: string
+    NotFoundException: {}
+    InternalServerErrorException: {}
     ListTagsForResourceResponse:
       type: object
       properties:
@@ -375,15 +379,11 @@ components:
           - xml:
               name: tags
             description: "\n            <p>The key-value pair for the resource tag.</p>"
+    BadRequestException: {}
     __mapOf__string:
       type: object
       additionalProperties:
         $ref: '#/components/schemas/__string'
-    NotFoundException: {}
-    InternalServerErrorException: {}
-    __string:
-      type: string
-    BadRequestException: {}
   securitySchemes:
     hmac:
       type: apiKey
