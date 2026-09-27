@@ -33,9 +33,11 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-msk.png
 tags:
 - AWS
-- Broadcasting
-- Media Processing
-- Media
+- Streaming
+- Kafka
+- Apache Kafka
+- Event Streaming
+- Data Pipeline
 url: https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main/apis.yml
 created: '2026-03-16'
 modified: '2026-09-16'
@@ -155,7 +157,7 @@ apis:
     url: https://aws.amazon.com/msk/faqs/
 common:
 - type: Website
-  url: https://amazon.com
+  url: https://aws.amazon.com/msk/
 - type: AgentSkills
   name: Agent Skills for Amazon MSK
   url: https://github.com/aws/agent-toolkit-for-aws/tree/main/skills/specialized-skills/analytics-skills
@@ -253,5 +255,5 @@ integrations:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
-x-parent: aws
+x-parent: amazon-web-services
 x-relationship: product
