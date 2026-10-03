@@ -897,109 +897,32 @@ paths:
       - Configurations
 components:
   schemas:
-    DescribeConfigurationResponse:
+    ConfigurationRevision:
       type: object
+      required:
+      - Revision
+      - CreationTime
       properties:
-        Arn:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: arn
-            description: "\n            <p>The Amazon Resource Name (ARN) of the configuration.</p>"
         CreationTime:
           allOf:
           - $ref: '#/components/schemas/__timestampIso8601'
           - xml:
               name: creationTime
-            description: "\n            <p>The time when the configuration was created.</p>"
+            description: "\n            <p>The time when the configuration revision was created.</p>"
         Description:
           allOf:
           - $ref: '#/components/schemas/__string'
           - xml:
               name: description
-            description: "\n            <p>The description of the configuration.</p>"
-        KafkaVersions:
-          allOf:
-          - $ref: '#/components/schemas/__listOf__string'
-          - xml:
-              name: kafkaVersions
-            description: "\n            <p>The versions of Apache Kafka with which you can use this MSK configuration.</p>"
-        LatestRevision:
-          allOf:
-          - $ref: '#/components/schemas/ConfigurationRevision'
-          - xml:
-              name: latestRevision
-            description: "\n            <p>Latest revision of the configuration.</p>"
-        Name:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: name
-            description: "\n            <p>The name of the configuration.</p>"
-        State:
-          allOf:
-          - $ref: '#/components/schemas/ConfigurationState'
-          - xml:
-              name: state
-            description: "\n            <p>The state of the configuration. The possible states are ACTIVE, DELETING, and DELETE_FAILED. </p>"
-    __long:
-      type: integer
-    ConflictException: {}
-    DescribeConfigurationRevisionResponse:
-      type: object
-      properties:
-        Arn:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: arn
-            description: "\n            <p>The Amazon Resource Name (ARN) of the configuration.</p>"
-        CreationTime:
-          allOf:
-          - $ref: '#/components/schemas/__timestampIso8601'
-          - xml:
-              name: creationTime
-            description: "\n            <p>The time when the configuration was created.</p>"
-        Description:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: description
-            description: "\n            <p>The description of the configuration.</p>"
+            description: "\n            <p>The description of the configuration revision.</p>"
         Revision:
           allOf:
           - $ref: '#/components/schemas/__long'
           - xml:
               name: revision
             description: "\n            <p>The revision number.</p>"
-        ServerProperties:
-          allOf:
-          - $ref: '#/components/schemas/__blob'
-          - xml:
-              name: serverProperties
-            description: "\n            <p>Contents of the <filename>server.properties</filename> file. When using the API, you must ensure that the contents of the file are base64 encoded. \n               When using the AWS Management Console, the SDK, or the AWS CLI, the contents of <filename>server.properties</filename> can be in plaintext.</p>"
-    __listOfConfiguration:
-      type: array
-      items:
-        $ref: '#/components/schemas/Configuration'
-    ForbiddenException: {}
-    UnauthorizedException: {}
-    InternalServerErrorException: {}
-    ListConfigurationsResponse:
-      type: object
-      properties:
-        Configurations:
-          allOf:
-          - $ref: '#/components/schemas/__listOfConfiguration'
-          - xml:
-              name: configurations
-            description: "\n            <p>An array of MSK configurations.</p>"
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: nextToken
-            description: "\n            <p>The paginated results marker. When the result of a ListConfigurations operation is truncated, the call returns NextToken in the response. \n               To get another batch of configurations, provide this token in your next request.</p>"
+      description: "\n            <p>Describes a configuration revision.</p>"
+    BadRequestException: {}
     Configuration:
       type: object
       required:
@@ -1054,15 +977,179 @@ components:
               name: state
             description: "\n            <p>The state of the configuration. The possible states are ACTIVE, DELETING, and DELETE_FAILED. </p>"
       description: "\n            <p>Represents an MSK Configuration.</p>"
-    __string:
-      type: string
-    TooManyRequestsException: {}
+    InternalServerErrorException: {}
     __blob:
       type: string
+    NotFoundException: {}
+    ConflictException: {}
+    DeleteConfigurationResponse:
+      type: object
+      properties:
+        Arn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: arn
+            description: "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration.</p>"
+        State:
+          allOf:
+          - $ref: '#/components/schemas/ConfigurationState'
+          - xml:
+              name: state
+            description: "\n            <p>The state of the configuration. The possible states are ACTIVE, DELETING, and DELETE_FAILED. </p>"
+    ListConfigurationsResponse:
+      type: object
+      properties:
+        Configurations:
+          allOf:
+          - $ref: '#/components/schemas/__listOfConfiguration'
+          - xml:
+              name: configurations
+            description: "\n            <p>An array of MSK configurations.</p>"
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: nextToken
+            description: "\n            <p>The paginated results marker. When the result of a ListConfigurations operation is truncated, the call returns NextToken in the response. \n               To get another batch of configurations, provide this token in your next request.</p>"
+    DescribeConfigurationRevisionResponse:
+      type: object
+      properties:
+        Arn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: arn
+            description: "\n            <p>The Amazon Resource Name (ARN) of the configuration.</p>"
+        CreationTime:
+          allOf:
+          - $ref: '#/components/schemas/__timestampIso8601'
+          - xml:
+              name: creationTime
+            description: "\n            <p>The time when the configuration was created.</p>"
+        Description:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: description
+            description: "\n            <p>The description of the configuration.</p>"
+        Revision:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - xml:
+              name: revision
+            description: "\n            <p>The revision number.</p>"
+        ServerProperties:
+          allOf:
+          - $ref: '#/components/schemas/__blob'
+          - xml:
+              name: serverProperties
+            description: "\n            <p>Contents of the <filename>server.properties</filename> file. When using the API, you must ensure that the contents of the file are base64 encoded. \n               When using the AWS Management Console, the SDK, or the AWS CLI, the contents of <filename>server.properties</filename> can be in plaintext.</p>"
     __listOfConfigurationRevision:
       type: array
       items:
         $ref: '#/components/schemas/ConfigurationRevision'
+    TooManyRequestsException: {}
+    __string:
+      type: string
+    UpdateConfigurationResponse:
+      type: object
+      properties:
+        Arn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: arn
+            description: "\n            <p>The Amazon Resource Name (ARN) of the configuration.</p>"
+        LatestRevision:
+          allOf:
+          - $ref: '#/components/schemas/ConfigurationRevision'
+          - xml:
+              name: latestRevision
+            description: "\n            <p>Latest revision of the configuration.</p>"
+    UnauthorizedException: {}
+    __long:
+      type: integer
+    ServiceUnavailableException: {}
+    ForbiddenException: {}
+    __listOfConfiguration:
+      type: array
+      items:
+        $ref: '#/components/schemas/Configuration'
+    __timestampIso8601:
+      type: string
+      format: date-time
+    ConfigurationState:
+      type: string
+      enum:
+      - ACTIVE
+      - DELETING
+      - DELETE_FAILED
+      description: "\n            <p>The state of a configuration.</p>"
+    ListConfigurationRevisionsResponse:
+      type: object
+      properties:
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: nextToken
+            description: "\n            <p>Paginated results marker.</p>"
+        Revisions:
+          allOf:
+          - $ref: '#/components/schemas/__listOfConfigurationRevision'
+          - xml:
+              name: revisions
+            description: "\n            <p>List of ConfigurationRevision objects.</p>"
+    DescribeConfigurationResponse:
+      type: object
+      properties:
+        Arn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: arn
+            description: "\n            <p>The Amazon Resource Name (ARN) of the configuration.</p>"
+        CreationTime:
+          allOf:
+          - $ref: '#/components/schemas/__timestampIso8601'
+          - xml:
+              name: creationTime
+            description: "\n            <p>The time when the configuration was created.</p>"
+        Description:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: description
+            description: "\n            <p>The description of the configuration.</p>"
+        KafkaVersions:
+          allOf:
+          - $ref: '#/components/schemas/__listOf__string'
+          - xml:
+              name: kafkaVersions
+            description: "\n            <p>The versions of Apache Kafka with which you can use this MSK configuration.</p>"
+        LatestRevision:
+          allOf:
+          - $ref: '#/components/schemas/ConfigurationRevision'
+          - xml:
+              name: latestRevision
+            description: "\n            <p>Latest revision of the configuration.</p>"
+        Name:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: name
+            description: "\n            <p>The name of the configuration.</p>"
+        State:
+          allOf:
+          - $ref: '#/components/schemas/ConfigurationState'
+          - xml:
+              name: state
+            description: "\n            <p>The state of the configuration. The possible states are ACTIVE, DELETING, and DELETE_FAILED. </p>"
+    __listOf__string:
+      type: array
+      items:
+        $ref: '#/components/schemas/__string'
     CreateConfigurationResponse:
       type: object
       properties:
@@ -1096,112 +1183,7 @@ components:
           - xml:
               name: state
             description: "\n            <p>The state of the configuration. The possible states are ACTIVE, DELETING, and DELETE_FAILED. </p>"
-    __listOf__string:
-      type: array
-      items:
-        $ref: '#/components/schemas/__string'
-    NotFoundException: {}
-    ListConfigurationRevisionsResponse:
-      type: object
-      properties:
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: nextToken
-            description: "\n            <p>Paginated results marker.</p>"
-        Revisions:
-          allOf:
-          - $ref: '#/components/schemas/__listOfConfigurationRevision'
-          - xml:
-              name: revisions
-            description: "\n            <p>List of ConfigurationRevision objects.</p>"
-    ConfigurationState:
-      type: string
-      enum:
-      - ACTIVE
-      - DELETING
-      - DELETE_FAILED
-      description: "\n            <p>The state of a configuration.</p>"
-    ServiceUnavailableException: {}
-    ConfigurationRevision:
-      type: object
-      required:
-      - Revision
-      - CreationTime
-      properties:
-        CreationTime:
-          allOf:
-          - $ref: '#/components/schemas/__timestampIso8601'
-          - xml:
-              name: creationTime
-            description: "\n            <p>The time when the configuration revision was created.</p>"
-        Description:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: description
-            description: "\n            <p>The description of the configuration revision.</p>"
-        Revision:
-          allOf:
-          - $ref: '#/components/schemas/__long'
-          - xml:
-              name: revision
-            description: "\n            <p>The revision number.</p>"
-      description: "\n            <p>Describes a configuration revision.</p>"
-    DeleteConfigurationResponse:
-      type: object
-      properties:
-        Arn:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: arn
-            description: "\n            <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration.</p>"
-        State:
-          allOf:
-          - $ref: '#/components/schemas/ConfigurationState'
-          - xml:
-              name: state
-            description: "\n            <p>The state of the configuration. The possible states are ACTIVE, DELETING, and DELETE_FAILED. </p>"
-    UpdateConfigurationResponse:
-      type: object
-      properties:
-        Arn:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: arn
-            description: "\n            <p>The Amazon Resource Name (ARN) of the configuration.</p>"
-        LatestRevision:
-          allOf:
-          - $ref: '#/components/schemas/ConfigurationRevision'
-          - xml:
-              name: latestRevision
-            description: "\n            <p>Latest revision of the configuration.</p>"
-    __timestampIso8601:
-      type: string
-      format: date-time
-    BadRequestException: {}
   parameters:
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
@@ -1214,8 +1196,26 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Signature:
       name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
