@@ -220,21 +220,7 @@ paths:
       - Kafka Versions
 components:
   schemas:
-    __string:
-      type: string
-    ListKafkaVersionsResponse:
-      type: object
-      properties:
-        KafkaVersions:
-          allOf:
-          - $ref: '#/components/schemas/__listOfKafkaVersion'
-          - xml:
-              name: kafkaVersions
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: nextToken
+    ForbiddenException: {}
     KafkaVersion:
       type: object
       properties:
@@ -248,28 +234,42 @@ components:
           - $ref: '#/components/schemas/KafkaVersionStatus'
           - xml:
               name: status
-    ForbiddenException: {}
+    __string:
+      type: string
+    InternalServerErrorException: {}
+    ListKafkaVersionsResponse:
+      type: object
+      properties:
+        KafkaVersions:
+          allOf:
+          - $ref: '#/components/schemas/__listOfKafkaVersion'
+          - xml:
+              name: kafkaVersions
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: nextToken
     UnauthorizedException: {}
-    BadRequestException: {}
+    __listOfKafkaVersion:
+      type: array
+      items:
+        $ref: '#/components/schemas/KafkaVersion'
     KafkaVersionStatus:
       type: string
       enum:
       - ACTIVE
       - DEPRECATED
-    __listOfKafkaVersion:
-      type: array
-      items:
-        $ref: '#/components/schemas/KafkaVersion'
-    InternalServerErrorException: {}
+    BadRequestException: {}
   parameters:
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -280,26 +280,26 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

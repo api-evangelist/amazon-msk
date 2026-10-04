@@ -232,27 +232,14 @@ paths:
       - Compatible Kafka Versions
 components:
   schemas:
-    BadRequestException: {}
+    ForbiddenException: {}
     __listOfCompatibleKafkaVersion:
       type: array
       items:
         $ref: '#/components/schemas/CompatibleKafkaVersion'
-    InternalServerErrorException: {}
-    NotFoundException: {}
-    GetCompatibleKafkaVersionsResponse:
-      type: object
-      properties:
-        CompatibleKafkaVersions:
-          allOf:
-          - $ref: '#/components/schemas/__listOfCompatibleKafkaVersion'
-          - xml:
-              name: compatibleKafkaVersions
-            description: "\n            <p>A list of CompatibleKafkaVersion objects.</p>"
-    TooManyRequestsException: {}
-    __string:
-      type: string
-    UnauthorizedException: {}
     ServiceUnavailableException: {}
+    BadRequestException: {}
+    NotFoundException: {}
     CompatibleKafkaVersion:
       type: object
       properties:
@@ -269,20 +256,33 @@ components:
               name: targetVersions
             description: "\n            <p>A list of Apache Kafka versions.</p>"
       description: "\n            <p>Contains source Apache Kafka versions and compatible target Apache Kafka versions.</p>"
-    ForbiddenException: {}
+    TooManyRequestsException: {}
+    __string:
+      type: string
+    InternalServerErrorException: {}
+    GetCompatibleKafkaVersionsResponse:
+      type: object
+      properties:
+        CompatibleKafkaVersions:
+          allOf:
+          - $ref: '#/components/schemas/__listOfCompatibleKafkaVersion'
+          - xml:
+              name: compatibleKafkaVersions
+            description: "\n            <p>A list of CompatibleKafkaVersion objects.</p>"
+    UnauthorizedException: {}
     __listOf__string:
       type: array
       items:
         $ref: '#/components/schemas/__string'
   parameters:
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -293,14 +293,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -311,8 +311,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string

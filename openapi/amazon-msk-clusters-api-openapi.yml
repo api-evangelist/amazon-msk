@@ -3116,324 +3116,91 @@ paths:
       tags:
       - Clusters
 components:
+  parameters:
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
-    OpenMonitoringInfo:
-      type: object
-      required:
-      - Prometheus
-      properties:
-        Prometheus:
-          allOf:
-          - $ref: '#/components/schemas/PrometheusInfo'
-          - xml:
-              name: prometheus
-            description: "\n            <p>Prometheus settings.</p>"
-      description: "\n            <p>JMX and Node monitoring for the MSK cluster.</p>"
-    UpdateSecurityResponse:
+    ClientAuthentication:
       type: object
       properties:
-        ClusterArn:
+        Sasl:
           allOf:
-          - $ref: '#/components/schemas/__string'
+          - $ref: '#/components/schemas/Sasl'
           - xml:
-              name: clusterArn
-            description: "\n            <p>The Amazon Resource Name (ARN) of the cluster.</p>"
-        ClusterOperationArn:
+              name: sasl
+            description: "\n            <p>Details for ClientAuthentication using SASL.</p>"
+        Tls:
           allOf:
-          - $ref: '#/components/schemas/__string'
+          - $ref: '#/components/schemas/Tls'
           - xml:
-              name: clusterOperationArn
-            description: "\n            <p>The Amazon Resource Name (ARN) of the cluster operation.</p>"
-    __listOfCluster:
-      type: array
-      items:
-        $ref: '#/components/schemas/Cluster'
-    PublicAccess:
+              name: tls
+            description: "\n            <p>Details for ClientAuthentication using TLS.</p>"
+        Unauthenticated:
+          allOf:
+          - $ref: '#/components/schemas/Unauthenticated'
+          - xml:
+              name: unauthenticated
+            description: "\n            <p>Contains information about unauthenticated traffic to the cluster.</p>"
+      description: "\n            <p>Includes all client authentication information.</p>"
+    DescribeClusterV2Response:
       type: object
       properties:
-        Type:
+        ClusterInfo:
           allOf:
-          - $ref: '#/components/schemas/__string'
+          - $ref: '#/components/schemas/Cluster'
           - xml:
-              name: type
-            description: "\n            <p>The value DISABLED indicates that public access is turned off. SERVICE_PROVIDED_EIPS indicates that public access is turned on.</p>"
-      description: Public access control for brokers.
-    ListScramSecretsResponse:
-      type: object
-      properties:
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: nextToken
-            description: "\n            <p>Paginated results marker.</p>"
-        SecretArnList:
-          allOf:
-          - $ref: '#/components/schemas/__listOf__string'
-          - xml:
-              name: secretArnList
-            description: "\n            <p>The list of scram secrets associated with the cluster.</p>"
-    ClientBroker:
-      type: string
-      enum:
-      - TLS
-      - TLS_PLAINTEXT
-      - PLAINTEXT
-      description: "\n            <p>Client-broker encryption in transit setting.</p>"
-    __listOfUnprocessedScramSecret:
-      type: array
-      items:
-        $ref: '#/components/schemas/UnprocessedScramSecret'
-    ListNodesResponse:
-      type: object
-      properties:
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: nextToken
-            description: "\n            <p>The paginated results marker. When the result of a ListNodes operation is truncated, the call returns NextToken in the response. \n               To get another batch of nodes, provide this token in your next request.</p>"
-        NodeInfoList:
-          allOf:
-          - $ref: '#/components/schemas/__listOfNodeInfo'
-          - xml:
-              name: nodeInfoList
-            description: "\n            <p>List containing a NodeInfo object.</p>"
-    Sasl:
-      type: object
-      properties:
-        Scram:
-          allOf:
-          - $ref: '#/components/schemas/Scram'
-          - xml:
-              name: scram
-            description: "\n            <p>Details for SASL/SCRAM client authentication.</p>"
-        Iam:
-          allOf:
-          - $ref: '#/components/schemas/Iam'
-          - xml:
-              name: iam
-            description: "\n            <p>Indicates whether IAM access control is enabled.</p>"
-      description: "\n            <p>Details for client authentication using SASL.</p>"
-    RebootBrokerResponse:
-      type: object
-      properties:
-        ClusterArn:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: clusterArn
-            description: "\n            <p>The Amazon Resource Name (ARN) of the cluster.</p>"
-        ClusterOperationArn:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: clusterOperationArn
-            description: "\n            <p>The Amazon Resource Name (ARN) of the cluster operation.</p>"
-    GetBootstrapBrokersResponse:
-      type: object
-      properties:
-        BootstrapBrokerString:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: bootstrapBrokerString
-            description: "\n            <p>A string containing one or more hostname:port pairs.</p>"
-        BootstrapBrokerStringTls:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: bootstrapBrokerStringTls
-            description: "\n            <p>A string containing one or more DNS names (or IP) and TLS port pairs.</p>"
-        BootstrapBrokerStringSaslScram:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: bootstrapBrokerStringSaslScram
-            description: "\n            <p>A string containing one or more DNS names (or IP) and Sasl Scram port pairs.</p>"
-        BootstrapBrokerStringSaslIam:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: bootstrapBrokerStringSaslIam
-            description: "\n            <p>A string that contains one or more DNS names (or IP addresses) and SASL IAM port pairs.</p>"
-        BootstrapBrokerStringPublicTls:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: bootstrapBrokerStringPublicTls
-            description: "\n            <p>A string containing one or more DNS names (or IP) and TLS port pairs.</p>"
-        BootstrapBrokerStringPublicSaslScram:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: bootstrapBrokerStringPublicSaslScram
-            description: "\n            <p>A string containing one or more DNS names (or IP) and Sasl Scram port pairs.</p>"
-        BootstrapBrokerStringPublicSaslIam:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: bootstrapBrokerStringPublicSaslIam
-            description: "\n            <p>A string that contains one or more DNS names (or IP addresses) and SASL IAM port pairs.</p>"
-    OpenMonitoring:
-      type: object
-      required:
-      - Prometheus
-      properties:
-        Prometheus:
-          allOf:
-          - $ref: '#/components/schemas/Prometheus'
-          - xml:
-              name: prometheus
-            description: "\n            <p>Prometheus settings.</p>"
-      description: "\n            <p>JMX and Node monitoring for the MSK cluster.</p>"
-    ConfigurationInfo:
-      type: object
-      required:
-      - Revision
-      - Arn
-      properties:
-        Arn:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: arn
-            description: "\n            <p>ARN of the configuration to use.</p>"
-        Revision:
-          allOf:
-          - $ref: '#/components/schemas/__long'
-          - xml:
-              name: revision
-            description: "\n            <p>The revision of the configuration to use.</p>"
-      description: "\n            <p>Specifies the configuration to use for the brokers.</p>"
-    ClusterOperationInfo:
-      type: object
-      properties:
-        ClientRequestId:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: clientRequestId
-            description: "\n            <p>The ID of the API request that triggered this operation.</p>"
-        ClusterArn:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: clusterArn
-            description: "\n            <p>ARN of the cluster.</p>"
-        CreationTime:
-          allOf:
-          - $ref: '#/components/schemas/__timestampIso8601'
-          - xml:
-              name: creationTime
-            description: "\n            <p>The time that the operation was created.</p>"
-        EndTime:
-          allOf:
-          - $ref: '#/components/schemas/__timestampIso8601'
-          - xml:
-              name: endTime
-            description: "\n            <p>The time at which the operation finished.</p>"
-        ErrorInfo:
-          allOf:
-          - $ref: '#/components/schemas/ErrorInfo'
-          - xml:
-              name: errorInfo
-            description: "\n            <p>Describes the error if the operation fails.</p>"
-        OperationArn:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: operationArn
-            description: "\n            <p>ARN of the cluster operation.</p>"
-        OperationState:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: operationState
-            description: "\n            <p>State of the cluster operation.</p>"
-        OperationSteps:
-          allOf:
-          - $ref: '#/components/schemas/__listOfClusterOperationStep'
-          - xml:
-              name: operationSteps
-            description: "\n            <p>Steps completed during the operation.</p>"
-        OperationType:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: operationType
-            description: "\n            <p>Type of the cluster operation.</p>"
-        SourceClusterInfo:
-          allOf:
-          - $ref: '#/components/schemas/MutableClusterInfo'
-          - xml:
-              name: sourceClusterInfo
-            description: "\n            <p>Information about cluster attributes before a cluster is updated.</p>"
-        TargetClusterInfo:
-          allOf:
-          - $ref: '#/components/schemas/MutableClusterInfo'
-          - xml:
-              name: targetClusterInfo
-            description: "\n            <p>Information about cluster attributes after a cluster is updated.</p>"
-      description: "\n            <p>Returns information about a cluster operation.</p>"
-    UnprocessedScramSecret:
-      type: object
-      properties:
-        ErrorCode:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: errorCode
-            description: "\n            <p>Error code for associate/disassociate failure.</p>"
-        ErrorMessage:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: errorMessage
-            description: "\n            <p>Error message for associate/disassociate failure.</p>"
-        SecretArn:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: secretArn
-            description: "\n            <p>AWS Secrets Manager secret ARN.</p>"
-      description: "\n            <p>Error info for scram secret associate/disassociate failure.</p>"
-    TooManyRequestsException: {}
-    BrokerSoftwareInfo:
-      type: object
-      properties:
-        ConfigurationArn:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: configurationArn
-            description: "\n            <p>The Amazon Resource Name (ARN) of the configuration used for the cluster. This field isn't visible in this preview release.</p>"
-        ConfigurationRevision:
-          allOf:
-          - $ref: '#/components/schemas/__long'
-          - xml:
-              name: configurationRevision
-            description: "\n            <p>The revision of the configuration to use. This field isn't visible in this preview release.</p>"
-        KafkaVersion:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: kafkaVersion
-            description: "\n            <p>The version of Apache Kafka.</p>"
-      description: "\n            <p>Information about the current software installed on the cluster.</p>"
-    UnauthorizedException: {}
-    __listOfBrokerEBSVolumeInfo:
-      type: array
-      items:
-        $ref: '#/components/schemas/BrokerEBSVolumeInfo'
+              name: clusterInfo
+            description: "\n            <p>The cluster information.</p>"
+    NotFoundException: {}
     __listOfClusterOperationInfo:
       type: array
       items:
         $ref: '#/components/schemas/ClusterOperationInfo'
-    __double:
-      type: number
-      format: double
-    BatchDisassociateScramSecretResponse:
+    __integerMin1Max15:
+      type: integer
+      minimum: 1
+      maximum: 15
+    UpdateMonitoringResponse:
       type: object
       properties:
         ClusterArn:
@@ -3442,88 +3209,46 @@ components:
           - xml:
               name: clusterArn
             description: "\n            <p>The Amazon Resource Name (ARN) of the cluster.</p>"
-        UnprocessedScramSecrets:
-          allOf:
-          - $ref: '#/components/schemas/__listOfUnprocessedScramSecret'
-          - xml:
-              name: unprocessedScramSecrets
-            description: "\n            <p>List of errors when disassociating secrets to cluster.</p>"
-    MutableClusterInfo:
-      type: object
-      properties:
-        BrokerEBSVolumeInfo:
-          allOf:
-          - $ref: '#/components/schemas/__listOfBrokerEBSVolumeInfo'
-          - xml:
-              name: brokerEBSVolumeInfo
-            description: "\n            <p>Specifies the size of the EBS volume and the ID of the associated broker.</p>"
-        ConfigurationInfo:
-          allOf:
-          - $ref: '#/components/schemas/ConfigurationInfo'
-          - xml:
-              name: configurationInfo
-            description: "\n            <p>Information about the changes in the configuration of the brokers.</p>"
-        NumberOfBrokerNodes:
-          allOf:
-          - $ref: '#/components/schemas/__integer'
-          - xml:
-              name: numberOfBrokerNodes
-            description: "\n            <p>The number of broker nodes in the cluster.</p>"
-        EnhancedMonitoring:
-          allOf:
-          - $ref: '#/components/schemas/EnhancedMonitoring'
-          - xml:
-              name: enhancedMonitoring
-            description: "\n            <p>Specifies which Apache Kafka metrics Amazon MSK gathers and sends to Amazon CloudWatch for this cluster.</p>"
-        OpenMonitoring:
-          allOf:
-          - $ref: '#/components/schemas/OpenMonitoring'
-          - xml:
-              name: openMonitoring
-            description: "\n            <p>The settings for open monitoring.</p>"
-        KafkaVersion:
+        ClusterOperationArn:
           allOf:
           - $ref: '#/components/schemas/__string'
           - xml:
-              name: kafkaVersion
-            description: "\n            <p>The Apache Kafka version.</p>"
-        LoggingInfo:
+              name: clusterOperationArn
+            description: "\n            <p>The Amazon Resource Name (ARN) of the cluster operation.</p>"
+    __boolean:
+      type: boolean
+    JmxExporter:
+      type: object
+      required:
+      - EnabledInBroker
+      properties:
+        EnabledInBroker:
           allOf:
-          - $ref: '#/components/schemas/LoggingInfo'
+          - $ref: '#/components/schemas/__boolean'
           - xml:
-              name: loggingInfo
-            description: "\n            <p>You can configure your MSK cluster to send broker logs to different destination types. This is a container for the configuration details related to broker logs.</p>"
-        InstanceType:
+              name: enabledInBroker
+            description: "\n            <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>"
+      description: "\n            <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>"
+    __listOfNodeInfo:
+      type: array
+      items:
+        $ref: '#/components/schemas/NodeInfo'
+    ProvisionedThroughput:
+      type: object
+      properties:
+        Enabled:
           allOf:
-          - $ref: '#/components/schemas/__stringMin5Max32'
+          - $ref: '#/components/schemas/__boolean'
           - xml:
-              name: instanceType
-            description: "\n            <p>Information about the Amazon MSK broker type.</p>"
-        ClientAuthentication:
+              name: enabled
+            description: "\n            <p>Provisioned throughput is enabled or not.</p>"
+        VolumeThroughput:
           allOf:
-          - $ref: '#/components/schemas/ClientAuthentication'
+          - $ref: '#/components/schemas/__integer'
           - xml:
-              name: clientAuthentication
-            description: "\n            <p>Includes all client authentication information.</p>"
-        EncryptionInfo:
-          allOf:
-          - $ref: '#/components/schemas/EncryptionInfo'
-          - xml:
-              name: encryptionInfo
-            description: "\n            <p>Includes all encryption-related information.</p>"
-        ConnectivityInfo:
-          allOf:
-          - $ref: '#/components/schemas/ConnectivityInfo'
-          - xml:
-              name: connectivityInfo
-            description: "\n            <p>Information about the broker access configuration.</p>"
-        StorageMode:
-          allOf:
-          - $ref: '#/components/schemas/StorageMode'
-          - xml:
-              name: storageMode
-            description: "\n            <p>This controls storage mode for supported storage tiers.</p>"
-      description: "\n            <p>Information about cluster attributes that can be updated via update APIs.</p>"
+              name: volumeThroughput
+            description: "\n            <p>Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second.</p>"
+      description: "\n            <p>Contains information about provisioned throughput for EBS storage volumes attached to kafka broker nodes.</p>"
     BrokerNodeGroupInfo:
       type: object
       required:
@@ -3567,161 +3292,25 @@ components:
               name: connectivityInfo
             description: "\n            <p>Information about the broker access configuration.</p>"
       description: "\n            <p>Describes the setup to be used for Apache Kafka broker nodes in the cluster.</p>"
-    EnhancedMonitoring:
-      type: string
-      enum:
-      - DEFAULT
-      - PER_BROKER
-      - PER_TOPIC_PER_BROKER
-      - PER_TOPIC_PER_PARTITION
-      description: "\n            <p>Specifies which metrics are gathered for the MSK cluster. This property has the following possible values: DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION. For a list of the metrics associated with each of these levels of monitoring, see <a href=\"https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html\">Monitoring</a>.</p>"
-    CloudWatchLogs:
+    Serverless:
       type: object
       required:
-      - Enabled
+      - VpcConfigs
       properties:
-        Enabled:
+        VpcConfigs:
           allOf:
-          - $ref: '#/components/schemas/__boolean'
+          - $ref: '#/components/schemas/__listOfVpcConfig'
           - xml:
-              name: enabled
-        LogGroup:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: logGroup
-    PrometheusInfo:
-      type: object
-      properties:
-        JmxExporter:
-          allOf:
-          - $ref: '#/components/schemas/JmxExporterInfo'
-          - xml:
-              name: jmxExporter
-            description: "\n            <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>"
-        NodeExporter:
-          allOf:
-          - $ref: '#/components/schemas/NodeExporterInfo'
-          - xml:
-              name: nodeExporter
-            description: "\n            <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>"
-      description: "\n            <p>Prometheus settings.</p>"
-    __integerMin1Max15:
-      type: integer
-      minimum: 1
-      maximum: 15
-    Provisioned:
-      type: object
-      required:
-      - BrokerNodeGroupInfo
-      - NumberOfBrokerNodes
-      properties:
-        BrokerNodeGroupInfo:
-          allOf:
-          - $ref: '#/components/schemas/BrokerNodeGroupInfo'
-          - xml:
-              name: brokerNodeGroupInfo
-            description: "\n            <p>Information about the brokers.</p>"
-        CurrentBrokerSoftwareInfo:
-          allOf:
-          - $ref: '#/components/schemas/BrokerSoftwareInfo'
-          - xml:
-              name: currentBrokerSoftwareInfo
-            description: "\n            <p>Information about the Apache Kafka version deployed on the brokers.</p>"
+              name: vpcConfigs
+            description: "\n            <p>The configuration of the Amazon VPCs for the cluster.</p>"
         ClientAuthentication:
           allOf:
-          - $ref: '#/components/schemas/ClientAuthentication'
+          - $ref: '#/components/schemas/ServerlessClientAuthentication'
           - xml:
               name: clientAuthentication
             description: "\n            <p>Includes all client authentication information.</p>"
-        EncryptionInfo:
-          allOf:
-          - $ref: '#/components/schemas/EncryptionInfo'
-          - xml:
-              name: encryptionInfo
-            description: "\n            <p>Includes all encryption-related information.</p>"
-        EnhancedMonitoring:
-          allOf:
-          - $ref: '#/components/schemas/EnhancedMonitoring'
-          - xml:
-              name: enhancedMonitoring
-            description: "\n            <p>Specifies the level of monitoring for the MSK cluster. The possible values are DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION.</p>"
-        OpenMonitoring:
-          allOf:
-          - $ref: '#/components/schemas/OpenMonitoringInfo'
-          - xml:
-              name: openMonitoring
-            description: "\n            <p>The settings for open monitoring.</p>"
-        LoggingInfo:
-          allOf:
-          - $ref: '#/components/schemas/LoggingInfo'
-          - xml:
-              name: loggingInfo
-            description: "\n            <p>Log delivery information for the cluster.</p>"
-        NumberOfBrokerNodes:
-          allOf:
-          - $ref: '#/components/schemas/__integerMin1Max15'
-          - xml:
-              name: numberOfBrokerNodes
-            description: "\n            <p>The number of broker nodes in the cluster.</p>"
-        ZookeeperConnectString:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: zookeeperConnectString
-            description: "\n            <p>The connection string to use to connect to the Apache ZooKeeper cluster.</p>"
-        ZookeeperConnectStringTls:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: zookeeperConnectStringTls
-            description: "\n            <p>The connection string to use to connect to the Apache ZooKeeper cluster on a TLS port.</p>"
-        StorageMode:
-          allOf:
-          - $ref: '#/components/schemas/StorageMode'
-          - xml:
-              name: storageMode
-            description: "\n            <p>This controls storage mode for supported storage tiers.</p>"
-      description: "\n            <p>Provisioned cluster.</p>"
-    ListClustersResponse:
-      type: object
-      properties:
-        ClusterInfoList:
-          allOf:
-          - $ref: '#/components/schemas/__listOfClusterInfo'
-          - xml:
-              name: clusterInfoList
-            description: "\n            <p>Information on each of the MSK clusters in the response.</p>"
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: nextToken
-            description: "\n            <p>The paginated results marker. When the result of a ListClusters operation is truncated, the call returns NextToken in the response. \n               To get another batch of clusters, provide this token in your next request.</p>"
-    BrokerLogs:
-      type: object
-      properties:
-        CloudWatchLogs:
-          allOf:
-          - $ref: '#/components/schemas/CloudWatchLogs'
-          - xml:
-              name: cloudWatchLogs
-        Firehose:
-          allOf:
-          - $ref: '#/components/schemas/Firehose'
-          - xml:
-              name: firehose
-        S3:
-          allOf:
-          - $ref: '#/components/schemas/S3'
-          - xml:
-              name: s3
-    NodeType:
-      type: string
-      enum:
-      - BROKER
-      description: "\n            <p>The broker or Zookeeper node.</p>"
-    JmxExporterInfo:
+      description: "\n            <p>Serverless cluster.</p>"
+    NodeExporterInfo:
       type: object
       required:
       - EnabledInBroker
@@ -3731,166 +3320,8 @@ components:
           - $ref: '#/components/schemas/__boolean'
           - xml:
               name: enabledInBroker
-            description: "\n            <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>"
-      description: "\n            <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>"
-    EncryptionAtRest:
-      type: object
-      required:
-      - DataVolumeKMSKeyId
-      properties:
-        DataVolumeKMSKeyId:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: dataVolumeKMSKeyId
-            description: "\n            <p>The ARN of the AWS KMS key for encrypting data at rest. If you don't specify a KMS key, MSK creates one for you and uses it.</p>"
-      description: "\n            <p>The data-volume encryption details.</p>"
-    UpdateBrokerTypeResponse:
-      type: object
-      properties:
-        ClusterArn:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: clusterArn
-            description: "\n            <p>The Amazon Resource Name (ARN) of the cluster.</p>"
-        ClusterOperationArn:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: clusterOperationArn
-            description: "\n            <p>The Amazon Resource Name (ARN) of the cluster operation.</p>"
-    Tls:
-      type: object
-      properties:
-        CertificateAuthorityArnList:
-          allOf:
-          - $ref: '#/components/schemas/__listOf__string'
-          - xml:
-              name: certificateAuthorityArnList
-            description: "\n            <p>List of ACM Certificate Authority ARNs.</p>"
-        Enabled:
-          allOf:
-          - $ref: '#/components/schemas/__boolean'
-          - xml:
-              name: enabled
-            description: "\n            <p>Specifies whether you want to turn on or turn off TLS authentication.</p>"
-      description: "\n            <p>Details for client authentication using TLS.</p>"
-    BadRequestException: {}
-    UpdateBrokerCountResponse:
-      type: object
-      properties:
-        ClusterArn:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: clusterArn
-            description: "\n            <p>The Amazon Resource Name (ARN) of the cluster.</p>"
-        ClusterOperationArn:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: clusterOperationArn
-            description: "\n            <p>The Amazon Resource Name (ARN) of the cluster operation.</p>"
-    __stringMin1Max128:
-      type: string
-      minLength: 1
-      maxLength: 128
-    ServerlessSasl:
-      type: object
-      properties:
-        Iam:
-          allOf:
-          - $ref: '#/components/schemas/Iam'
-          - xml:
-              name: iam
-            description: "\n            <p>Indicates whether IAM access control is enabled.</p>"
-      description: "\n            <p>Details for client authentication using SASL.</p>"
-    NotFoundException: {}
-    BrokerEBSVolumeInfo:
-      type: object
-      required:
-      - KafkaBrokerNodeId
-      properties:
-        KafkaBrokerNodeId:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: kafkaBrokerNodeId
-            description: "\n            <p>The ID of the broker to update.</p>"
-        ProvisionedThroughput:
-          allOf:
-          - $ref: '#/components/schemas/ProvisionedThroughput'
-          - xml:
-              name: provisionedThroughput
-            description: "\n            <p>EBS volume provisioned throughput information.</p>"
-        VolumeSizeGB:
-          allOf:
-          - $ref: '#/components/schemas/__integer'
-          - xml:
-              name: volumeSizeGB
-            description: "\n            <p>Size of the EBS volume to update.</p>"
-      description: "\n            <p>Specifies the EBS volume upgrade information. The broker identifier must be set to the keyword ALL. This means the changes apply to all the brokers in the cluster.</p>"
-    UpdateMonitoringResponse:
-      type: object
-      properties:
-        ClusterArn:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: clusterArn
-            description: "\n            <p>The Amazon Resource Name (ARN) of the cluster.</p>"
-        ClusterOperationArn:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: clusterOperationArn
-            description: "\n            <p>The Amazon Resource Name (ARN) of the cluster operation.</p>"
-    __mapOf__string:
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/__string'
-    CreateClusterResponse:
-      type: object
-      properties:
-        ClusterArn:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: clusterArn
-            description: "\n            <p>The Amazon Resource Name (ARN) of the cluster.</p>"
-        ClusterName:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: clusterName
-            description: "\n            <p>The name of the MSK cluster.</p>"
-        State:
-          allOf:
-          - $ref: '#/components/schemas/ClusterState'
-          - xml:
-              name: state
-            description: "\n            <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>"
-    S3:
-      type: object
-      required:
-      - Enabled
-      properties:
-        Bucket:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: bucket
-        Enabled:
-          allOf:
-          - $ref: '#/components/schemas/__boolean'
-          - xml:
-              name: enabled
-        Prefix:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: prefix
+            description: "\n            <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>"
+      description: "\n            <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>"
     Firehose:
       type: object
       required:
@@ -3906,46 +3337,22 @@ components:
           - $ref: '#/components/schemas/__boolean'
           - xml:
               name: enabled
-    NodeInfo:
+    BatchAssociateScramSecretResponse:
       type: object
       properties:
-        AddedToClusterTime:
+        ClusterArn:
           allOf:
           - $ref: '#/components/schemas/__string'
           - xml:
-              name: addedToClusterTime
-            description: "\n            <p>The start time.</p>"
-        BrokerNodeInfo:
+              name: clusterArn
+            description: "\n            <p>The Amazon Resource Name (ARN) of the cluster.</p>"
+        UnprocessedScramSecrets:
           allOf:
-          - $ref: '#/components/schemas/BrokerNodeInfo'
+          - $ref: '#/components/schemas/__listOfUnprocessedScramSecret'
           - xml:
-              name: brokerNodeInfo
-            description: "\n            <p>The broker node info.</p>"
-        InstanceType:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: instanceType
-            description: "\n            <p>The instance type.</p>"
-        NodeARN:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: nodeARN
-            description: "\n            <p>The Amazon Resource Name (ARN) of the node.</p>"
-        NodeType:
-          allOf:
-          - $ref: '#/components/schemas/NodeType'
-          - xml:
-              name: nodeType
-            description: "\n            <p>The node type.</p>"
-        ZookeeperNodeInfo:
-          allOf:
-          - $ref: '#/components/schemas/ZookeeperNodeInfo'
-          - xml:
-              name: zookeeperNodeInfo
-            description: "\n            <p>The ZookeeperNodeInfo.</p>"
-      description: "\n            <p>The node information object.</p>"
+              name: unprocessedScramSecrets
+            description: "\n            <p>List of errors when associating secrets to cluster.</p>"
+    UnauthorizedException: {}
     StorageInfo:
       type: object
       properties:
@@ -3956,8 +3363,86 @@ components:
               name: ebsStorageInfo
             description: "\n            <p>EBS volume information.</p>"
       description: "\n            <p>Contains information about storage volumes attached to MSK broker nodes.</p>"
-    __integer:
-      type: integer
+    OpenMonitoring:
+      type: object
+      required:
+      - Prometheus
+      properties:
+        Prometheus:
+          allOf:
+          - $ref: '#/components/schemas/Prometheus'
+          - xml:
+              name: prometheus
+            description: "\n            <p>Prometheus settings.</p>"
+      description: "\n            <p>JMX and Node monitoring for the MSK cluster.</p>"
+    ZookeeperNodeInfo:
+      type: object
+      properties:
+        AttachedENIId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: attachedENIId
+            description: "\n            <p>The attached elastic network interface of the broker.</p>"
+        ClientVpcIpAddress:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: clientVpcIpAddress
+            description: "\n            <p>The virtual private cloud (VPC) IP address of the client.</p>"
+        Endpoints:
+          allOf:
+          - $ref: '#/components/schemas/__listOf__string'
+          - xml:
+              name: endpoints
+            description: "\n            <p>Endpoints for accessing the ZooKeeper.</p>"
+        ZookeeperId:
+          allOf:
+          - $ref: '#/components/schemas/__double'
+          - xml:
+              name: zookeeperId
+            description: "\n            <p>The role-specific ID for Zookeeper.</p>"
+        ZookeeperVersion:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: zookeeperVersion
+            description: "\n            <p>The version of Zookeeper.</p>"
+      description: "\n            <p>Zookeeper node information.</p>"
+    ListClustersResponse:
+      type: object
+      properties:
+        ClusterInfoList:
+          allOf:
+          - $ref: '#/components/schemas/__listOfClusterInfo'
+          - xml:
+              name: clusterInfoList
+            description: "\n            <p>Information on each of the MSK clusters in the response.</p>"
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: nextToken
+            description: "\n            <p>The paginated results marker. When the result of a ListClusters operation is truncated, the call returns NextToken in the response. \n               To get another batch of clusters, provide this token in your next request.</p>"
+    __listOf__string:
+      type: array
+      items:
+        $ref: '#/components/schemas/__string'
+    UpdateBrokerTypeResponse:
+      type: object
+      properties:
+        ClusterArn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: clusterArn
+            description: "\n            <p>The Amazon Resource Name (ARN) of the cluster.</p>"
+        ClusterOperationArn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: clusterOperationArn
+            description: "\n            <p>The Amazon Resource Name (ARN) of the cluster operation.</p>"
     ClusterInfo:
       type: object
       properties:
@@ -4074,38 +3559,92 @@ components:
               name: storageMode
             description: "\n            <p>This controls storage mode for supported storage tiers.</p>"
       description: "\n            <p>Returns information about a cluster.</p>"
-    __listOfClusterOperationStep:
-      type: array
-      items:
-        $ref: '#/components/schemas/ClusterOperationStep'
-    ClientAuthentication:
+    ClusterOperationInfo:
       type: object
       properties:
-        Sasl:
+        ClientRequestId:
           allOf:
-          - $ref: '#/components/schemas/Sasl'
+          - $ref: '#/components/schemas/__string'
           - xml:
-              name: sasl
-            description: "\n            <p>Details for ClientAuthentication using SASL.</p>"
-        Tls:
+              name: clientRequestId
+            description: "\n            <p>The ID of the API request that triggered this operation.</p>"
+        ClusterArn:
           allOf:
-          - $ref: '#/components/schemas/Tls'
+          - $ref: '#/components/schemas/__string'
           - xml:
-              name: tls
-            description: "\n            <p>Details for ClientAuthentication using TLS.</p>"
-        Unauthenticated:
+              name: clusterArn
+            description: "\n            <p>ARN of the cluster.</p>"
+        CreationTime:
           allOf:
-          - $ref: '#/components/schemas/Unauthenticated'
+          - $ref: '#/components/schemas/__timestampIso8601'
           - xml:
-              name: unauthenticated
-            description: "\n            <p>Contains information about unauthenticated traffic to the cluster.</p>"
-      description: "\n            <p>Includes all client authentication information.</p>"
-    BrokerAZDistribution:
-      type: string
-      enum:
-      - DEFAULT
-      description: "\n            <p>The distribution of broker nodes across Availability Zones. This is an optional parameter. If you don't specify it, Amazon MSK gives it the value DEFAULT. You can also explicitly set this parameter to the value DEFAULT. No other values are currently allowed.</p>\n         <p>Amazon MSK distributes the broker nodes evenly across the Availability Zones that correspond to the subnets you provide when you create the cluster.</p>"
-    DeleteClusterResponse:
+              name: creationTime
+            description: "\n            <p>The time that the operation was created.</p>"
+        EndTime:
+          allOf:
+          - $ref: '#/components/schemas/__timestampIso8601'
+          - xml:
+              name: endTime
+            description: "\n            <p>The time at which the operation finished.</p>"
+        ErrorInfo:
+          allOf:
+          - $ref: '#/components/schemas/ErrorInfo'
+          - xml:
+              name: errorInfo
+            description: "\n            <p>Describes the error if the operation fails.</p>"
+        OperationArn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: operationArn
+            description: "\n            <p>ARN of the cluster operation.</p>"
+        OperationState:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: operationState
+            description: "\n            <p>State of the cluster operation.</p>"
+        OperationSteps:
+          allOf:
+          - $ref: '#/components/schemas/__listOfClusterOperationStep'
+          - xml:
+              name: operationSteps
+            description: "\n            <p>Steps completed during the operation.</p>"
+        OperationType:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: operationType
+            description: "\n            <p>Type of the cluster operation.</p>"
+        SourceClusterInfo:
+          allOf:
+          - $ref: '#/components/schemas/MutableClusterInfo'
+          - xml:
+              name: sourceClusterInfo
+            description: "\n            <p>Information about cluster attributes before a cluster is updated.</p>"
+        TargetClusterInfo:
+          allOf:
+          - $ref: '#/components/schemas/MutableClusterInfo'
+          - xml:
+              name: targetClusterInfo
+            description: "\n            <p>Information about cluster attributes after a cluster is updated.</p>"
+      description: "\n            <p>Returns information about a cluster operation.</p>"
+    ListClustersV2Response:
+      type: object
+      properties:
+        ClusterInfoList:
+          allOf:
+          - $ref: '#/components/schemas/__listOfCluster'
+          - xml:
+              name: clusterInfoList
+            description: "\n            <p>Information on each of the MSK clusters in the response.</p>"
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: nextToken
+            description: "\n            <p>The paginated results marker. When the result of a ListClusters operation is truncated, the call returns NextToken in the response. \n               To get another batch of clusters, provide this token in your next request.</p>"
+    UpdateConnectivityResponse:
       type: object
       properties:
         ClusterArn:
@@ -4114,36 +3653,93 @@ components:
           - xml:
               name: clusterArn
             description: "\n            <p>The Amazon Resource Name (ARN) of the cluster.</p>"
-        State:
+        ClusterOperationArn:
           allOf:
-          - $ref: '#/components/schemas/ClusterState'
+          - $ref: '#/components/schemas/__string'
           - xml:
-              name: state
-            description: "\n            <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>"
-    __listOf__string:
-      type: array
-      items:
-        $ref: '#/components/schemas/__string'
-    __stringMin5Max32:
-      type: string
-      minLength: 5
-      maxLength: 32
-    EBSStorageInfo:
+              name: clusterOperationArn
+            description: "\n            <p>The Amazon Resource Name (ARN) of the cluster operation.</p>"
+    ServerlessSasl:
       type: object
       properties:
+        Iam:
+          allOf:
+          - $ref: '#/components/schemas/Iam'
+          - xml:
+              name: iam
+            description: "\n            <p>Indicates whether IAM access control is enabled.</p>"
+      description: "\n            <p>Details for client authentication using SASL.</p>"
+    __long:
+      type: integer
+    TooManyRequestsException: {}
+    __timestampIso8601:
+      type: string
+      format: date-time
+    BrokerAZDistribution:
+      type: string
+      enum:
+      - DEFAULT
+      description: "\n            <p>The distribution of broker nodes across Availability Zones. This is an optional parameter. If you don't specify it, Amazon MSK gives it the value DEFAULT. You can also explicitly set this parameter to the value DEFAULT. No other values are currently allowed.</p>\n         <p>Amazon MSK distributes the broker nodes evenly across the Availability Zones that correspond to the subnets you provide when you create the cluster.</p>"
+    BrokerEBSVolumeInfo:
+      type: object
+      required:
+      - KafkaBrokerNodeId
+      properties:
+        KafkaBrokerNodeId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: kafkaBrokerNodeId
+            description: "\n            <p>The ID of the broker to update.</p>"
         ProvisionedThroughput:
           allOf:
           - $ref: '#/components/schemas/ProvisionedThroughput'
           - xml:
               name: provisionedThroughput
             description: "\n            <p>EBS volume provisioned throughput information.</p>"
-        VolumeSize:
+        VolumeSizeGB:
           allOf:
-          - $ref: '#/components/schemas/__integerMin1Max16384'
+          - $ref: '#/components/schemas/__integer'
           - xml:
-              name: volumeSize
-            description: "\n            <p>The size in GiB of the EBS volume for the data drive on each broker node.</p>"
-      description: "\n            <p>Contains information about the EBS storage volumes attached to Apache Kafka broker nodes.</p>"
+              name: volumeSizeGB
+            description: "\n            <p>Size of the EBS volume to update.</p>"
+      description: "\n            <p>Specifies the EBS volume upgrade information. The broker identifier must be set to the keyword ALL. This means the changes apply to all the brokers in the cluster.</p>"
+    __stringMin5Max32:
+      type: string
+      minLength: 5
+      maxLength: 32
+    UnprocessedScramSecret:
+      type: object
+      properties:
+        ErrorCode:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: errorCode
+            description: "\n            <p>Error code for associate/disassociate failure.</p>"
+        ErrorMessage:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: errorMessage
+            description: "\n            <p>Error message for associate/disassociate failure.</p>"
+        SecretArn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: secretArn
+            description: "\n            <p>AWS Secrets Manager secret ARN.</p>"
+      description: "\n            <p>Error info for scram secret associate/disassociate failure.</p>"
+    __integerMin1Max16384:
+      type: integer
+      minimum: 1
+      maximum: 16384
+    StorageMode:
+      type: string
+      enum:
+      - LOCAL
+      - TIERED
+      description: Controls storage mode for various supported storage tiers.
     ClusterType:
       type: string
       enum:
@@ -4166,6 +3762,213 @@ components:
               name: stepName
             description: "\n            <p>The name of the step.</p>"
       description: "\n            <p>Step taken during a cluster operation.</p>"
+    LoggingInfo:
+      type: object
+      required:
+      - BrokerLogs
+      properties:
+        BrokerLogs:
+          allOf:
+          - $ref: '#/components/schemas/BrokerLogs'
+          - xml:
+              name: brokerLogs
+    BrokerNodeInfo:
+      type: object
+      properties:
+        AttachedENIId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: attachedENIId
+            description: "\n            <p>The attached elastic network interface of the broker.</p>"
+        BrokerId:
+          allOf:
+          - $ref: '#/components/schemas/__double'
+          - xml:
+              name: brokerId
+            description: "\n            <p>The ID of the broker.</p>"
+        ClientSubnet:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: clientSubnet
+            description: "\n            <p>The client subnet to which this broker node belongs.</p>"
+        ClientVpcIpAddress:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: clientVpcIpAddress
+            description: "\n            <p>The virtual private cloud (VPC) of the client.</p>"
+        CurrentBrokerSoftwareInfo:
+          allOf:
+          - $ref: '#/components/schemas/BrokerSoftwareInfo'
+          - xml:
+              name: currentBrokerSoftwareInfo
+            description: "\n            <p>Information about the version of software currently deployed on the Apache Kafka brokers in the cluster.</p>"
+        Endpoints:
+          allOf:
+          - $ref: '#/components/schemas/__listOf__string'
+          - xml:
+              name: endpoints
+            description: "\n            <p>Endpoints for accessing the broker.</p>"
+      description: "\n            <p>BrokerNodeInfo</p>"
+    RebootBrokerResponse:
+      type: object
+      properties:
+        ClusterArn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: clusterArn
+            description: "\n            <p>The Amazon Resource Name (ARN) of the cluster.</p>"
+        ClusterOperationArn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: clusterOperationArn
+            description: "\n            <p>The Amazon Resource Name (ARN) of the cluster operation.</p>"
+    Prometheus:
+      type: object
+      properties:
+        JmxExporter:
+          allOf:
+          - $ref: '#/components/schemas/JmxExporter'
+          - xml:
+              name: jmxExporter
+            description: "\n            <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>"
+        NodeExporter:
+          allOf:
+          - $ref: '#/components/schemas/NodeExporter'
+          - xml:
+              name: nodeExporter
+            description: "\n            <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>"
+      description: "\n            <p>Prometheus settings.</p>"
+    BrokerSoftwareInfo:
+      type: object
+      properties:
+        ConfigurationArn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: configurationArn
+            description: "\n            <p>The Amazon Resource Name (ARN) of the configuration used for the cluster. This field isn't visible in this preview release.</p>"
+        ConfigurationRevision:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - xml:
+              name: configurationRevision
+            description: "\n            <p>The revision of the configuration to use. This field isn't visible in this preview release.</p>"
+        KafkaVersion:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: kafkaVersion
+            description: "\n            <p>The version of Apache Kafka.</p>"
+      description: "\n            <p>Information about the current software installed on the cluster.</p>"
+    ListClusterOperationsResponse:
+      type: object
+      properties:
+        ClusterOperationInfoList:
+          allOf:
+          - $ref: '#/components/schemas/__listOfClusterOperationInfo'
+          - xml:
+              name: clusterOperationInfoList
+            description: "\n            <p>An array of cluster operation information objects.</p>"
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: nextToken
+            description: "\n            <p>If the response of ListClusterOperations is truncated, it returns a NextToken in the response. This Nexttoken should be sent in the subsequent request to ListClusterOperations.</p>"
+    OpenMonitoringInfo:
+      type: object
+      required:
+      - Prometheus
+      properties:
+        Prometheus:
+          allOf:
+          - $ref: '#/components/schemas/PrometheusInfo'
+          - xml:
+              name: prometheus
+            description: "\n            <p>Prometheus settings.</p>"
+      description: "\n            <p>JMX and Node monitoring for the MSK cluster.</p>"
+    ConflictException: {}
+    StateInfo:
+      type: object
+      properties:
+        Code:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: code
+        Message:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: message
+    __double:
+      type: number
+      format: double
+    ServiceUnavailableException: {}
+    ConfigurationInfo:
+      type: object
+      required:
+      - Revision
+      - Arn
+      properties:
+        Arn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: arn
+            description: "\n            <p>ARN of the configuration to use.</p>"
+        Revision:
+          allOf:
+          - $ref: '#/components/schemas/__long'
+          - xml:
+              name: revision
+            description: "\n            <p>The revision of the configuration to use.</p>"
+      description: "\n            <p>Specifies the configuration to use for the brokers.</p>"
+    NodeInfo:
+      type: object
+      properties:
+        AddedToClusterTime:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: addedToClusterTime
+            description: "\n            <p>The start time.</p>"
+        BrokerNodeInfo:
+          allOf:
+          - $ref: '#/components/schemas/BrokerNodeInfo'
+          - xml:
+              name: brokerNodeInfo
+            description: "\n            <p>The broker node info.</p>"
+        InstanceType:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: instanceType
+            description: "\n            <p>The instance type.</p>"
+        NodeARN:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: nodeARN
+            description: "\n            <p>The Amazon Resource Name (ARN) of the node.</p>"
+        NodeType:
+          allOf:
+          - $ref: '#/components/schemas/NodeType'
+          - xml:
+              name: nodeType
+            description: "\n            <p>The node type.</p>"
+        ZookeeperNodeInfo:
+          allOf:
+          - $ref: '#/components/schemas/ZookeeperNodeInfo'
+          - xml:
+              name: zookeeperNodeInfo
+            description: "\n            <p>The ZookeeperNodeInfo.</p>"
+      description: "\n            <p>The node information object.</p>"
     EncryptionInTransit:
       type: object
       properties:
@@ -4182,23 +3985,22 @@ components:
               name: inCluster
             description: "\n            <p>When set to true, it indicates that data communication among the broker nodes of the cluster is encrypted. When set to false, the communication happens in plaintext.</p>\n            <p>The default value is true.</p>"
       description: "\n            <p>The settings for encrypting data in transit.</p>"
-    ErrorInfo:
+    ListNodesResponse:
       type: object
       properties:
-        ErrorCode:
+        NextToken:
           allOf:
           - $ref: '#/components/schemas/__string'
           - xml:
-              name: errorCode
-            description: "\n            <p>A number describing the error programmatically.</p>"
-        ErrorString:
+              name: nextToken
+            description: "\n            <p>The paginated results marker. When the result of a ListNodes operation is truncated, the call returns NextToken in the response. \n               To get another batch of nodes, provide this token in your next request.</p>"
+        NodeInfoList:
           allOf:
-          - $ref: '#/components/schemas/__string'
+          - $ref: '#/components/schemas/__listOfNodeInfo'
           - xml:
-              name: errorString
-            description: "\n            <p>An optional field to provide more details about the error.</p>"
-      description: "\n            <p>Returns information about an error state of the cluster.</p>"
-    BatchAssociateScramSecretResponse:
+              name: nodeInfoList
+            description: "\n            <p>List containing a NodeInfo object.</p>"
+    UpdateStorageResponse:
       type: object
       properties:
         ClusterArn:
@@ -4207,24 +4009,86 @@ components:
           - xml:
               name: clusterArn
             description: "\n            <p>The Amazon Resource Name (ARN) of the cluster.</p>"
-        UnprocessedScramSecrets:
-          allOf:
-          - $ref: '#/components/schemas/__listOfUnprocessedScramSecret'
-          - xml:
-              name: unprocessedScramSecrets
-            description: "\n            <p>List of errors when associating secrets to cluster.</p>"
-    ConflictException: {}
-    ClusterOperationStepInfo:
-      type: object
-      properties:
-        StepStatus:
+        ClusterOperationArn:
           allOf:
           - $ref: '#/components/schemas/__string'
           - xml:
-              name: stepStatus
-            description: "\n            <p>The steps current status.</p>"
-      description: "\n            <p>State information about the operation step.</p>"
-    ProvisionedThroughput:
+              name: clusterOperationArn
+            description: "\n            <p>The Amazon Resource Name (ARN) of the cluster operation.</p>"
+    Provisioned:
+      type: object
+      required:
+      - BrokerNodeGroupInfo
+      - NumberOfBrokerNodes
+      properties:
+        BrokerNodeGroupInfo:
+          allOf:
+          - $ref: '#/components/schemas/BrokerNodeGroupInfo'
+          - xml:
+              name: brokerNodeGroupInfo
+            description: "\n            <p>Information about the brokers.</p>"
+        CurrentBrokerSoftwareInfo:
+          allOf:
+          - $ref: '#/components/schemas/BrokerSoftwareInfo'
+          - xml:
+              name: currentBrokerSoftwareInfo
+            description: "\n            <p>Information about the Apache Kafka version deployed on the brokers.</p>"
+        ClientAuthentication:
+          allOf:
+          - $ref: '#/components/schemas/ClientAuthentication'
+          - xml:
+              name: clientAuthentication
+            description: "\n            <p>Includes all client authentication information.</p>"
+        EncryptionInfo:
+          allOf:
+          - $ref: '#/components/schemas/EncryptionInfo'
+          - xml:
+              name: encryptionInfo
+            description: "\n            <p>Includes all encryption-related information.</p>"
+        EnhancedMonitoring:
+          allOf:
+          - $ref: '#/components/schemas/EnhancedMonitoring'
+          - xml:
+              name: enhancedMonitoring
+            description: "\n            <p>Specifies the level of monitoring for the MSK cluster. The possible values are DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION.</p>"
+        OpenMonitoring:
+          allOf:
+          - $ref: '#/components/schemas/OpenMonitoringInfo'
+          - xml:
+              name: openMonitoring
+            description: "\n            <p>The settings for open monitoring.</p>"
+        LoggingInfo:
+          allOf:
+          - $ref: '#/components/schemas/LoggingInfo'
+          - xml:
+              name: loggingInfo
+            description: "\n            <p>Log delivery information for the cluster.</p>"
+        NumberOfBrokerNodes:
+          allOf:
+          - $ref: '#/components/schemas/__integerMin1Max15'
+          - xml:
+              name: numberOfBrokerNodes
+            description: "\n            <p>The number of broker nodes in the cluster.</p>"
+        ZookeeperConnectString:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: zookeeperConnectString
+            description: "\n            <p>The connection string to use to connect to the Apache ZooKeeper cluster.</p>"
+        ZookeeperConnectStringTls:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: zookeeperConnectStringTls
+            description: "\n            <p>The connection string to use to connect to the Apache ZooKeeper cluster on a TLS port.</p>"
+        StorageMode:
+          allOf:
+          - $ref: '#/components/schemas/StorageMode'
+          - xml:
+              name: storageMode
+            description: "\n            <p>This controls storage mode for supported storage tiers.</p>"
+      description: "\n            <p>Provisioned cluster.</p>"
+    Iam:
       type: object
       properties:
         Enabled:
@@ -4232,17 +4096,41 @@ components:
           - $ref: '#/components/schemas/__boolean'
           - xml:
               name: enabled
-            description: "\n            <p>Provisioned throughput is enabled or not.</p>"
-        VolumeThroughput:
+            description: "\n            <p>Indicates whether IAM access control is enabled.</p>"
+      description: "\n            <p>Details for IAM access control.</p>"
+    S3:
+      type: object
+      required:
+      - Enabled
+      properties:
+        Bucket:
           allOf:
-          - $ref: '#/components/schemas/__integer'
+          - $ref: '#/components/schemas/__string'
           - xml:
-              name: volumeThroughput
-            description: "\n            <p>Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second.</p>"
-      description: "\n            <p>Contains information about provisioned throughput for EBS storage volumes attached to kafka broker nodes.</p>"
-    __string:
-      type: string
-    CreateClusterV2Response:
+              name: bucket
+        Enabled:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - xml:
+              name: enabled
+        Prefix:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: prefix
+    NodeExporter:
+      type: object
+      required:
+      - EnabledInBroker
+      properties:
+        EnabledInBroker:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - xml:
+              name: enabledInBroker
+            description: "\n            <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>"
+      description: "\n            <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>"
+    CreateClusterResponse:
       type: object
       properties:
         ClusterArn:
@@ -4263,37 +4151,103 @@ components:
           - xml:
               name: state
             description: "\n            <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>"
-        ClusterType:
-          allOf:
-          - $ref: '#/components/schemas/ClusterType'
-          - xml:
-              name: clusterType
-            description: "\n            <p>The type of the cluster. The possible states are PROVISIONED or SERVERLESS.</p>"
-    ConnectivityInfo:
-      type: object
-      properties:
-        PublicAccess:
-          allOf:
-          - $ref: '#/components/schemas/PublicAccess'
-          - xml:
-              name: publicAccess
-            description: "\n            <p>Public access control for brokers.</p>"
-      description: "\n            <p>Information about the broker access configuration.</p>"
-    ServiceUnavailableException: {}
-    __listOfNodeInfo:
+    __listOfBrokerEBSVolumeInfo:
       type: array
       items:
-        $ref: '#/components/schemas/NodeInfo'
-    Iam:
+        $ref: '#/components/schemas/BrokerEBSVolumeInfo'
+    UpdateClusterKafkaVersionResponse:
       type: object
       properties:
-        Enabled:
+        ClusterArn:
           allOf:
-          - $ref: '#/components/schemas/__boolean'
+          - $ref: '#/components/schemas/__string'
           - xml:
-              name: enabled
-            description: "\n            <p>Indicates whether IAM access control is enabled.</p>"
-      description: "\n            <p>Details for IAM access control.</p>"
+              name: clusterArn
+            description: "\n            <p>The Amazon Resource Name (ARN) of the cluster.</p>"
+        ClusterOperationArn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: clusterOperationArn
+            description: "\n            <p>The Amazon Resource Name (ARN) of the cluster operation.</p>"
+    InternalServerErrorException: {}
+    BatchDisassociateScramSecretResponse:
+      type: object
+      properties:
+        ClusterArn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: clusterArn
+            description: "\n            <p>The Amazon Resource Name (ARN) of the cluster.</p>"
+        UnprocessedScramSecrets:
+          allOf:
+          - $ref: '#/components/schemas/__listOfUnprocessedScramSecret'
+          - xml:
+              name: unprocessedScramSecrets
+            description: "\n            <p>List of errors when disassociating secrets to cluster.</p>"
+    ClusterOperationStepInfo:
+      type: object
+      properties:
+        StepStatus:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: stepStatus
+            description: "\n            <p>The steps current status.</p>"
+      description: "\n            <p>State information about the operation step.</p>"
+    DescribeClusterResponse:
+      type: object
+      properties:
+        ClusterInfo:
+          allOf:
+          - $ref: '#/components/schemas/ClusterInfo'
+          - xml:
+              name: clusterInfo
+            description: "\n            <p>The cluster information.</p>"
+    __stringMin1Max128:
+      type: string
+      minLength: 1
+      maxLength: 128
+    NodeType:
+      type: string
+      enum:
+      - BROKER
+      description: "\n            <p>The broker or Zookeeper node.</p>"
+    EBSStorageInfo:
+      type: object
+      properties:
+        ProvisionedThroughput:
+          allOf:
+          - $ref: '#/components/schemas/ProvisionedThroughput'
+          - xml:
+              name: provisionedThroughput
+            description: "\n            <p>EBS volume provisioned throughput information.</p>"
+        VolumeSize:
+          allOf:
+          - $ref: '#/components/schemas/__integerMin1Max16384'
+          - xml:
+              name: volumeSize
+            description: "\n            <p>The size in GiB of the EBS volume for the data drive on each broker node.</p>"
+      description: "\n            <p>Contains information about the EBS storage volumes attached to Apache Kafka broker nodes.</p>"
+    VpcConfig:
+      type: object
+      required:
+      - SubnetIds
+      properties:
+        SubnetIds:
+          allOf:
+          - $ref: '#/components/schemas/__listOf__string'
+          - xml:
+              name: subnetIds
+            description: "\n            <p>The IDs of the subnets associated with the cluster.</p>"
+        SecurityGroupIds:
+          allOf:
+          - $ref: '#/components/schemas/__listOf__string'
+          - xml:
+              name: securityGroupIds
+            description: "\n            <p>The IDs of the security groups associated with the cluster.</p>"
+      description: "\n            <p>The configuration of the Amazon VPCs for the cluster.</p>"
     Unauthenticated:
       type: object
       properties:
@@ -4303,6 +4257,179 @@ components:
           - xml:
               name: enabled
             description: "\n            <p>Specifies whether you want to turn on or turn off unauthenticated traffic to your cluster.</p>"
+    MutableClusterInfo:
+      type: object
+      properties:
+        BrokerEBSVolumeInfo:
+          allOf:
+          - $ref: '#/components/schemas/__listOfBrokerEBSVolumeInfo'
+          - xml:
+              name: brokerEBSVolumeInfo
+            description: "\n            <p>Specifies the size of the EBS volume and the ID of the associated broker.</p>"
+        ConfigurationInfo:
+          allOf:
+          - $ref: '#/components/schemas/ConfigurationInfo'
+          - xml:
+              name: configurationInfo
+            description: "\n            <p>Information about the changes in the configuration of the brokers.</p>"
+        NumberOfBrokerNodes:
+          allOf:
+          - $ref: '#/components/schemas/__integer'
+          - xml:
+              name: numberOfBrokerNodes
+            description: "\n            <p>The number of broker nodes in the cluster.</p>"
+        EnhancedMonitoring:
+          allOf:
+          - $ref: '#/components/schemas/EnhancedMonitoring'
+          - xml:
+              name: enhancedMonitoring
+            description: "\n            <p>Specifies which Apache Kafka metrics Amazon MSK gathers and sends to Amazon CloudWatch for this cluster.</p>"
+        OpenMonitoring:
+          allOf:
+          - $ref: '#/components/schemas/OpenMonitoring'
+          - xml:
+              name: openMonitoring
+            description: "\n            <p>The settings for open monitoring.</p>"
+        KafkaVersion:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: kafkaVersion
+            description: "\n            <p>The Apache Kafka version.</p>"
+        LoggingInfo:
+          allOf:
+          - $ref: '#/components/schemas/LoggingInfo'
+          - xml:
+              name: loggingInfo
+            description: "\n            <p>You can configure your MSK cluster to send broker logs to different destination types. This is a container for the configuration details related to broker logs.</p>"
+        InstanceType:
+          allOf:
+          - $ref: '#/components/schemas/__stringMin5Max32'
+          - xml:
+              name: instanceType
+            description: "\n            <p>Information about the Amazon MSK broker type.</p>"
+        ClientAuthentication:
+          allOf:
+          - $ref: '#/components/schemas/ClientAuthentication'
+          - xml:
+              name: clientAuthentication
+            description: "\n            <p>Includes all client authentication information.</p>"
+        EncryptionInfo:
+          allOf:
+          - $ref: '#/components/schemas/EncryptionInfo'
+          - xml:
+              name: encryptionInfo
+            description: "\n            <p>Includes all encryption-related information.</p>"
+        ConnectivityInfo:
+          allOf:
+          - $ref: '#/components/schemas/ConnectivityInfo'
+          - xml:
+              name: connectivityInfo
+            description: "\n            <p>Information about the broker access configuration.</p>"
+        StorageMode:
+          allOf:
+          - $ref: '#/components/schemas/StorageMode'
+          - xml:
+              name: storageMode
+            description: "\n            <p>This controls storage mode for supported storage tiers.</p>"
+      description: "\n            <p>Information about cluster attributes that can be updated via update APIs.</p>"
+    GetBootstrapBrokersResponse:
+      type: object
+      properties:
+        BootstrapBrokerString:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: bootstrapBrokerString
+            description: "\n            <p>A string containing one or more hostname:port pairs.</p>"
+        BootstrapBrokerStringTls:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: bootstrapBrokerStringTls
+            description: "\n            <p>A string containing one or more DNS names (or IP) and TLS port pairs.</p>"
+        BootstrapBrokerStringSaslScram:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: bootstrapBrokerStringSaslScram
+            description: "\n            <p>A string containing one or more DNS names (or IP) and Sasl Scram port pairs.</p>"
+        BootstrapBrokerStringSaslIam:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: bootstrapBrokerStringSaslIam
+            description: "\n            <p>A string that contains one or more DNS names (or IP addresses) and SASL IAM port pairs.</p>"
+        BootstrapBrokerStringPublicTls:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: bootstrapBrokerStringPublicTls
+            description: "\n            <p>A string containing one or more DNS names (or IP) and TLS port pairs.</p>"
+        BootstrapBrokerStringPublicSaslScram:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: bootstrapBrokerStringPublicSaslScram
+            description: "\n            <p>A string containing one or more DNS names (or IP) and Sasl Scram port pairs.</p>"
+        BootstrapBrokerStringPublicSaslIam:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: bootstrapBrokerStringPublicSaslIam
+            description: "\n            <p>A string that contains one or more DNS names (or IP addresses) and SASL IAM port pairs.</p>"
+    UpdateBrokerCountResponse:
+      type: object
+      properties:
+        ClusterArn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: clusterArn
+            description: "\n            <p>The Amazon Resource Name (ARN) of the cluster.</p>"
+        ClusterOperationArn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: clusterOperationArn
+            description: "\n            <p>The Amazon Resource Name (ARN) of the cluster operation.</p>"
+    __listOfUnprocessedScramSecret:
+      type: array
+      items:
+        $ref: '#/components/schemas/UnprocessedScramSecret'
+    ForbiddenException: {}
+    Tls:
+      type: object
+      properties:
+        CertificateAuthorityArnList:
+          allOf:
+          - $ref: '#/components/schemas/__listOf__string'
+          - xml:
+              name: certificateAuthorityArnList
+            description: "\n            <p>List of ACM Certificate Authority ARNs.</p>"
+        Enabled:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - xml:
+              name: enabled
+            description: "\n            <p>Specifies whether you want to turn on or turn off TLS authentication.</p>"
+      description: "\n            <p>Details for client authentication using TLS.</p>"
+    Sasl:
+      type: object
+      properties:
+        Scram:
+          allOf:
+          - $ref: '#/components/schemas/Scram'
+          - xml:
+              name: scram
+            description: "\n            <p>Details for SASL/SCRAM client authentication.</p>"
+        Iam:
+          allOf:
+          - $ref: '#/components/schemas/Iam'
+          - xml:
+              name: iam
+            description: "\n            <p>Indicates whether IAM access control is enabled.</p>"
+      description: "\n            <p>Details for client authentication using SASL.</p>"
     UpdateClusterConfigurationResponse:
       type: object
       properties:
@@ -4318,6 +4445,8 @@ components:
           - xml:
               name: clusterOperationArn
             description: "\n            <p>The Amazon Resource Name (ARN) of the cluster operation.</p>"
+    __integer:
+      type: integer
     EncryptionInfo:
       type: object
       properties:
@@ -4334,10 +4463,115 @@ components:
               name: encryptionInTransit
             description: "\n            <p>The details for encryption in transit.</p>"
       description: "\n            <p>Includes encryption-related information, such as the AWS KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.</p>"
-    ForbiddenException: {}
-    __boolean:
-      type: boolean
-    UpdateClusterKafkaVersionResponse:
+    BrokerLogs:
+      type: object
+      properties:
+        CloudWatchLogs:
+          allOf:
+          - $ref: '#/components/schemas/CloudWatchLogs'
+          - xml:
+              name: cloudWatchLogs
+        Firehose:
+          allOf:
+          - $ref: '#/components/schemas/Firehose'
+          - xml:
+              name: firehose
+        S3:
+          allOf:
+          - $ref: '#/components/schemas/S3'
+          - xml:
+              name: s3
+    Scram:
+      type: object
+      properties:
+        Enabled:
+          allOf:
+          - $ref: '#/components/schemas/__boolean'
+          - xml:
+              name: enabled
+            description: "\n            <p>SASL/SCRAM authentication is enabled or not.</p>"
+      description: "\n            <p>Details for SASL/SCRAM client authentication.</p>"
+    BadRequestException: {}
+    PublicAccess:
+      type: object
+      properties:
+        Type:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: type
+            description: "\n            <p>The value DISABLED indicates that public access is turned off. SERVICE_PROVIDED_EIPS indicates that public access is turned on.</p>"
+      description: Public access control for brokers.
+    ClusterState:
+      type: string
+      enum:
+      - ACTIVE
+      - CREATING
+      - DELETING
+      - FAILED
+      - HEALING
+      - MAINTENANCE
+      - REBOOTING_BROKER
+      - UPDATING
+      description: "\n            <p>The state of the Apache Kafka cluster.</p>"
+    ListScramSecretsResponse:
+      type: object
+      properties:
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: nextToken
+            description: "\n            <p>Paginated results marker.</p>"
+        SecretArnList:
+          allOf:
+          - $ref: '#/components/schemas/__listOf__string'
+          - xml:
+              name: secretArnList
+            description: "\n            <p>The list of scram secrets associated with the cluster.</p>"
+    DeleteClusterResponse:
+      type: object
+      properties:
+        ClusterArn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: clusterArn
+            description: "\n            <p>The Amazon Resource Name (ARN) of the cluster.</p>"
+        State:
+          allOf:
+          - $ref: '#/components/schemas/ClusterState'
+          - xml:
+              name: state
+            description: "\n            <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>"
+    PrometheusInfo:
+      type: object
+      properties:
+        JmxExporter:
+          allOf:
+          - $ref: '#/components/schemas/JmxExporterInfo'
+          - xml:
+              name: jmxExporter
+            description: "\n            <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>"
+        NodeExporter:
+          allOf:
+          - $ref: '#/components/schemas/NodeExporterInfo'
+          - xml:
+              name: nodeExporter
+            description: "\n            <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>"
+      description: "\n            <p>Prometheus settings.</p>"
+    ClientBroker:
+      type: string
+      enum:
+      - TLS
+      - TLS_PLAINTEXT
+      - PLAINTEXT
+      description: "\n            <p>Client-broker encryption in transit setting.</p>"
+    __listOfVpcConfig:
+      type: array
+      items:
+        $ref: '#/components/schemas/VpcConfig'
+    UpdateBrokerStorageResponse:
       type: object
       properties:
         ClusterArn:
@@ -4352,64 +4586,6 @@ components:
           - xml:
               name: clusterOperationArn
             description: "\n            <p>The Amazon Resource Name (ARN) of the cluster operation.</p>"
-    ListClusterOperationsResponse:
-      type: object
-      properties:
-        ClusterOperationInfoList:
-          allOf:
-          - $ref: '#/components/schemas/__listOfClusterOperationInfo'
-          - xml:
-              name: clusterOperationInfoList
-            description: "\n            <p>An array of cluster operation information objects.</p>"
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: nextToken
-            description: "\n            <p>If the response of ListClusterOperations is truncated, it returns a NextToken in the response. This Nexttoken should be sent in the subsequent request to ListClusterOperations.</p>"
-    Serverless:
-      type: object
-      required:
-      - VpcConfigs
-      properties:
-        VpcConfigs:
-          allOf:
-          - $ref: '#/components/schemas/__listOfVpcConfig'
-          - xml:
-              name: vpcConfigs
-            description: "\n            <p>The configuration of the Amazon VPCs for the cluster.</p>"
-        ClientAuthentication:
-          allOf:
-          - $ref: '#/components/schemas/ServerlessClientAuthentication'
-          - xml:
-              name: clientAuthentication
-            description: "\n            <p>Includes all client authentication information.</p>"
-      description: "\n            <p>Serverless cluster.</p>"
-    __listOfVpcConfig:
-      type: array
-      items:
-        $ref: '#/components/schemas/VpcConfig'
-    JmxExporter:
-      type: object
-      required:
-      - EnabledInBroker
-      properties:
-        EnabledInBroker:
-          allOf:
-          - $ref: '#/components/schemas/__boolean'
-          - xml:
-              name: enabledInBroker
-            description: "\n            <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>"
-      description: "\n            <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>"
-    DescribeClusterResponse:
-      type: object
-      properties:
-        ClusterInfo:
-          allOf:
-          - $ref: '#/components/schemas/ClusterInfo'
-          - xml:
-              name: clusterInfo
-            description: "\n            <p>The cluster information.</p>"
     Cluster:
       type: object
       properties:
@@ -4480,38 +4656,6 @@ components:
               name: serverless
             description: "\n            <p>Information about the serverless cluster.</p>"
       description: "\n            <p>Returns information about a cluster.</p>"
-    __integerMin1Max16384:
-      type: integer
-      minimum: 1
-      maximum: 16384
-    UpdateBrokerStorageResponse:
-      type: object
-      properties:
-        ClusterArn:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: clusterArn
-            description: "\n            <p>The Amazon Resource Name (ARN) of the cluster.</p>"
-        ClusterOperationArn:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: clusterOperationArn
-            description: "\n            <p>The Amazon Resource Name (ARN) of the cluster operation.</p>"
-    InternalServerErrorException: {}
-    ClusterState:
-      type: string
-      enum:
-      - ACTIVE
-      - CREATING
-      - DELETING
-      - FAILED
-      - HEALING
-      - MAINTENANCE
-      - REBOOTING_BROKER
-      - UPDATING
-      description: "\n            <p>The state of the Apache Kafka cluster.</p>"
     ServerlessClientAuthentication:
       type: object
       properties:
@@ -4522,30 +4666,56 @@ components:
               name: sasl
             description: "\n            <p>Details for ClientAuthentication using SASL.</p>"
       description: "\n            <p>Includes all client authentication information.</p>"
-    StateInfo:
+    __string:
+      type: string
+    __listOfCluster:
+      type: array
+      items:
+        $ref: '#/components/schemas/Cluster'
+    CloudWatchLogs:
       type: object
-      properties:
-        Code:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: code
-        Message:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: message
-    Scram:
-      type: object
+      required:
+      - Enabled
       properties:
         Enabled:
           allOf:
           - $ref: '#/components/schemas/__boolean'
           - xml:
               name: enabled
-            description: "\n            <p>SASL/SCRAM authentication is enabled or not.</p>"
-      description: "\n            <p>Details for SASL/SCRAM client authentication.</p>"
-    NodeExporter:
+        LogGroup:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: logGroup
+    __mapOf__string:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/__string'
+    EncryptionAtRest:
+      type: object
+      required:
+      - DataVolumeKMSKeyId
+      properties:
+        DataVolumeKMSKeyId:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: dataVolumeKMSKeyId
+            description: "\n            <p>The ARN of the AWS KMS key for encrypting data at rest. If you don't specify a KMS key, MSK creates one for you and uses it.</p>"
+      description: "\n            <p>The data-volume encryption details.</p>"
+    __listOfClusterOperationStep:
+      type: array
+      items:
+        $ref: '#/components/schemas/ClusterOperationStep'
+    EnhancedMonitoring:
+      type: string
+      enum:
+      - DEFAULT
+      - PER_BROKER
+      - PER_TOPIC_PER_BROKER
+      - PER_TOPIC_PER_PARTITION
+      description: "\n            <p>Specifies which metrics are gathered for the MSK cluster. This property has the following possible values: DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION. For a list of the metrics associated with each of these levels of monitoring, see <a href=\"https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html\">Monitoring</a>.</p>"
+    JmxExporterInfo:
       type: object
       required:
       - EnabledInBroker
@@ -4555,74 +4725,54 @@ components:
           - $ref: '#/components/schemas/__boolean'
           - xml:
               name: enabledInBroker
-            description: "\n            <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>"
-      description: "\n            <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>"
+            description: "\n            <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>"
+      description: "\n            <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>"
+    ConnectivityInfo:
+      type: object
+      properties:
+        PublicAccess:
+          allOf:
+          - $ref: '#/components/schemas/PublicAccess'
+          - xml:
+              name: publicAccess
+            description: "\n            <p>Public access control for brokers.</p>"
+      description: "\n            <p>Information about the broker access configuration.</p>"
+    ErrorInfo:
+      type: object
+      properties:
+        ErrorCode:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: errorCode
+            description: "\n            <p>A number describing the error programmatically.</p>"
+        ErrorString:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: errorString
+            description: "\n            <p>An optional field to provide more details about the error.</p>"
+      description: "\n            <p>Returns information about an error state of the cluster.</p>"
+    UpdateSecurityResponse:
+      type: object
+      properties:
+        ClusterArn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: clusterArn
+            description: "\n            <p>The Amazon Resource Name (ARN) of the cluster.</p>"
+        ClusterOperationArn:
+          allOf:
+          - $ref: '#/components/schemas/__string'
+          - xml:
+              name: clusterOperationArn
+            description: "\n            <p>The Amazon Resource Name (ARN) of the cluster operation.</p>"
     __listOfClusterInfo:
       type: array
       items:
         $ref: '#/components/schemas/ClusterInfo'
-    DescribeClusterV2Response:
-      type: object
-      properties:
-        ClusterInfo:
-          allOf:
-          - $ref: '#/components/schemas/Cluster'
-          - xml:
-              name: clusterInfo
-            description: "\n            <p>The cluster information.</p>"
-    __long:
-      type: integer
-    ZookeeperNodeInfo:
-      type: object
-      properties:
-        AttachedENIId:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: attachedENIId
-            description: "\n            <p>The attached elastic network interface of the broker.</p>"
-        ClientVpcIpAddress:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: clientVpcIpAddress
-            description: "\n            <p>The virtual private cloud (VPC) IP address of the client.</p>"
-        Endpoints:
-          allOf:
-          - $ref: '#/components/schemas/__listOf__string'
-          - xml:
-              name: endpoints
-            description: "\n            <p>Endpoints for accessing the ZooKeeper.</p>"
-        ZookeeperId:
-          allOf:
-          - $ref: '#/components/schemas/__double'
-          - xml:
-              name: zookeeperId
-            description: "\n            <p>The role-specific ID for Zookeeper.</p>"
-        ZookeeperVersion:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: zookeeperVersion
-            description: "\n            <p>The version of Zookeeper.</p>"
-      description: "\n            <p>Zookeeper node information.</p>"
-    Prometheus:
-      type: object
-      properties:
-        JmxExporter:
-          allOf:
-          - $ref: '#/components/schemas/JmxExporter'
-          - xml:
-              name: jmxExporter
-            description: "\n            <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>"
-        NodeExporter:
-          allOf:
-          - $ref: '#/components/schemas/NodeExporter'
-          - xml:
-              name: nodeExporter
-            description: "\n            <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>"
-      description: "\n            <p>Prometheus settings.</p>"
-    UpdateStorageResponse:
+    CreateClusterV2Response:
       type: object
       properties:
         ClusterArn:
@@ -4631,174 +4781,24 @@ components:
           - xml:
               name: clusterArn
             description: "\n            <p>The Amazon Resource Name (ARN) of the cluster.</p>"
-        ClusterOperationArn:
+        ClusterName:
           allOf:
           - $ref: '#/components/schemas/__string'
           - xml:
-              name: clusterOperationArn
-            description: "\n            <p>The Amazon Resource Name (ARN) of the cluster operation.</p>"
-    NodeExporterInfo:
-      type: object
-      required:
-      - EnabledInBroker
-      properties:
-        EnabledInBroker:
+              name: clusterName
+            description: "\n            <p>The name of the MSK cluster.</p>"
+        State:
           allOf:
-          - $ref: '#/components/schemas/__boolean'
+          - $ref: '#/components/schemas/ClusterState'
           - xml:
-              name: enabledInBroker
-            description: "\n            <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>"
-      description: "\n            <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>"
-    UpdateConnectivityResponse:
-      type: object
-      properties:
-        ClusterArn:
+              name: state
+            description: "\n            <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>"
+        ClusterType:
           allOf:
-          - $ref: '#/components/schemas/__string'
+          - $ref: '#/components/schemas/ClusterType'
           - xml:
-              name: clusterArn
-            description: "\n            <p>The Amazon Resource Name (ARN) of the cluster.</p>"
-        ClusterOperationArn:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: clusterOperationArn
-            description: "\n            <p>The Amazon Resource Name (ARN) of the cluster operation.</p>"
-    StorageMode:
-      type: string
-      enum:
-      - LOCAL
-      - TIERED
-      description: Controls storage mode for various supported storage tiers.
-    __timestampIso8601:
-      type: string
-      format: date-time
-    ListClustersV2Response:
-      type: object
-      properties:
-        ClusterInfoList:
-          allOf:
-          - $ref: '#/components/schemas/__listOfCluster'
-          - xml:
-              name: clusterInfoList
-            description: "\n            <p>Information on each of the MSK clusters in the response.</p>"
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: nextToken
-            description: "\n            <p>The paginated results marker. When the result of a ListClusters operation is truncated, the call returns NextToken in the response. \n               To get another batch of clusters, provide this token in your next request.</p>"
-    LoggingInfo:
-      type: object
-      required:
-      - BrokerLogs
-      properties:
-        BrokerLogs:
-          allOf:
-          - $ref: '#/components/schemas/BrokerLogs'
-          - xml:
-              name: brokerLogs
-    VpcConfig:
-      type: object
-      required:
-      - SubnetIds
-      properties:
-        SubnetIds:
-          allOf:
-          - $ref: '#/components/schemas/__listOf__string'
-          - xml:
-              name: subnetIds
-            description: "\n            <p>The IDs of the subnets associated with the cluster.</p>"
-        SecurityGroupIds:
-          allOf:
-          - $ref: '#/components/schemas/__listOf__string'
-          - xml:
-              name: securityGroupIds
-            description: "\n            <p>The IDs of the security groups associated with the cluster.</p>"
-      description: "\n            <p>The configuration of the Amazon VPCs for the cluster.</p>"
-    BrokerNodeInfo:
-      type: object
-      properties:
-        AttachedENIId:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: attachedENIId
-            description: "\n            <p>The attached elastic network interface of the broker.</p>"
-        BrokerId:
-          allOf:
-          - $ref: '#/components/schemas/__double'
-          - xml:
-              name: brokerId
-            description: "\n            <p>The ID of the broker.</p>"
-        ClientSubnet:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: clientSubnet
-            description: "\n            <p>The client subnet to which this broker node belongs.</p>"
-        ClientVpcIpAddress:
-          allOf:
-          - $ref: '#/components/schemas/__string'
-          - xml:
-              name: clientVpcIpAddress
-            description: "\n            <p>The virtual private cloud (VPC) of the client.</p>"
-        CurrentBrokerSoftwareInfo:
-          allOf:
-          - $ref: '#/components/schemas/BrokerSoftwareInfo'
-          - xml:
-              name: currentBrokerSoftwareInfo
-            description: "\n            <p>Information about the version of software currently deployed on the Apache Kafka brokers in the cluster.</p>"
-        Endpoints:
-          allOf:
-          - $ref: '#/components/schemas/__listOf__string'
-          - xml:
-              name: endpoints
-            description: "\n            <p>Endpoints for accessing the broker.</p>"
-      description: "\n            <p>BrokerNodeInfo</p>"
-  parameters:
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
+              name: clusterType
+            description: "\n            <p>The type of the cluster. The possible states are PROVISIONED or SERVERLESS.</p>"
   securitySchemes:
     hmac:
       type: apiKey
