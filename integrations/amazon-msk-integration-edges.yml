@@ -1,0 +1,19 @@
+edges:
+- partner_name: Apache Kafka
+  partner: apache-kafka
+  partner_match: shape-anchor
+  channel: provider-built
+  relationship: compatible
+  direction: provider-built
+  shape: kafka-protocol
+  type: docs
+  degree: full
+  evidence: https://docs.aws.amazon.com/msk/latest/developerguide/what-is-msk.html
+  evidence_kind: own-docs
+  evidence_file: https://github.com/api-evangelist/amazon-msk/blob/main/evidence/compatibility/amazon-msk-kafka-protocol-1.md
+  quote: Amazon Managed Streaming for Apache Kafka (Amazon MSK) is a fully managed service that enables you to build
+    and run applications that use Apache Kafka to process streaming data.
+  detected_by: sweep-shape-compat.py
+  first_seen: '2026-10-13'
+generated: '2026-10-13'
+method: searched

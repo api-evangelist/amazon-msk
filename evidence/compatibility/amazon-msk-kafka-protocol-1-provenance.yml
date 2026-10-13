@@ -1,0 +1,12 @@
+fetched: '2026-10-13'
+method: fetched
+source: https://docs.aws.amazon.com/msk/latest/developerguide/what-is-msk.html
+page: https://docs.aws.amazon.com/msk/latest/developerguide/what-is-msk.html
+file: amazon-msk-kafka-protocol-1.md
+bytes: 4821
+sha256: 2e1d9de21a8735fcd07fe6930dc38130fc479d748ad7893f21f746b3445f1d51
+anchor: apache-kafka
+shape: kafka-protocol
+classification: declares-compatibility
+quote: Welcome to the Amazon MSK Developer Guide - Amazon Managed Streaming for Apache Kafka
+note: text extracted from the provider's own page (tags stripped), saved for evidence
