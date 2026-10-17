@@ -231,14 +231,50 @@ paths:
       tags:
       - Compatible Kafka Versions
 components:
+  parameters:
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
-    ForbiddenException: {}
-    __listOfCompatibleKafkaVersion:
-      type: array
-      items:
-        $ref: '#/components/schemas/CompatibleKafkaVersion'
-    ServiceUnavailableException: {}
-    BadRequestException: {}
     NotFoundException: {}
     CompatibleKafkaVersion:
       type: object
@@ -256,10 +292,13 @@ components:
               name: targetVersions
             description: "\n            <p>A list of Apache Kafka versions.</p>"
       description: "\n            <p>Contains source Apache Kafka versions and compatible target Apache Kafka versions.</p>"
-    TooManyRequestsException: {}
-    __string:
-      type: string
+    __listOfCompatibleKafkaVersion:
+      type: array
+      items:
+        $ref: '#/components/schemas/CompatibleKafkaVersion'
     InternalServerErrorException: {}
+    TooManyRequestsException: {}
+    ServiceUnavailableException: {}
     GetCompatibleKafkaVersionsResponse:
       type: object
       properties:
@@ -269,54 +308,15 @@ components:
           - xml:
               name: compatibleKafkaVersions
             description: "\n            <p>A list of CompatibleKafkaVersion objects.</p>"
+    BadRequestException: {}
     UnauthorizedException: {}
     __listOf__string:
       type: array
       items:
         $ref: '#/components/schemas/__string'
-  parameters:
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
+    ForbiddenException: {}
+    __string:
+      type: string
   securitySchemes:
     hmac:
       type: apiKey

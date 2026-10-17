@@ -220,7 +220,6 @@ paths:
       - Kafka Versions
 components:
   schemas:
-    ForbiddenException: {}
     KafkaVersion:
       type: object
       properties:
@@ -234,9 +233,6 @@ components:
           - $ref: '#/components/schemas/KafkaVersionStatus'
           - xml:
               name: status
-    __string:
-      type: string
-    InternalServerErrorException: {}
     ListKafkaVersionsResponse:
       type: object
       properties:
@@ -250,24 +246,22 @@ components:
           - $ref: '#/components/schemas/__string'
           - xml:
               name: nextToken
-    UnauthorizedException: {}
+    __string:
+      type: string
+    ForbiddenException: {}
+    InternalServerErrorException: {}
     __listOfKafkaVersion:
       type: array
       items:
         $ref: '#/components/schemas/KafkaVersion'
+    BadRequestException: {}
     KafkaVersionStatus:
       type: string
       enum:
       - ACTIVE
       - DEPRECATED
-    BadRequestException: {}
+    UnauthorizedException: {}
   parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Signature:
       name: X-Amz-Signature
       in: header
@@ -280,8 +274,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -292,14 +286,20 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
