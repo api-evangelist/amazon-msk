@@ -145,7 +145,7 @@ rate_limit_statements:
 - You can include all topics in your source cluster in a single Replicator within the supported MSK Replicator
   quotas
 x-canonical:
-  generated: '2026-11-01'
+  generated: '2026-11-02'
   vocabulary: engine/economics/plans-canonical.yml
   models:
   - hybrid
