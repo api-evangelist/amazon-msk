@@ -1,0 +1,316 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-28'
+method: searched
+source: https://aws.amazon.com/msk/pricing/
+sources:
+- https://aws.amazon.com/msk/pricing/
+provenance:
+  tool: engine/economics/harvest_pricing.py
+  run: 20261028T141238
+  grounding: every price_text was found verbatim in the fetched page text
+audience: developer-api
+pricing_basis: usage-other
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-10-28'
+  managed_tier: MSK Serverless
+published: true
+note: Live rate tables render via pricing tokens and are not visible in text; numeric prices captured
+  come from the worked pricing examples (mostly US East region).
+plan_count: 20
+currency: USD
+plans:
+- name: MSK Provisioned Standard broker (kafka.m7g.large, US East)
+  price_text: $0.204 (price per hour for a kafka.m7g.large)
+  price: 0.204
+  currency: USD
+  period: per-use
+  unit: broker-hour
+- name: MSK Provisioned Standard broker (kafka.m5.large, US East)
+  price_text: $0.21 (price per hour for a kafka.m5.large)
+  price: 0.21
+  currency: USD
+  period: per-use
+  unit: broker-hour
+- name: Primary storage (US East)
+  price_text: $0.10 (the price per GB-month in US East region)
+  price: 0.1
+  currency: USD
+  period: month
+  unit: GB-month
+- name: Low-cost tier storage (US East)
+  price_text: $0.060 (the price per GB-month in US East region)
+  price: 0.06
+  currency: USD
+  period: month
+  unit: GB-month
+- name: Low-cost tier data retrieval
+  price_text: $0.0015 the price per GB in US East region)
+  price: 0.0015
+  currency: USD
+  period: per-use
+  unit: GB
+- name: Express broker (express.m7g.large, US East)
+  price_text: $0.408 (price per hour for a msk.m7g.large)
+  price: 0.408
+  currency: USD
+  period: per-use
+  unit: broker-hour
+- name: Express broker data ingested
+  price_text: $0.01 (price per GB of data ingested)
+  price: 0.01
+  currency: USD
+  period: per-use
+  unit: GB
+- name: Provisioned storage throughput
+  price_text: $0.08 (price per MB/s-months in the US East region)
+  price: 0.08
+  currency: USD
+  period: month
+  unit: MB/s-month
+- name: Multi-VPC private connectivity hourly
+  price_text: $0.0225 per private connectivity-hour-per-authentication scheme
+  price: 0.0225
+  currency: USD
+  period: per-use
+  unit: hour per auth scheme
+- name: Multi-VPC private connectivity data processing
+  price_text: $0.006 per GB processed
+  price: 0.006
+  currency: USD
+  period: per-use
+  unit: GB
+- name: MSK Serverless cluster-hours (US East Ohio)
+  price_text: $0.75/cluster-hr
+  price: 0.75
+  currency: USD
+  period: per-use
+  unit: cluster-hour
+- name: MSK Serverless partition-hours
+  price_text: $ 0.0015/partition-hr
+  price: 0.0015
+  currency: USD
+  period: per-use
+  unit: partition-hour
+- name: MSK Serverless data-in
+  price_text: $0.10/GB-in
+  price: 0.1
+  currency: USD
+  period: per-use
+  unit: GB
+- name: MSK Serverless data-out
+  price_text: $0.05/GB-out
+  price: 0.05
+  currency: USD
+  period: per-use
+  unit: GB
+- name: MSK Serverless storage
+  price_text: $0.10/GB-month
+  price: 0.1
+  currency: USD
+  period: month
+  unit: GB-month
+- name: MSK Connect
+  price_text: $0.11 (price per hour per MCU)
+  price: 0.11
+  currency: USD
+  period: per-use
+  unit: MCU-hour
+- name: MSK Replicator hours
+  price_text: $0.30 per hour
+  price: 0.3
+  currency: USD
+  period: per-use
+  unit: replicator-hour
+- name: MSK Replicator data processed
+  price_text: $0.08 per GB
+  price: 0.08
+  currency: USD
+  period: per-use
+  unit: GB
+- name: Data delivery to S3 Tables (streaming tables)
+  price_text: $10.00 per TB
+  price: 10
+  currency: USD
+  period: per-use
+  unit: TB
+- name: Data delivery to general purpose S3
+  price_text: $8.00 per TB
+  price: 8
+  currency: USD
+  period: per-use
+  unit: TB
+rate_limit_statements:
+- You can include all topics in your source cluster in a single Replicator within the supported MSK Replicator
+  quotas
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - hybrid
+  - subscription
+  units:
+  - compute
+  - data
+  plans:
+  - name: MSK Provisioned Standard broker (kafka.m7g.large, US East)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: MSK Provisioned Standard broker (kafka.m5.large, US East)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Primary storage (US East)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - data
+    periods:
+    - month
+  - name: Low-cost tier storage (US East)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - data
+    periods:
+    - month
+  - name: Low-cost tier data retrieval
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - data
+    periods:
+    - other
+  - name: Express broker (express.m7g.large, US East)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Express broker data ingested
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - data
+    periods:
+    - other
+  - name: Provisioned storage throughput
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: Multi-VPC private connectivity hourly
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Multi-VPC private connectivity data processing
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - data
+    periods:
+    - other
+  - name: MSK Serverless cluster-hours (US East Ohio)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: MSK Serverless partition-hours
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: MSK Serverless data-in
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - data
+    periods:
+    - other
+  - name: MSK Serverless data-out
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - data
+    periods:
+    - other
+  - name: MSK Serverless storage
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - data
+    periods:
+    - month
+  - name: MSK Connect
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: MSK Replicator hours
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: MSK Replicator data processed
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - data
+    periods:
+    - other
+  - name: Data delivery to S3 Tables (streaming tables)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - data
+    periods:
+    - other
+  - name: Data delivery to general purpose S3
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - data
+    periods:
+    - other
