@@ -1,8 +1,8 @@
 aid: amazon-msk
 name: Amazon MSK
-description: Amazon Managed Streaming for Apache Kafka (Amazon MSK) is a fully managed service that enables
-  you to build and run applications that use Apache Kafka to process streaming data, with the infrastructure
-  management handled by AWS.
+description: Amazon Managed Streaming for Apache Kafka (Amazon MSK) is a fully managed
+  service that enables you to build and run applications that use Apache Kafka to
+  process streaming data, with the infrastructure management handled by AWS.
 type: Index
 deliveryModel:
   model: saas
@@ -23,12 +23,13 @@ accessModel:
   try_now: false
   public: false
   label: Paid
-  confidence: medium
+  confidence: high
   source:
   - plans
   - authentication
+  - rate-limits
   - security
-  generated: '2026-11-06'
+  generated: '2026-11-13'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-msk.png
 tags:
@@ -49,170 +50,68 @@ url: https://raw.githubusercontent.com/api-evangelist/amazon-msk/refs/heads/main
 created: '2026-03-16'
 modified: '2026-09-16'
 specificationVersion: '0.23'
-apis:
-- aid: amazon-msk:amazon-msk-clusters-api
-  name: Amazon MSK Clusters API
-  description: The Clusters API from Amazon MSK — 18 operation(s) for clusters.
-  humanURL: https://aws.amazon.com/msk/
-  baseURL: http://kafka.{region}.amazonaws.com
-  tags:
-  - Cluster
-  tags_raw:
-  - Clusters
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-msk-clusters-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/msk/
-  - type: GettingStarted
-    url: https://aws.amazon.com/msk/getting-started/
-  - type: Pricing
-    url: https://aws.amazon.com/msk/pricing/
-  - type: FAQ
-    url: https://aws.amazon.com/msk/faqs/
-- aid: amazon-msk:amazon-msk-compatible-kafka-versions-api
-  name: Amazon MSK Compatible Kafka Versions API
-  description: >-
-    The Compatible Kafka Versions API from Amazon MSK — 1 operation(s) for compatible kafka versions.
-  humanURL: https://aws.amazon.com/msk/
-  baseURL: http://kafka.{region}.amazonaws.com
-  tags:
-  - Compatible Kafka Versions
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-msk-compatible-kafka-versions-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/msk/
-  - type: GettingStarted
-    url: https://aws.amazon.com/msk/getting-started/
-  - type: Pricing
-    url: https://aws.amazon.com/msk/pricing/
-  - type: FAQ
-    url: https://aws.amazon.com/msk/faqs/
-- aid: amazon-msk:amazon-msk-configurations-api
-  name: Amazon MSK Configurations API
-  description: The Configurations API from Amazon MSK — 4 operation(s) for configurations.
-  humanURL: https://aws.amazon.com/msk/
-  baseURL: http://kafka.{region}.amazonaws.com
-  tags:
-  - Configurations
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-msk-configurations-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/msk/
-  - type: GettingStarted
-    url: https://aws.amazon.com/msk/getting-started/
-  - type: Pricing
-    url: https://aws.amazon.com/msk/pricing/
-  - type: FAQ
-    url: https://aws.amazon.com/msk/faqs/
-- aid: amazon-msk:amazon-msk-kafka-versions-api
-  name: Amazon MSK Kafka Versions API
-  description: The Kafka Versions API from Amazon MSK — 1 operation(s) for kafka versions.
-  humanURL: https://aws.amazon.com/msk/
-  baseURL: http://kafka.{region}.amazonaws.com
-  tags:
-  - Kafka Versions
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-msk-kafka-versions-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/msk/
-  - type: GettingStarted
-    url: https://aws.amazon.com/msk/getting-started/
-  - type: Pricing
-    url: https://aws.amazon.com/msk/pricing/
-  - type: FAQ
-    url: https://aws.amazon.com/msk/faqs/
-- aid: amazon-msk:amazon-msk-operations-api
-  name: Amazon MSK Operations API
-  description: The Operations API from Amazon MSK — 1 operation(s) for operations.
-  humanURL: https://aws.amazon.com/msk/
-  baseURL: http://kafka.{region}.amazonaws.com
-  tags: []
-  tags_raw:
-  - Operations
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-msk-operations-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/msk/
-  - type: GettingStarted
-    url: https://aws.amazon.com/msk/getting-started/
-  - type: Pricing
-    url: https://aws.amazon.com/msk/pricing/
-  - type: FAQ
-    url: https://aws.amazon.com/msk/faqs/
-- aid: amazon-msk:amazon-msk-tags-api
-  name: Amazon MSK Tags API
-  description: The Tags API from Amazon MSK — 2 operation(s) for tags.
-  humanURL: https://aws.amazon.com/msk/
-  baseURL: http://kafka.{region}.amazonaws.com
-  tags:
-  - Tags
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-msk-tags-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/msk/
-  - type: GettingStarted
-    url: https://aws.amazon.com/msk/getting-started/
-  - type: Pricing
-    url: https://aws.amazon.com/msk/pricing/
-  - type: FAQ
-    url: https://aws.amazon.com/msk/faqs/
-- aid: amazon-msk:amazon-msk-channels-api
-  name: Amazon MSK Msk Channels API
-  description: The Msk Channels API from Amazon MSK — 2 operation(s) for msk channels.
-  humanURL: https://aws.amazon.com/msk/
-  baseURL: http://kafka.{region}.amazonaws.com
-  tags:
-  - Msk Channels
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-msk-channels-api-openapi.yml
-- aid: amazon-msk:amazon-msk-policy-api
-  name: Amazon MSK Msk Policy API
-  description: The Msk Policy API from Amazon MSK — 1 operation(s) for msk policy.
-  humanURL: https://aws.amazon.com/msk/
-  baseURL: http://kafka.{region}.amazonaws.com
-  tags:
-  - Msk Policy
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-msk-policy-api-openapi.yml
-- aid: amazon-msk:amazon-msk-replication-api
-  name: Amazon MSK Msk Replication API
-  description: The Msk Replication API from Amazon MSK — 2 operation(s) for msk replication.
-  humanURL: https://aws.amazon.com/msk/
-  baseURL: http://kafka.{region}.amazonaws.com
-  tags:
-  - Msk Replication
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-msk-replication-api-openapi.yml
-- aid: amazon-msk:amazon-msk-topics-api
-  name: Amazon MSK Msk Topics API
-  description: The Msk Topics API from Amazon MSK — 2 operation(s) for msk topics.
-  humanURL: https://aws.amazon.com/msk/
-  baseURL: http://kafka.{region}.amazonaws.com
-  tags:
-  - Msk Topics
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-msk-topics-api-openapi.yml
-- aid: amazon-msk:amazon-msk-vpc-connection-api
-  name: Amazon MSK Msk Vpc Connection API
-  description: The Msk Vpc Connection API from Amazon MSK — 2 operation(s) for msk vpc connection.
-  humanURL: https://aws.amazon.com/msk/
-  baseURL: http://kafka.{region}.amazonaws.com
-  tags:
-  - Msk Vpc Connection
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-msk-vpc-connection-api-openapi.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
 common:
+- type: Spectral
+  url: rules/amazon-msk-spectral-rules.yml
+- type: Spectral
+  url: rules/amazon-msk-rules.yml
+- type: Spectral
+  url: rules/amazon-msk-jsonschema-spectral-rules.yml
+- type: JSONLD
+  url: json-ld/amazon-msk-msk-api-context.jsonld
+- type: JSONLD
+  url: json-ld/amazon-msk-context.jsonld
+- type: Vocabulary
+  url: vocabulary/amazon-msk-vocabulary.yml
+- type: DataModel
+  url: data-model/amazon-msk-data-model.yml
+- type: CLI
+  url: cli/amazon-msk-cli.yml
+- type: ChangeLog
+  url: changelog/amazon-msk-changelog.yml
+- type: Conventions
+  url: conventions/amazon-msk-conventions.yml
+- type: Compliance
+  url: https://aws.amazon.com/compliance/
+- type: Deprecation
+  url: https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html
+- type: Lifecycle
+  url: lifecycle/amazon-msk-lifecycle.yml
+- type: ErrorCatalog
+  url: errors/amazon-msk-problem-types.yml
+- type: Conformance
+  url: conformance/amazon-msk-conformance.yml
+- type: LLMsTxt
+  url: llms/amazon-msk-llms.txt
+- type: ToolCrosswalk
+  url: mcp/amazon-msk-tool-crosswalk.yml
+- type: MCPServer
+  url: mcp/amazon-msk-mcp.yml
+- type: SecurityTxt
+  url: well-known/amazon-msk-security.txt
+- type: WellKnown
+  url: well-known/amazon-msk-well-known.yml
+- type: Hosts
+  url: hosts/amazon-msk-hosts.yml
+- type: IntegrationEdges
+  url: integrations/amazon-msk-integration-edges.yml
+- type: Vendors
+  url: vendors/amazon-msk-vendors.yml
+- type: SDKs
+  url: packages/amazon-msk-packages.yml
+- type: Packages
+  url: packages/amazon-msk-packages.yml
+- type: SignUp
+  url: https://signin.aws.amazon.com/signup?request_type=builderId
+- type: Security
+  url: https://aws.amazon.com/security/?nc2=h_dsc_aa_sec
+- type: Newsroom
+  url: https://aws.amazon.com/media/?nc2=h_sol_ind_med
+- type: GettingStarted
+  url: https://developer.amazon.com/frustration-free-setup
 - type: CapabilityMap
   url: capabilities/amazon-msk-capability-edges.yml
   name: Amazon MSK Business Capability Map
@@ -271,28 +170,36 @@ common:
 - type: Features
   data:
   - name: Fully Managed Kafka
-    description: Automatically provisions, configures, and maintains Apache Kafka clusters without operational
-      overhead.
+    description: Automatically provisions, configures, and maintains Apache Kafka
+      clusters without operational overhead.
   - name: High Durability
-    description: Multi-AZ deployments with automatic replication and failover for data durability.
+    description: Multi-AZ deployments with automatic replication and failover for
+      data durability.
   - name: MSK Serverless
-    description: Serverless cluster mode that automatically scales capacity to match streaming demand.
+    description: Serverless cluster mode that automatically scales capacity to match
+      streaming demand.
   - name: MSK Connect
-    description: Fully managed Kafka Connect to stream data to and from databases and other services.
+    description: Fully managed Kafka Connect to stream data to and from databases
+      and other services.
   - name: Tiered Storage
-    description: Offload older data to low-cost Amazon S3 storage while keeping recent data on brokers.
+    description: Offload older data to low-cost Amazon S3 storage while keeping recent
+      data on brokers.
   - name: Schema Registry
-    description: Manage and enforce schemas for Kafka topics with AWS Glue Schema Registry integration.
+    description: Manage and enforce schemas for Kafka topics with AWS Glue Schema
+      Registry integration.
 - type: UseCases
   data:
   - name: Real-Time Data Streaming
-    description: Build real-time data pipelines for clickstream analytics, log aggregation, and metrics.
+    description: Build real-time data pipelines for clickstream analytics, log aggregation,
+      and metrics.
   - name: Event Sourcing
     description: Implement event sourcing patterns with durable, ordered Kafka topics.
   - name: Stream Processing
-    description: Process streaming data with Apache Flink, Spark Streaming, or custom consumers.
+    description: Process streaming data with Apache Flink, Spark Streaming, or custom
+      consumers.
   - name: Database Change Data Capture
-    description: Stream database changes to downstream systems using Debezium and MSK Connect.
+    description: Stream database changes to downstream systems using Debezium and
+      MSK Connect.
 - type: Integrations
   data:
   - name: Amazon Kinesis Data Analytics
@@ -302,13 +209,361 @@ common:
   - name: Amazon S3
     description: Use MSK Connect to sink data from Kafka topics to S3 buckets.
   - name: Amazon CloudWatch
-    description: Monitor cluster and broker metrics with CloudWatch dashboards and alarms.
+    description: Monitor cluster and broker metrics with CloudWatch dashboards and
+      alarms.
   - name: AWS IAM
-    description: Authenticate Kafka clients using IAM roles for MSK cluster access control.
+    description: Authenticate Kafka clients using IAM roles for MSK cluster access
+      control.
   - name: AWS Glue Schema Registry
     description: Enforce data schemas for Kafka producers and consumers.
 - type: Integrations
   url: https://aws.amazon.com/marketplace
+- type: UsageTerms
+  url: terms/amazon-msk-terms-of-service.yml
+- type: Attestations
+  url: compliance/amazon-msk-compliance.yml
+- type: Eligibility
+  url: eligibility/amazon-msk-eligibility.yml
+apis:
+- aid: amazon-msk:amazon-msk-clusters-api
+  name: Amazon MSK Clusters API
+  description: The Clusters API from Amazon MSK — 18 operation(s) for clusters.
+  humanURL: https://aws.amazon.com/msk/
+  baseURL: https://kafka.{region}.amazonaws.com
+  tags:
+  - Cluster
+  tags_raw:
+  - Clusters
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-msk-clusters-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/msk/
+  - type: GettingStarted
+    url: https://aws.amazon.com/msk/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/msk/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/msk/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-msk-get-bootstrap-brokers-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-create-cluster-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-update-monitoring-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-list-clusters-v2-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-create-cluster-v2-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-list-clusters-request-schema.json
+- aid: amazon-msk:amazon-msk-compatible-kafka-versions-api
+  name: Amazon MSK Compatible Kafka Versions API
+  description: The Compatible Kafka Versions API from Amazon MSK — 1 operation(s)
+    for compatible kafka versions.
+  humanURL: https://aws.amazon.com/msk/
+  baseURL: https://kafka.{region}.amazonaws.com
+  tags:
+  - Compatible Kafka Versions
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-msk-compatible-kafka-versions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/msk/
+  - type: GettingStarted
+    url: https://aws.amazon.com/msk/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/msk/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/msk/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-msk-get-compatible-kafka-versions-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-get-compatible-kafka-versions-request-schema.json
+- aid: amazon-msk:amazon-msk-configurations-api
+  name: Amazon MSK Configurations API
+  description: The Configurations API from Amazon MSK — 4 operation(s) for configurations.
+  humanURL: https://aws.amazon.com/msk/
+  baseURL: https://kafka.{region}.amazonaws.com
+  tags:
+  - Configurations
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-msk-configurations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/msk/
+  - type: GettingStarted
+    url: https://aws.amazon.com/msk/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/msk/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/msk/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-msk-describe-configuration-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-describe-configuration-revision-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-create-configuration-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-list-configuration-revisions-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-create-configuration-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-update-configuration-request-schema.json
+- aid: amazon-msk:amazon-msk-kafka-versions-api
+  name: Amazon MSK Kafka Versions API
+  description: The Kafka Versions API from Amazon MSK — 1 operation(s) for kafka versions.
+  humanURL: https://aws.amazon.com/msk/
+  baseURL: https://kafka.{region}.amazonaws.com
+  tags:
+  - Kafka Versions
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-msk-kafka-versions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/msk/
+  - type: GettingStarted
+    url: https://aws.amazon.com/msk/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/msk/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/msk/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-msk-list-kafka-versions-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-list-kafka-versions-response-schema.json
+- aid: amazon-msk:amazon-msk-operations-api
+  name: Amazon MSK Operations API
+  description: The Operations API from Amazon MSK — 1 operation(s) for operations.
+  humanURL: https://aws.amazon.com/msk/
+  baseURL: https://kafka.{region}.amazonaws.com
+  tags: []
+  tags_raw:
+  - Operations
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-msk-operations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/msk/
+  - type: GettingStarted
+    url: https://aws.amazon.com/msk/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/msk/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/msk/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-msk-describe-connector-operation-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-update-replication-info-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-describe-topic-partitions-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-list-cluster-operations-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-list-client-vpc-connections-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-restart-connector-request-schema.json
+- aid: amazon-msk:amazon-msk-tags-api
+  name: Amazon MSK Tags API
+  description: The Tags API from Amazon MSK — 2 operation(s) for tags.
+  humanURL: https://aws.amazon.com/msk/
+  baseURL: https://kafka.{region}.amazonaws.com
+  tags:
+  - Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-msk-tags-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/msk/
+  - type: GettingStarted
+    url: https://aws.amazon.com/msk/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/msk/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/msk/faqs/
+  - type: JSONSchema
+    url: json-schema/amazon-msk-untag-resource-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-tag-resource-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-kafkaconnect-untag-resource-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-kafkaconnect-tag-resource-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-list-tags-for-resource-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-kafkaconnect-list-tags-for-resource-request-schema.json
+- aid: amazon-msk:amazon-msk-channels-api
+  name: Amazon MSK Msk Channels API
+  description: The Msk Channels API from Amazon MSK — 2 operation(s) for msk channels.
+  humanURL: https://aws.amazon.com/msk/
+  baseURL: https://kafka.{region}.amazonaws.com
+  tags:
+  - Msk Channels
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-msk-channels-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-msk-describe-channel-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-create-channel-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-list-channels-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-update-channel-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-list-channels-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-delete-channel-request-schema.json
+- aid: amazon-msk:amazon-msk-policy-api
+  name: Amazon MSK Msk Policy API
+  description: The Msk Policy API from Amazon MSK — 1 operation(s) for msk policy.
+  humanURL: https://aws.amazon.com/msk/
+  baseURL: https://kafka.{region}.amazonaws.com
+  tags:
+  - Msk Policy
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-msk-policy-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-msk-put-cluster-policy-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-get-cluster-policy-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-delete-cluster-policy-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-get-cluster-policy-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-put-cluster-policy-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-delete-cluster-policy-response-schema.json
+- aid: amazon-msk:amazon-msk-replication-api
+  name: Amazon MSK Msk Replication API
+  description: The Msk Replication API from Amazon MSK — 2 operation(s) for msk replication.
+  humanURL: https://aws.amazon.com/msk/
+  baseURL: https://kafka.{region}.amazonaws.com
+  tags:
+  - Msk Replication
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-msk-replication-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-msk-describe-replicator-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-create-replicator-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-list-replicators-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-list-replicators-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-create-replicator-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-delete-replicator-response-schema.json
+- aid: amazon-msk:amazon-msk-topics-api
+  name: Amazon MSK Msk Topics API
+  description: The Msk Topics API from Amazon MSK — 2 operation(s) for msk topics.
+  humanURL: https://aws.amazon.com/msk/
+  baseURL: https://kafka.{region}.amazonaws.com
+  tags:
+  - Msk Topics
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-msk-topics-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-msk-list-topics-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-describe-topic-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-create-topic-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-update-topic-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-list-topics-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-update-topic-response-schema.json
+- aid: amazon-msk:amazon-msk-vpc-connection-api
+  name: Amazon MSK Msk Vpc Connection API
+  description: The Msk Vpc Connection API from Amazon MSK — 2 operation(s) for msk
+    vpc connection.
+  humanURL: https://aws.amazon.com/msk/
+  baseURL: https://kafka.{region}.amazonaws.com
+  tags:
+  - Msk Vpc Connection
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-msk-vpc-connection-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-msk-describe-vpc-connection-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-create-vpc-connection-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-create-vpc-connection-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-list-vpc-connections-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-list-vpc-connections-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-delete-vpc-connection-response-schema.json
+- aid: amazon-msk:amazon-msk-connectors-api
+  name: Amazon MSK Msk Connectors API
+  description: The Msk Connectors API from Amazon MSK — 2 operation(s) for msk connectors.
+  humanURL: https://aws.amazon.com/msk/
+  baseURL: https://kafkaconnect.{region}.amazonaws.com
+  tags:
+  - Msk Connectors
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-msk-connectors-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-msk-create-connector-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-update-connector-request-schema.json
+- aid: amazon-msk:amazon-msk-custom-plugins-api
+  name: Amazon MSK Msk Custom Plugins API
+  description: The Msk Custom Plugins API from Amazon MSK — 2 operation(s) for msk
+    custom plugins.
+  humanURL: https://aws.amazon.com/msk/
+  baseURL: https://kafkaconnect.{region}.amazonaws.com
+  tags:
+  - Msk Custom Plugins
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-msk-custom-plugins-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-msk-describe-custom-plugin-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-create-custom-plugin-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-list-custom-plugins-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-list-custom-plugins-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-create-custom-plugin-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-delete-custom-plugin-response-schema.json
+- aid: amazon-msk:amazon-msk-worker-configurations-api
+  name: Amazon MSK Msk Worker Configurations API
+  description: The Msk Worker Configurations API from Amazon MSK — 2 operation(s)
+    for msk worker configurations.
+  humanURL: https://aws.amazon.com/msk/
+  baseURL: https://kafkaconnect.{region}.amazonaws.com
+  tags:
+  - Msk Worker Configurations
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-msk-worker-configurations-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-msk-describe-worker-configuration-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-create-worker-configuration-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-create-worker-configuration-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-list-worker-configurations-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-list-worker-configurations-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-msk-delete-worker-configuration-response-schema.json
 integrations:
 - name: Agent Mode
 - name: Sign in
@@ -318,8 +573,10 @@ integrations:
 - name: Why AWS Marketplace?
 - name: Get started in AWS Marketplace
 - name: Manage Your Account
-maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
 x-parent: amazon-web-services
 x-relationship: product
+x-enrichment:
+  date: '2026-11-11'
+  status: enriched
+  artifacts_added: 8
+  pass: local-v6

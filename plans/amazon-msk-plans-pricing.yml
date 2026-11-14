@@ -2,6 +2,7 @@
 generated: '2026-10-28'
 method: searched
 source: https://aws.amazon.com/msk/pricing/
+name: Amazon MSK API Plans
 sources:
 - https://aws.amazon.com/msk/pricing/
 provenance:
@@ -145,7 +146,7 @@ rate_limit_statements:
 - You can include all topics in your source cluster in a single Replicator within the supported MSK Replicator
   quotas
 x-canonical:
-  generated: '2026-11-06'
+  generated: '2026-11-13'
   vocabulary: engine/economics/plans-canonical.yml
   models:
   - hybrid

@@ -11,6 +11,18 @@ artifacts:
   capabilities/amazon-msk-capability-edges.yml:
     method: unknown
     evidence: no authorship recorded
+  certification/observations-2026-11-11.jsonl:
+    method: unknown
+    evidence: no authorship recorded
+  certification/status.yml:
+    method: unknown
+    evidence: no authorship recorded
+  changelog/amazon-msk-changelog.yml:
+    method: searched
+    evidence: declared in the artifact
+  cli/amazon-msk-cli.yml:
+    method: searched
+    evidence: declared in the artifact
   collections/amazon-msk-clusters-api.opencollection.json:
     method: derived
     evidence: openapi/amazon-msk-clusters-api
@@ -53,6 +65,24 @@ artifacts:
   collections/openapi.postman_collection.json:
     method: unknown
     evidence: no authorship recorded
+  compliance/amazon-msk-compliance.yml:
+    method: harvested
+    evidence: declared in the artifact
+  conformance/amazon-msk-conformance.yml:
+    method: derived
+    evidence: declared in the artifact
+  conventions/amazon-msk-conventions.yml:
+    method: derived
+    evidence: declared in the artifact
+  data-model/amazon-msk-data-model.yml:
+    method: derived
+    evidence: declared in the artifact
+  eligibility/amazon-msk-eligibility.yml:
+    method: harvested
+    evidence: declared in the artifact
+  errors/amazon-msk-problem-types.yml:
+    method: derived
+    evidence: declared in the artifact
   examples/msk-api-batch-associate-scram-secret-request-example.json:
     method: unknown
     evidence: no authorship recorded
@@ -464,13 +494,238 @@ artifacts:
   front-door-ai/2026-09-17.yml:
     method: unknown
     evidence: no authorship recorded
+  hosts/amazon-msk-hosts.yml:
+    method: derived
+    evidence: declared in the artifact
+  integrations/_index.yml:
+    method: generated
+    evidence: carries an API Evangelist house phrase
   integrations/amazon-msk-integration-edges.yml:
     method: searched
     evidence: declared in the artifact
+  json-ld/amazon-msk-context.jsonld:
+    method: unknown
+    evidence: no authorship recorded
   json-ld/amazon-msk-msk-api-context.jsonld:
     method: unknown
     evidence: no authorship recorded
   json-ld/json-ld.yml:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-create-channel-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-create-cluster-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-create-cluster-v2-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-create-configuration-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-create-configuration-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-create-connector-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-create-custom-plugin-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-create-custom-plugin-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-create-replicator-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-create-replicator-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-create-topic-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-create-vpc-connection-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-create-vpc-connection-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-create-worker-configuration-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-create-worker-configuration-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-delete-channel-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-delete-cluster-policy-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-delete-cluster-policy-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-delete-custom-plugin-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-delete-replicator-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-delete-vpc-connection-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-delete-worker-configuration-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-describe-channel-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-describe-configuration-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-describe-configuration-revision-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-describe-connector-operation-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-describe-custom-plugin-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-describe-replicator-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-describe-topic-partitions-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-describe-topic-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-describe-vpc-connection-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-describe-worker-configuration-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-get-bootstrap-brokers-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-get-cluster-policy-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-get-cluster-policy-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-get-compatible-kafka-versions-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-get-compatible-kafka-versions-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-kafkaconnect-list-tags-for-resource-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-kafkaconnect-tag-resource-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-kafkaconnect-untag-resource-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-list-channels-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-list-channels-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-list-client-vpc-connections-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-list-cluster-operations-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-list-clusters-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-list-clusters-v2-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-list-configuration-revisions-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-list-custom-plugins-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-list-custom-plugins-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-list-kafka-versions-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-list-kafka-versions-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-list-replicators-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-list-replicators-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-list-tags-for-resource-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-list-topics-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-list-topics-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-list-vpc-connections-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-list-vpc-connections-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-list-worker-configurations-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-list-worker-configurations-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-put-cluster-policy-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-put-cluster-policy-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-restart-connector-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-tag-resource-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-untag-resource-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-update-channel-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-update-configuration-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-update-connector-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-update-monitoring-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-update-replication-info-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-update-topic-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-msk-update-topic-response-schema.json:
     method: unknown
     evidence: no authorship recorded
   json-schema/json-schema.yml:
@@ -1289,7 +1544,7 @@ artifacts:
   kin/checks-2026-10-23T222754.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  kin/checks-2026-11-02T082323.yml:
+  kin/checks-2026-11-06T143934.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-23T000603.yml:
@@ -1358,14 +1613,24 @@ artifacts:
   kin/score-2026-11-02T082323.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  openapi/_original/amazon-msk-openapi-original.yml:
-    method: harvested
-    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
-      to the provider's source is unverified
-  openapi/_original/openapi.yml:
-    method: harvested
-    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
-      to the provider's source is unverified
+  kin/score-2026-11-06T143934.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  lifecycle/amazon-msk-lifecycle.yml:
+    method: searched
+    evidence: declared in the artifact
+  llms/amazon-msk-llms-provenance.yml:
+    method: unknown
+    evidence: no authorship recorded
+  llms/amazon-msk-llms.txt:
+    method: unknown
+    evidence: no authorship recorded
+  mcp/amazon-msk-mcp.yml:
+    method: searched
+    evidence: declared in the artifact
+  mcp/amazon-msk-tool-crosswalk.yml:
+    method: derived
+    evidence: declared in the artifact
   openapi/amazon-msk-channels-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
@@ -1373,14 +1638,20 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   openapi/amazon-msk-compatible-kafka-versions-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-msk-configurations-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
+  openapi/amazon-msk-connectors-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  openapi/amazon-msk-custom-plugins-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-msk-kafka-versions-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-msk-operations-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
@@ -1399,6 +1670,15 @@ artifacts:
   openapi/amazon-msk-vpc-connection-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
+  openapi/amazon-msk-worker-configurations-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
+  packages/amazon-msk-packages.yml:
+    method: searched
+    evidence: declared in the artifact
+  patterns/amazon-msk-patterns.yml:
+    method: derived
+    evidence: declared in the artifact
   plans/amazon-msk-plans-pricing.yml:
     method: searched
     evidence: declared in the artifact
@@ -1421,9 +1701,12 @@ artifacts:
     method: derived
     evidence: openapi/amazon-msk-tags-api
   rate-limits/amazon-msk-rate-limits.yml:
-    method: generated
+    method: searched
     evidence: declared in the artifact
   rules/amazon-msk-jsonschema-spectral-rules.yml:
+    method: generated
+    evidence: declared in the artifact
+  rules/amazon-msk-rules.yml:
     method: generated
     evidence: declared in the artifact
   rules/amazon-msk-spectral-rules.yml:
@@ -1442,8 +1725,31 @@ artifacts:
     method: generated
     evidence: declared in the artifact
   smithy/kafka-2018-11-14.json:
+    method: harvested
+    evidence: byte-identical to https://raw.githubusercontent.com/aws/api-models-aws/3cd98287b471c106254abd89279cc87308d38bfd/models/kafka/service/2018-11-14/kafka-2018-11-14.json
+      (sha256 de7e38ca7f77, fetched 2026-11-11T21:13:07+00:00)
+  smithy/kafkaconnect-2021-09-14.json:
+    method: harvested
+    evidence: byte-identical to https://raw.githubusercontent.com/aws/api-models-aws/3cd98287b471c106254abd89279cc87308d38bfd/models/kafkaconnect/service/2021-09-14/kafkaconnect-2021-09-14.json
+      (sha256 1d33ab0d705e, fetched 2026-11-11T21:13:08+00:00)
+  terms/amazon-msk-terms-of-service.yml:
+    method: harvested
+    evidence: declared in the artifact
+  vendors/amazon-msk-vendors.yml:
     method: unknown
     evidence: no authorship recorded
   vocabulary/amazon-msk-vocabulary.yaml:
+    method: unknown
+    evidence: no authorship recorded
+  vocabulary/amazon-msk-vocabulary.yml:
+    method: derived
+    evidence: declared in the artifact
+  well-known/amazon-msk-midway-auth-openid-configuration.json:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/amazon-msk-security.txt:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/amazon-msk-well-known.yml:
     method: unknown
     evidence: no authorship recorded
